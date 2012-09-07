@@ -67,8 +67,7 @@
       ) auto-mode-alist))
 
 ;; Change where backup files are saved
-(setq backup-directory-alist `(("." . "~/.emacs.d/backups")))
-(setq backup-by-copying t)
+(setq backup-directory-alist `(("."."~/.emacs.d/backups")))
 
 ;; Copies the PATH variable from the terminal
 (defun set-exec-path-from-shell-PATH ()

@@ -1,0 +1,5 @@
+#!/bin/bash
+
+ln -s `pwd`/emacs/.emacs ~/.emacs
+ln -s `pwd`/emacs/.emacs.d ~/.emacs.d
+open terminal/TomorrowNight.terminal
