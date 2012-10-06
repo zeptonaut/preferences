@@ -9,5 +9,3 @@
     (load-file "~/.emacs.d/init/google.el")
   ;; Other
   (load-file "~/.emacs.d/init/other.el"))
-
-(lo
