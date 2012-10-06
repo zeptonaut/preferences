@@ -1,2 +1,3 @@
-# Backup files
-*~
+emacs/.emacs.d/ac-comphist.dat
+emacs/.emacs.d/backups/*
+emacs/.emacs.d/init/google.el

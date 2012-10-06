@@ -2,13 +2,16 @@
 (tool-bar-mode -1)
 (setq visible-bell t)
 
+;; Write all backups to the backup directory
+(setq backup-directory-alist
+      `((".*" . "~/.emacs.d/backups/")))
+(setq auto-save-file-name-transforms
+      `((".*" "~/.emacs.d/backups/" t)))
+
 ;; Use the clipboard for the kill ring
 (global-set-key "\C-w" 'clipboard-kill-region)
 (global-set-key "\M-w" 'clipboard-kill-ring-save)
 (global-set-key "\C-y" 'clipboard-yank)
-
-;; Set font
-(set-face-attribute 'default nil :family "Anonymous Pro" :height 160)
 
 ;; Slime
 (add-to-list 'load-path "~/.emacs.d/plugins/slime")
@@ -48,8 +51,6 @@
 
 ;; Load additional modes
 (add-to-list 'load-path "~/.emacs.d/modes")
-(require 'markdown-mode)
-(autoload 'javascript-mode "javascript" nil t)
 
 ;; color-theme
 (add-to-list 'load-path "~/.emacs.d/plugins/color-theme-6.6.0")

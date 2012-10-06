@@ -1,3 +1,6 @@
+;; Set font
+(set-face-attribute 'default nil :family "Anonymous Pro" :height 160)
+
 ;; Main google load file
 (load-file "/google/src/files/head/depot/eng/elisp/google.el")
 
