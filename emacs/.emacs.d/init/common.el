@@ -1,5 +1,4 @@
 ;; Disable annoying things
-(tool-bar-mode -1)
 (setq visible-bell t)
 
 ;; Use the clipboard for the kill ring
