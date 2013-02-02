@@ -1,3 +1,10 @@
+<<<<<<< HEAD
 emacs/.emacs.d/ac-comphist.dat
 emacs/.emacs.d/backups/*
 emacs/.emacs.d/init/google.el
+=======
+*~
+emacs/.emacs.d/ac*
+emacs/.emacs.d/backups/*
+emacs/.emacs.d/tramp
+>>>>>>> 4f8c1b5da8a87412dcfe136acc82b28b6110a1a5

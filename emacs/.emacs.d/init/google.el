@@ -4,6 +4,9 @@
 ;; Main google load file
 (load-file "/google/src/files/head/depot/eng/elisp/google.el")
 
+;; Make font smaller
+(set-face-attribute 'default nil :height 120)
+
 ;; Default browser to Chrome
 (setq browse-url-browser-function 'browse-url-generic
       browse-url-generic-program "google-chrome")
@@ -28,6 +31,9 @@
 
 ;; Easy searching of code
 (require 'csearch)
+
+;; Bind C-c C-r to reorder imports
+(global-set-key "\C-c\C-r" 'google-imports-organize-imports)
 
 ;; Set up grok
 (setq grok-api-bns "/bns/global/ns/aggregator/grok/grokservice.us_east/2")

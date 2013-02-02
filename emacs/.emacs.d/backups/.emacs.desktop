@@ -1,0 +1,51 @@
+;; -*- mode: emacs-lisp; coding: emacs-mule; -*-
+;; --------------------------------------------------------------------------
+;; Desktop File for Emacs
+;; --------------------------------------------------------------------------
+;; Created Tue Oct 23 16:29:55 2012
+;; Desktop file format version 206
+;; Emacs version 23.3.1
+
+;; Global section:
+(setq desktop-missing-file-warning nil)
+(setq tags-file-name nil)
+(setq tags-table-list nil)
+(setq search-ring '("(run-wit"))
+(setq regexp-search-ring nil)
+(setq register-alist nil)
+(setq file-name-history '("~/Documents/preferences/emacs/.emacs.d/backups/" "/home/leadpipe/.emacs" "/usr/local/google/home/leadpipe/.emacs" "/usr/local/google/home/charliea/.emacs" "/usr/local/google/home/charliea/.emacs.d/init/common.el"))
+
+;; Buffer section -- buffers listed in same order as in buffer list:
+(desktop-create-buffer 206
+  "/usr/local/google/home/charliea/Documents/preferences/emacs/.emacs.d/init/common.el"
+  "common.el"
+  'emacs-lisp-mode
+  '(yas/minor-mode auto-complete-mode googlemenu-mode)
+  2446
+  '(2369 nil)
+  nil
+  nil
+  '((buffer-file-coding-system . undecided-unix)))
+
+(desktop-create-buffer 206
+  "/home/leadpipe/elisp/.emacs"
+  ".emacs<2>"
+  'emacs-lisp-mode
+  '(yas/minor-mode auto-complete-mode googlemenu-mode)
+  6292
+  '(15069 nil)
+  t
+  nil
+  '((buffer-file-coding-system . undecided-unix)))
+
+(desktop-create-buffer 206
+  "/usr/local/google/home/charliea/Documents/preferences/emacs/.emacs"
+  ".emacs"
+  'emacs-lisp-mode
+  '(yas/minor-mode auto-complete-mode googlemenu-mode)
+  1
+  '(nil nil)
+  nil
+  nil
+  '((buffer-file-coding-system . undecided-unix)))
+
