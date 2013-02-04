@@ -1,6 +1,6 @@
 source ~/bin/change-directory-until
 
-export P4EDITOR='emacsclient -c -n'
+export P4EDITOR='emacsclient -c'
 
 alias gcomm='git commit --all --message="`date +"%m-%d-%Y  %r"` Auto-commit";'
 alias ge='git commit --all --message="`date +"%m-%d-%Y  %r"` Auto-commit for export to perforce"; git5 export --no-background-upload'
