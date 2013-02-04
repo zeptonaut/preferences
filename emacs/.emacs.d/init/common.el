@@ -4,6 +4,8 @@
 (if (fboundp 'tool-bar-mode) (tool-bar-mode -1))
 (if (fboundp 'menu-bar-mode) (menu-bar-mode -1))
 
+(require 'tramp)
+
 ;; Use the clipboard for the kill ring
 (global-set-key "\C-w" 'clipboard-kill-region)
 (global-set-key "\M-w" 'clipboard-kill-ring-save)
@@ -38,7 +40,11 @@
       `((".*" "~/.emacs.d/backups/" t)))
 
 ;; Bind C-c C-v (next to C-c C-c) to uncomment region
-(global-set-key "\C-c\C-v" 'uncomment-region)
+(global-set-key (kbd "C-<") 'uncomment-region)
+(global-set-key (kbd "C->") 'comment-region)
+
+;; Bind F5 to revert-buffer (Like refresh for a browser. Get it!?)
+(global-set-key [f5] 'revert-buffer)
 
 ;; Bind F9 to switch to the terminal in the other window
 (defun open-ansi-term-other-window ()
@@ -47,9 +53,6 @@
 
 ;; Bind F10 to toggle between header/source files
 (global-set-key [f10] 'ff-find-other-file)
-
-;; Bind F11 to compile
-(global-set-key [f11] 'recompile)
 
 ;; Changes enter to move to new line and indent
 (global-set-key "\C-m" 'newline-and-indent)
@@ -71,6 +74,9 @@
 (require 'ido)
 (ido-mode t)
 (setq ido-enable-flex-matching t)
+
+;; Auto-revert-mode
+(global-auto-revert-mode 1)
 
 ;; Desktop mode
 (defun save-emacs-state ()
@@ -116,6 +122,12 @@
 
 ;; Slime
 (add-to-list 'load-path "~/.emacs.d/plugins/slime")
+(setq inferior-lisp-program "/usr/local/bin/sbcl")
 (require 'slime)
-(add-hook 'lisp-mode-hook (lambda () (slime-mode t)))
-(add-hook 'inferior-lisp-mode-hook (lambda () (inferior-slime-mode t)))
+(slime-setup)
+
+;; Windmove
+(windmove-default-keybindings)
+
+;; nxhtml-mode
+(load "~/.emacs.d/plugins/nxhtml/autostart.el")
