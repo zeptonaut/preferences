@@ -1,6 +1,4 @@
-export PS1="\[\e[0;33m\]\u@\h:\[\e[0;34m\]\w\[\e[0;31m\] >\[\e[0;37m\] "
-export PATH=$PATH:/usr/local/go/bin:~/bin:~/gbin
-source ~/gbin/change-directory-until
+source ~/bin/change-directory-until
 
 export P4EDITOR='emacsclient -c -n'
 
@@ -14,3 +12,5 @@ alias gco="git checkout"
 alias gc="git changes"
 alias gca='git commit --all --message="`date +"%m-%d-%Y %r"` commit all"'
 alias gp="git p"
+
+export PATH=$PATH:/usr/local/go/bin:~/bin:/usr/local/bin:/usr/local/sbin

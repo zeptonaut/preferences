@@ -1,0 +1,6 @@
+;; Load main google elisp file
+(load-file "/google/src/files/head/depot/eng/elisp/google.el")
+
+;; Set default browser to Chrome
+(setq browse-url-browser-function 'browse-url-generic
+      browse-url-generic-program "google-chrome")

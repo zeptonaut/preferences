@@ -5,11 +5,21 @@
 (if (fboundp 'menu-bar-mode) (menu-bar-mode -1))
 
 (require 'tramp)
+;; Write all backups to the backup directory
+(setq backup-directory-alist
+      `((".*" . "~/.emacs.d/backups/")))
+(setq auto-save-file-name-transforms
+      `((".*" "~/.emacs.d/backups/" t)))
 
 ;; Use the clipboard for the kill ring
 (global-set-key "\C-w" 'clipboard-kill-region)
 (global-set-key "\M-w" 'clipboard-kill-ring-save)
 (global-set-key "\C-y" 'clipboard-yank)
+
+;; Slime
+(add-to-list 'load-path "~/.emacs.d/plugins/slime")
+(require 'slime)
+(add-hook 'lisp-mode-hook (lambda () (slime-mode t)))
 
 ;; When you have to do a split (switch-file-other-buffer), always split vertically
 ;; and use the split window that you already have
@@ -66,6 +76,7 @@
 
 ;; Load additional modes
 (add-to-list 'load-path "~/.emacs.d/modes")
+
 (require 'markdown-mode)
 (require 'javascript-mode)
 (require 'php-mode)
@@ -95,6 +106,10 @@
 '(desktop-save t)
 '(desktop-save-mode t)
 
+;; package.el
+(add-to-list 'load-path "~/.emacs.d/plugins/package")
+(require 'package)
+
 ;; color-theme
 (add-to-list 'load-path "~/.emacs.d/plugins/color-theme-6.6.0")
 (require 'color-theme)
@@ -120,14 +135,25 @@
 (require 'auto-complete-config)
 (ac-config-default)
 
-;; Slime
-(add-to-list 'load-path "~/.emacs.d/plugins/slime")
-(setq inferior-lisp-program "/usr/local/bin/sbcl")
-(require 'slime)
-(slime-setup)
-
 ;; Windmove
 (windmove-default-keybindings)
 
 ;; nxhtml-mode
 (load "~/.emacs.d/plugins/nxhtml/autostart.el")
+(add-hook 'lisp-mode-hook (lambda () (slime-mode t)))
+(add-hook 'inferior-lisp-mode-hook (lambda () (inferior-slime-mode t)))
+
+;; clojure-mode
+(add-to-list 'load-path "~/.emacs.d/plugins/clojure-mode")
+(require 'clojure-mode)
+
+;; nrepl
+(add-to-list 'load-path "~/.emacs.d/plugins/nrepl")
+(require 'nrepl)
+
+;; paredit
+(add-to-list 'load-path "~/.emacs.d/plugins/paredit")
+(autoload 'enable-paredit-mode "paredit"
+  "Turn on pseudo-structural editing of Lisp code."
+  t)
+(add-hook 'clojure-mode-hook 'enable-paredit-mode)
