@@ -12,5 +12,6 @@ alias gco="git checkout"
 alias gc="git changes"
 alias gca='git commit --all --message="`date +"%m-%d-%Y %r"` commit all"'
 alias gp="git p"
+alias e="emacsclient -c -n"
 
 export PATH=$PATH:/usr/local/go/bin:~/bin:/usr/local/bin:/usr/local/sbin
