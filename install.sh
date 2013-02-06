@@ -44,6 +44,7 @@ create_symlink `pwd`"/emacs/.emacs.d" $HOME"/.emacs.d"
 # terminal
 create_symlink `pwd`/terminal/.profile $HOME"/.profile"
 create_symlink `pwd`/terminal/.bashrc $HOME"/.bashrc"
+create_symlink `pwd`/terminal/.git-completion.bash $HOME"/.bashrc"
 if [ "$os" == "linux-gnu" ] ; then
     sudo `pwd`/terminal/setup-theme.sh
 elif [ "$os" == "darwin" ] ; then

@@ -4,7 +4,9 @@
 (if (fboundp 'tool-bar-mode) (tool-bar-mode -1))
 (if (fboundp 'menu-bar-mode) (menu-bar-mode -1))
 
+;; tramp
 (require 'tramp)
+
 ;; Write all backups to the backup directory
 (setq backup-directory-alist
       `((".*" . "~/.emacs.d/backups/")))
@@ -16,13 +18,8 @@
 (global-set-key "\M-w" 'clipboard-kill-ring-save)
 (global-set-key "\C-y" 'clipboard-yank)
 
-;; Slime
-(add-to-list 'load-path "~/.emacs.d/plugins/slime")
-(require 'slime)
-(add-hook 'lisp-mode-hook (lambda () (slime-mode t)))
-
-;; When you have to do a split (switch-file-other-buffer), always split vertically
-;; and use the split window that you already have
+;; When you have to do a split (switch-file-other-buffer), always
+;; split vertically and use the split window that you already have
 (setq split-width-threshold 1000)
 (setq split-height-threshold nil)
 
@@ -42,12 +39,6 @@
          (cons 'height (/ (- (x-display-pixel-height) 50)
                              (frame-char-height)))))))
 (set-frame-size-according-to-resolution)
-
-;; Change backups
-(setq backup-directory-alist
-      `((".*" . "~/.emacs.d/backups/")))
-(setq auto-save-file-name-transforms
-      `((".*" "~/.emacs.d/backups/" t)))
 
 ;; Bind C-c C-v (next to C-c C-c) to uncomment region
 (global-set-key (kbd "C-<") 'uncomment-region)
@@ -157,3 +148,6 @@
   "Turn on pseudo-structural editing of Lisp code."
   t)
 (add-hook 'clojure-mode-hook 'enable-paredit-mode)
+
+;; subword-mode (splits words on camelcase)
+(global-subword-mode 1)

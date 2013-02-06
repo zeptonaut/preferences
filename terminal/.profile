@@ -15,3 +15,8 @@ alias gp="git p"
 alias e="emacsclient -c -n"
 
 export PATH=$PATH:/usr/local/go/bin:~/bin:/usr/local/bin:/usr/local/sbin
+
+# git autocompletion
+if [ -f ~/.git-completion.bash ]; then
+  . ~/.git-completion.bash
+fi
