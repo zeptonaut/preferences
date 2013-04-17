@@ -20,3 +20,10 @@ export PATH=$PATH:/usr/local/go/bin:~/bin:/usr/local/bin:/usr/local/sbin
 if [ -f ~/.git-completion.bash ]; then
   . ~/.git-completion.bash
 fi
+
+# dircolors
+if [ -x /usr/bin/dircolors ]; then
+    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+fi
+
+export PS1="\[\e[01;37m\][\u@\h:\[\e[0;35m\]\w\[\e[01;37m\]] \[\e[m\]"

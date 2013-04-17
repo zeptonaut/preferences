@@ -14,3 +14,7 @@ function mkcl() {
     g4 sync
     cd google3
 }
+
+export TERM=xterm-256color
+
+alias ls="ls --color"

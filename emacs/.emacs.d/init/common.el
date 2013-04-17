@@ -4,6 +4,9 @@
 (if (fboundp 'tool-bar-mode) (tool-bar-mode -1))
 (if (fboundp 'menu-bar-mode) (menu-bar-mode -1))
 
+;; Show line numbers
+(global-linum-mode t)
+
 ;; tramp
 (require 'tramp)
 
@@ -81,6 +84,7 @@
 (global-auto-revert-mode 1)
 
 ;; Desktop mode
+(setq desktop-dirname "~/.emacs.d/backups/")
 (defun save-emacs-state ()
   "Saves the desktop as of right now, so if it dies it'll come back in
   the right place."
@@ -89,17 +93,23 @@
   (message "Saved desktop %s" desktop-dirname))
 
 ;; Save the desktop state after a bunch of idle time
-(setq save-emacs-timer
-      (run-with-idle-timer 300 t 'save-emacs-state))
-
-'(desktop-path (quote ("~/.emacs.d/backups")))
-'(desktop-restore-eager 10)
-'(desktop-save t)
-'(desktop-save-mode t)
+(setq save-emacs-timer (run-with-idle-timer 120 t 'save-emacs-state))
+(desktop-save-mode t)
 
 ;; package.el
 (add-to-list 'load-path "~/.emacs.d/plugins/package")
 (require 'package)
+
+;; Load all packages
+(when (load
+       (expand-file-name "~/.emacs.d/elpa/package.el"))
+  (package-initialize))
+
+;; Add the marmalade repository
+(add-to-list 'package-archives
+    '("marmalade" .
+      "http://marmalade-repo.org/packages/"))
+(package-initialize)
 
 ;; color-theme
 (add-to-list 'load-path "~/.emacs.d/plugins/color-theme-6.6.0")
@@ -129,7 +139,6 @@
 ;; Windmove
 (windmove-default-keybindings)
 
-;; nxhtml-mode
 (load "~/.emacs.d/plugins/nxhtml/autostart.el")
 (add-hook 'lisp-mode-hook (lambda () (slime-mode t)))
 (add-hook 'inferior-lisp-mode-hook (lambda () (inferior-slime-mode t)))
@@ -144,10 +153,27 @@
 
 ;; paredit
 (add-to-list 'load-path "~/.emacs.d/plugins/paredit")
-(autoload 'enable-paredit-mode "paredit"
-  "Turn on pseudo-structural editing of Lisp code."
-  t)
+(autoload 'enable-paredit-mode "paredit" t)
 (add-hook 'clojure-mode-hook 'enable-paredit-mode)
+
+;; magit
+(add-to-list 'load-path "~/.emacs.d/plugins/magit-1.2.0")
+(require 'magit)
 
 ;; subword-mode (splits words on camelcase)
 (global-subword-mode 1)
+
+;; Enable color in eshell
+(require 'ansi-color)
+(add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on)
+
+;; Disable tabs in nxml mode
+(add-hook 'nxml-mode-hook (lambda()
+                            (setq indent-tabs-mode nil)))
+
+(add-to-list 'load-path "~/.emacs.d/plugins/find-things-fast")
+(require 'find-things-fast)
+(global-set-key [f1] 'ftf-find-file)
+
+(global-set-key (kbd "C-c b") 'compile)
+(global-set-key (kbd "C-c r") 'recompile)

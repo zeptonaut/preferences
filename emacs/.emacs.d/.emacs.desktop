@@ -1,0 +1,271 @@
+;; -*- mode: emacs-lisp; coding: emacs-mule; -*-
+;; --------------------------------------------------------------------------
+;; Desktop File for Emacs
+;; --------------------------------------------------------------------------
+;; Created Wed Apr 17 16:54:43 2013
+;; Desktop file format version 206
+;; Emacs version 23.3.1
+
+;; Global section:
+(setq desktop-missing-file-warning nil)
+(setq tags-file-name nil)
+(setq tags-table-list nil)
+(setq search-ring '("makeValid" "makeCreditCard" "validate_succ" ".java" "makeText" "make" "validate(" "void valid(" "void validate" "validate(" "valida" "validate(" "updateCreat" "assertF" "testSaveCred" "C-c"))
+(setq regexp-search-ring nil)
+(setq register-alist nil)
+(setq file-name-history '("/usr/local/google/home/charliea/Documents/preferences/emacs/.emacs.d/plugins/find-things-fast/find-things-fast.el" "/usr/local/google/home/charliea/gan/google3/java/com/google/ads/affiliatenetwork/entityaccess/access/CreditCardOfferEntityAccess.java" "~/gan/google3/" "/usr/local/google/home/charliea/gan/google3/java/com/google/ads/affiliatenetwork/frontend/advertiser/client/creditcards/CreditCardCreativeForm.java" "/usr/local/google/home/charliea/gan/google3/java/com/google/ads/affiliatenetwork/frontend/advertiser/client/creditcards/EditCreditCardOfferForm.java" "/usr/local/google/home/charliea/Documents/preferences/emacs/.emacs.d/init/google.el" "/usr/local/google/home/charliea/.bashrc" "/usr/local/google/home/charliea/gan/google3/java/com/google/ads/affiliatenetwork/frontend/advertiser/client/ActivePublishersLoadedEvent.java" "/home/leadpipe/.emacs" "~/.emacs.d/init/common.el" "/usr/local/google/home/charliea/.emacs"))
+
+;; Buffer section -- buffers listed in same order as in buffer list:
+(desktop-create-buffer 206
+  "/usr/local/google/home/charliea/gan/google3/java/com/google/ads/affiliatenetwork/testing/DataGenerator.java"
+  "DataGenerator.java"
+  'java-mode
+  '(abbrev-mode linum-mode global-auto-revert-mode yas/minor-mode auto-complete-mode eldoc-mode grok-view-mode whitespace-mode)
+  19562
+  '(8406 nil)
+  nil
+  nil
+  '((show-trailing-whitespace . t) (indent-tabs-mode) (buffer-file-coding-system . undecided-unix)))
+
+(desktop-create-buffer 206
+  "/usr/local/google/home/charliea/gan/google3/javatests/com/google/ads/affiliatenetwork/entityaccess/access/CreativeEntityAccessTest.java"
+  "CreativeEntityAccessTest.java"
+  'java-mode
+  '(abbrev-mode linum-mode global-auto-revert-mode yas/minor-mode auto-complete-mode eldoc-mode grok-view-mode whitespace-mode)
+  7973
+  '(8311 nil)
+  nil
+  nil
+  '((show-trailing-whitespace . t) (indent-tabs-mode) (buffer-file-coding-system . undecided-unix)))
+
+(desktop-create-buffer 206
+  "/usr/local/google/home/charliea/gan/google3/java/com/google/ads/affiliatenetwork/entityaccess/access/CreativeEntityAccess.java"
+  "CreativeEntityAccess.java"
+  'java-mode
+  '(abbrev-mode linum-mode global-auto-revert-mode yas/minor-mode auto-complete-mode eldoc-mode grok-view-mode whitespace-mode)
+  13756
+  '(13721 nil)
+  nil
+  nil
+  '((show-trailing-whitespace . t) (indent-tabs-mode) (buffer-file-coding-system . undecided-unix)))
+
+(desktop-create-buffer 206
+  "/usr/local/google/home/charliea/Documents/preferences/emacs/.emacs.d/plugins/find-things-fast/find-things-fast.el"
+  "find-things-fast.el"
+  'emacs-lisp-mode
+  '(linum-mode global-auto-revert-mode yas/minor-mode auto-complete-mode)
+  3980
+  '(4041 t)
+  nil
+  nil
+  '((buffer-file-coding-system . undecided-unix)))
+
+(desktop-create-buffer 206
+  "/usr/local/google/home/charliea/Documents/preferences/emacs/.emacs.d/init/common.el"
+  "common.el"
+  'emacs-lisp-mode
+  '(linum-mode global-auto-revert-mode yas/minor-mode auto-complete-mode)
+  3060
+  '(5195 t)
+  nil
+  nil
+  '((buffer-file-coding-system . undecided-unix)))
+
+(desktop-create-buffer 206
+  "/usr/local/google/home/charliea/gan/google3/java/com/google/ads/affiliatenetwork/entityaccess/access/CreditCardOfferEntityAccess.java"
+  "CreditCardOfferEntityAccess.java"
+  'java-mode
+  '(abbrev-mode linum-mode global-auto-revert-mode yas/minor-mode auto-complete-mode eldoc-mode grok-view-mode whitespace-mode)
+  2179
+  '(4849 nil)
+  nil
+  nil
+  '((show-trailing-whitespace . t) (indent-tabs-mode) (buffer-file-coding-system . undecided-unix)))
+
+(desktop-create-buffer 206
+  "/usr/local/google/home/charliea/Documents/preferences/emacs/.emacs.d/init/google.el"
+  "google.el"
+  'emacs-lisp-mode
+  '(linum-mode global-auto-revert-mode yas/minor-mode auto-complete-mode)
+  798
+  '(750 t)
+  nil
+  nil
+  '((buffer-file-coding-system . undecided-unix)))
+
+(desktop-create-buffer 206
+  "/usr/local/google/home/charliea/gan/google3/javatests/com/google/ads/affiliatenetwork/frontend/advertiser/server/AdvertiserUiServletTest.java"
+  "AdvertiserUiServletTest.java"
+  'java-mode
+  '(abbrev-mode linum-mode global-auto-revert-mode yas/minor-mode auto-complete-mode eldoc-mode grok-view-mode whitespace-mode)
+  10116
+  '(1876 nil)
+  nil
+  nil
+  '((show-trailing-whitespace . t) (indent-tabs-mode) (buffer-file-coding-system . undecided-unix)))
+
+(desktop-create-buffer 206
+  "/usr/local/google/home/charliea/gan/google3/java/com/google/ads/affiliatenetwork/frontend/advertiser/server/AdvertiserUiServlet.java"
+  "AdvertiserUiServlet.java"
+  'java-mode
+  '(abbrev-mode linum-mode global-auto-revert-mode yas/minor-mode auto-complete-mode eldoc-mode grok-view-mode whitespace-mode)
+  11967
+  '(3218 nil)
+  nil
+  nil
+  '((show-trailing-whitespace . t) (indent-tabs-mode) (buffer-file-coding-system . undecided-unix)))
+
+(desktop-create-buffer 206
+  "/usr/local/google/home/charliea/gan/google3/java/com/google/ads/affiliatenetwork/frontend/server/common/CreativeHelper.java"
+  "CreativeHelper.java"
+  'java-mode
+  '(abbrev-mode linum-mode global-auto-revert-mode yas/minor-mode auto-complete-mode eldoc-mode grok-view-mode whitespace-mode)
+  2817
+  '(27492 nil)
+  nil
+  nil
+  '((show-trailing-whitespace . t) (indent-tabs-mode) (buffer-file-coding-system . undecided-unix)))
+
+(desktop-create-buffer 206
+  "/usr/local/google/home/charliea/gan/google3/java/com/google/ads/affiliatenetwork/frontend/advertiser/client/creditcards/EditCreditCardCreativePage.java"
+  "EditCreditCardCreativePage.java"
+  'java-mode
+  '(abbrev-mode linum-mode global-auto-revert-mode yas/minor-mode auto-complete-mode grok-view-mode whitespace-mode)
+  3849
+  '(2371 nil)
+  nil
+  nil
+  '((show-trailing-whitespace . t) (indent-tabs-mode) (buffer-file-coding-system . undecided-unix)))
+
+(desktop-create-buffer 206
+  "/usr/local/google/home/charliea/gan/google3/java/com/google/ads/affiliatenetwork/frontend/client/common/events/SaveRecordEvent.java"
+  "SaveRecordEvent.java"
+  'java-mode
+  '(abbrev-mode linum-mode global-auto-revert-mode yas/minor-mode auto-complete-mode eldoc-mode grok-view-mode whitespace-mode)
+  292
+  '(402 nil)
+  nil
+  nil
+  '((show-trailing-whitespace . t) (indent-tabs-mode) (buffer-file-coding-system . undecided-unix)))
+
+(desktop-create-buffer 206
+  "/usr/local/google/home/charliea/gan/google3/java/com/google/ads/affiliatenetwork/frontend/advertiser/client/creditcards/CreditCardCreativeForm.java"
+  "CreditCardCreativeForm.java"
+  'java-mode
+  '(abbrev-mode linum-mode global-auto-revert-mode yas/minor-mode auto-complete-mode grok-view-mode whitespace-mode)
+  8964
+  '(6994 nil)
+  nil
+  nil
+  '((show-trailing-whitespace . t) (indent-tabs-mode) (buffer-file-coding-system . undecided-unix)))
+
+(desktop-create-buffer 206
+  "/usr/local/google/home/charliea/gan/google3/java/com/google/ads/affiliatenetwork/frontend/advertiser/client/creditcards/EditCreditCardOfferForm.java"
+  "EditCreditCardOfferForm.java"
+  'java-mode
+  '(abbrev-mode linum-mode global-auto-revert-mode yas/minor-mode auto-complete-mode eldoc-mode grok-view-mode whitespace-mode)
+  2141
+  '(nil nil)
+  nil
+  nil
+  '((show-trailing-whitespace . t) (indent-tabs-mode) (buffer-file-coding-system . undecided-unix)))
+
+(desktop-create-buffer 206
+  "/usr/local/google/home/charliea/gan/google3/java/com/google/ads/affiliatenetwork/frontend/advertiser/client/creditcards/CreditCardOffersRequestWrapper.java"
+  "CreditCardOffersRequestWrapper.java"
+  'java-mode
+  '(abbrev-mode linum-mode global-auto-revert-mode yas/minor-mode auto-complete-mode grok-view-mode whitespace-mode)
+  1368
+  '(1499 nil)
+  nil
+  nil
+  '((show-trailing-whitespace . t) (indent-tabs-mode) (buffer-file-coding-system . undecided-unix)))
+
+(desktop-create-buffer 206
+  "/usr/local/google/home/charliea/Documents/preferences/emacs/.emacs"
+  ".emacs"
+  'emacs-lisp-mode
+  '(linum-mode global-auto-revert-mode yas/minor-mode auto-complete-mode)
+  298
+  '(77 nil)
+  nil
+  nil
+  '((buffer-file-coding-system . undecided-unix)))
+
+(desktop-create-buffer 206
+  "/usr/local/google/home/charliea/gan/google3/java/com/google/ads/affiliatenetwork/frontend/advertiser/client/creatives/CreatePanel.java"
+  "CreatePanel.java"
+  'java-mode
+  '(abbrev-mode linum-mode global-auto-revert-mode yas/minor-mode auto-complete-mode eldoc-mode grok-view-mode whitespace-mode)
+  1797
+  '(1795 nil)
+  nil
+  nil
+  '((show-trailing-whitespace . t) (indent-tabs-mode) (buffer-file-coding-system . undecided-unix)))
+
+(desktop-create-buffer 206
+  "/usr/local/google/home/charliea/gan/google3/java/com/google/ads/affiliatenetwork/frontend/client/common/pages/SimpleFormContentPanel.java"
+  "SimpleFormContentPanel.java"
+  'java-mode
+  '(abbrev-mode linum-mode global-auto-revert-mode yas/minor-mode auto-complete-mode eldoc-mode grok-view-mode whitespace-mode)
+  1
+  '(nil nil)
+  nil
+  nil
+  '((show-trailing-whitespace . t) (indent-tabs-mode) (buffer-file-coding-system . undecided-unix)))
+
+(desktop-create-buffer 206
+  "/usr/local/google/home/charliea/gan/google3/java/com/google/ads/affiliatenetwork/frontend/advertiser/client/creatives/AdvBrowseCreativePresenter.java"
+  "AdvBrowseCreativePresenter.java"
+  'java-mode
+  '(abbrev-mode linum-mode global-auto-revert-mode yas/minor-mode auto-complete-mode eldoc-mode grok-view-mode whitespace-mode)
+  11739
+  '(nil nil)
+  nil
+  nil
+  '((show-trailing-whitespace . t) (indent-tabs-mode) (buffer-file-coding-system . undecided-unix)))
+
+(desktop-create-buffer 206
+  "/usr/local/google/home/charliea/gan/google3/java/com/google/ads/affiliatenetwork/frontend/advertiser/client/AdvertiserPresenter.java"
+  "AdvertiserPresenter.java"
+  'java-mode
+  '(abbrev-mode linum-mode global-auto-revert-mode yas/minor-mode auto-complete-mode eldoc-mode grok-view-mode whitespace-mode)
+  20023
+  '(20036 nil)
+  nil
+  nil
+  '((show-trailing-whitespace . t) (indent-tabs-mode) (buffer-file-coding-system . undecided-unix)))
+
+(desktop-create-buffer 206
+  "/usr/local/google/home/charliea/Documents/preferences/terminal/.bashrc"
+  ".bashrc"
+  'sh-mode
+  '(linum-mode global-auto-revert-mode auto-complete-mode)
+  534
+  '(534 nil)
+  nil
+  nil
+  '((indent-tabs-mode) (buffer-file-coding-system . undecided-unix)))
+
+(desktop-create-buffer 206
+  "/usr/local/google/home/charliea/gan/google3/java/com/google/ads/affiliatenetwork/frontend/advertiser/client/ActivePublishersLoadedEvent.java"
+  "ActivePublishersLoadedEvent.java"
+  'java-mode
+  '(abbrev-mode linum-mode global-auto-revert-mode yas/minor-mode auto-complete-mode eldoc-mode grok-view-mode whitespace-mode)
+  1
+  '(nil nil)
+  nil
+  nil
+  '((show-trailing-whitespace . t) (indent-tabs-mode) (buffer-file-coding-system . undecided-unix)))
+
+(desktop-create-buffer 206
+  "/home/leadpipe/elisp/.emacs"
+  ".emacs<2>"
+  'emacs-lisp-mode
+  '(linum-mode global-auto-revert-mode yas/minor-mode auto-complete-mode)
+  6790
+  '(6580 nil)
+  t
+  nil
+  '((buffer-file-coding-system . undecided-unix)))
+
