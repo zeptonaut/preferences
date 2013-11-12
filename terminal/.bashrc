@@ -15,6 +15,8 @@ function mkcl() {
     cd google3
 }
 
+source /home/build/nonconf/google3/java/com/google/ads/publisher/scripts/xfp/bashrc.sh
+
 export TERM=xterm-256color
 
 alias ls="ls --color"
