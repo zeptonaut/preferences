@@ -1,0 +1,4 @@
+deb http://ppa.launchpad.net/cassou/emacs/ubuntu precise main
+deb-src http://ppa.launchpad.net/cassou/emacs/ubuntu precise main
+moved by goobuntu-updater
+# deb-src http://ppa.launchpad.net/cassou/emacs/ubuntu precise main

@@ -6,6 +6,10 @@
                          ("melpa" . "http://melpa.milkbox.net/packages/")))
 (package-initialize)
 
+;; automatically re-byte-compile any out of date files
+(require 'auto-compile)
+(auto-compile-on-load-mode 1)
+
 ;; Required here to allow chord bindings throughout the file
 (require 'key-chord)
 
@@ -16,10 +20,16 @@
 (if (fboundp 'menu-bar-mode) (menu-bar-mode -1))
 (setq enable-recursive-minibuffers t)
 
+(add-to-list 'custom-theme-load-path
+             (file-name-as-directory "~/.emacs.d/themes/"))
+
+(load-theme 'blue-gnus t)
+
 ;; highlight the current line
 (global-hl-line-mode 1)
 (custom-set-faces
- '(hl-line ((t (:background "gainsboro")))))
+ '(hl-line ((((class grayscale color) (background light)) (:background "gainsboro"))))
+ '(hl-line ((((class grayscale color) (background dark)) (:background "color-234")))))
 
 ;; Show line numbers
 (global-linum-mode t)
@@ -96,19 +106,31 @@
 
 ;; find-things-fast allows you to easily find files within a project
 (require 'find-things-fast)
-(global-set-key (kbd "C-c j") 'ftf-find-file)
+(key-chord-define-global "qq" 'ftf-find-file)
 
 ;; flx-ido provides better flex matching for IDO
 (require 'flx-ido)
 
-;; IDO gives you options in the minibuffer
+;; ido gives you options in the minibuffer
 (require 'ido)
 (ido-mode 1)
-(ido-everywhere 1)
 (flx-ido-mode 1)
 (setq ido-use-faces nil)
 (setq ido-auto-merge-work-directories-length -1) ; allow me to create files, dammit
 (setq ido-enable-tramp-completion nil) ; ido over tramp = slow
+
+;; ido-ubiquitous gives you ido-mode everywhere
+(require 'ido-ubiquitous)
+(ido-ubiquitous-mode 1)
+
+;; js2-mode fixes javascript emacs
+(require 'js2-mode)
+(add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
+
+;; ac-js2-mode provides contextual autocomplete for javascript
+;; NOTE: included here because of js2-mode dependency
+;; (require 'ac-js2)
+;; (add-hook 'js2-mode-hook 'ac-js2-mode)
 
 ;; key-chord allows you to use chords of keys as a binding option
 (key-chord-mode 1)
@@ -121,9 +143,16 @@
 (add-to-list 'load-path "~/.emacs.d/plugins/nrepl")
 (require 'nrepl)
 
+;; There's currently a problem where smartparens doesn't pull in the
+;; correct version of 'cl. This should fix the problem.
+(unless (fboundp 'cl-flet)
+  (defalias 'cl-flet 'flet))
+
 ;; smartparens provides various useful methods for handling balanced tags
 (require 'smartparens-config)
-(show-smartparens-global-mode 1)
+(setq sp-autoskip-closing-pair 'always)
+(smartparens-global-mode 1)
+(diminish 'smartparens-mode)
 
 ;; subword-mode makes it so that camelcase is treated properyl
 (global-subword-mode 1)
@@ -135,6 +164,11 @@
 ;; uniquify adds useful postfixes to uniquily identify buffers with the same name
 (require 'uniquify)
 (setq uniquify-buffer-name-style 'post-forward)
+
+;; web-mode allows you to edit HTML files with other languages inline
+;; (require 'web-mode)
+;; (add-to-list 'auto-mode-alist '("\\.erb\\'" . web-mode))
+;; (add-to-list 'auto-mode-alist '("\\.html\\'" . web-mode))
 
 ;; windmove allows you to better navigate between frames
 (when (fboundp 'windmove-default-keybindings)
@@ -155,7 +189,7 @@
 ;; language-specific modes
 (require 'go-mode)
 (require 'clojure-mode)
-(load "~/.emacs.d/plugins/nxhtml/autostart")
+; (load "~/.emacs.d/plugins/nxhtml/autostart")
 (add-hook 'lisp-mode-hook (lambda () (slime-mode t)))
 (add-hook 'inferior-lisp-mode-hook (lambda () (inferior-slime-mode t)))
 
