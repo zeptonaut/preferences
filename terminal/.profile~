@@ -39,7 +39,7 @@ alias g5o="git5 diff --name-only"
 # XFP aliases
 alias xfpsdm="gfpdevel-hosted --jobs=CORE_FE,STUBBY_API,TRAFFICKING_SUPERDEVMODE"
 
-export PATH=/usr/local/bin:/usr/local/sbin:$PATH:/usr/local/go/bin:~/bin
+export PATH='/usr/local/bin:/usr/local/sbin:$PATH:/usr/local/go/bin:~/bin'
 
 # git autocompletion
 if [ -f ~/.git-completion.bash ]; then
