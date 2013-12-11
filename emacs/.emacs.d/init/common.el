@@ -105,8 +105,12 @@
 (command-frequency-autosave-mode 1)
 
 ;; find-things-fast allows you to easily find files within a project
-(require 'find-things-fast)
-(key-chord-define-global "qq" 'ftf-find-file)
+(require 'find-file-in-project)
+(key-chord-define-global "qq" 'find-file-in-project)
+(add-to-list 'ffip-patterns "*.java")
+(add-to-list 'ffip-patterns "*.h")
+(add-to-list 'ffip-patterns "*.cc")
+(add-to-list 'ffip-patterns "*.go")
 
 ;; flx-ido provides better flex matching for IDO
 (require 'flx-ido)
