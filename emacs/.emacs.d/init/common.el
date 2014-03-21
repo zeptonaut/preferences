@@ -110,7 +110,7 @@
 (setq c-offsets-alist '((statement-cont . ++)))
 
 ;; language-specific modes
-(require 'go-mode)
+;; (require 'go-mode)
 (require 'clojure-mode)
 (require 'clojure-test-mode)
 (add-hook 'lisp-mode-hook (lambda () (slime-mode t)))
@@ -174,13 +174,13 @@
 (key-chord-define-global ",." 'flymake-goto-next-error)
 
 ;; go-autocomplete provides autocomplete for go
-(require 'go-autocomplete)
-(require 'auto-complete-config)
-(add-hook 'before-save-hook 'gofmt-before-save) ;; automatically format before saving
+;(require 'go-autocomplete)
+;(require 'auto-complete-config)
+;(add-hook 'before-save-hook 'gofmt-before-save) ;; automatically format before saving
 
 ;; go-flymake provides syntax checking for go
-(add-to-list 'load-path "~/go/src/github.com/dougm/goflymake")
-(require 'go-flymake)
+;(add-to-list 'load-path "~/go/src/github.com/dougm/goflymake")
+;(require 'go-flymake)
 
 ;; ido gives you options in the minibuffer
 (require 'ido)

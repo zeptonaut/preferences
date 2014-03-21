@@ -15,7 +15,7 @@ if [ -f ~/.git-completion.bash ]; then
   . ~/.git-completion.bash
 fi
 
-export PS1="\[\e[01;37m\][\u@\h:\[\e[0;31m\]\w\[\e[01;37m\]] \[\e[m\]"
+export PS1="\[\e[01;31m\][\u@\h:\[\e[0;30m\]\w\[\e[01;31m\]] \[\e[m\]"
 
 # Don't forget about .bashrc!
 [[ -r ~/.bashrc ]] && . ~/.bashrc
