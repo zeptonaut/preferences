@@ -3,7 +3,7 @@ alias ed='emacs --daemon'
 alias e="emacsclient -c"
 
 export TERM=xterm-256color
-nalias ls="ls --color"
+alias ls="ls --color"
 
 # dircolors
 if [ -x /usr/bin/dircolors ]; then
