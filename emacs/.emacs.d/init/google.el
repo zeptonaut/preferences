@@ -20,8 +20,16 @@
 (require 'google3-build)
 (setq google-build-system "blaze")
 
+(require 'google-flymake)
+
+;; NOTE: These are still a bit flaky. Fix them.
+;; C++ and java autocomplete
+;; (require 'gcomplete)
+;; (gcomplete-setup-flymake)
+;; (gcomplete-setup-for-auto-complete)
+
 ;; Make font smaller
-(set-face-attribute 'default nil :family "Inconsolata" :height 110)
+(set-face-attribute 'default nil :family "Inconsolata" :height 120)
 
 ;; Set up grok
 (setq grok-api-bns "/bns/global/ns/aggregator/grok/grokservice.us_east/2")
@@ -41,7 +49,7 @@
 
 ;; Highlight tabs and lines over 100 characters long
 (require 'whitespace)
-(setq whitespace-style '(face empty tabs lines-tail trailing))
+;(setq whitespace-style '(face empty tabs lines-tail trailing))
 (set-face-attribute 'whitespace-tab nil
                     :foreground "#EEE"
                     :background "#D44"

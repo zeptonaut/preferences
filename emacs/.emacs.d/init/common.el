@@ -23,7 +23,7 @@
 (add-to-list 'custom-theme-load-path
              (file-name-as-directory "~/.emacs.d/themes/"))
 
-(load-theme 'blue-gnus t)
+(load-theme 'vim-colors t)
 
 ;; highlight the current line
 (global-hl-line-mode 1)
@@ -66,6 +66,40 @@
 ;; Bind F5 to revert-buffer (like refresh for a browser)
 (global-set-key [f5] 'revert-buffer)
 
+;; Bind C-o opens up a new block at the point and moves the cursor to
+;; the middle line of the block
+(defun my-fake-curly-brace ()
+  (interactive)
+  (let ((command (key-binding "{")))
+    (setq last-command-event ?\{)
+    (setq this-command command)
+    (call-interactively command)))
+(defun newline-inside-current-block ()
+  (interactive)
+  (let ((oldpos (point)))
+    (my-fake-curly-brace)
+    (newline-and-indent)
+    (newline-and-indent)
+    (previous-line)
+    (indent-for-tab-command)))
+(global-set-key (kbd "C-o") 'newline-inside-current-block)
+
+(defun newline-under-current-line ()
+  (interactive)
+  (let ((oldpos (point)))
+    (end-of-line)
+    (newline-and-indent)))
+(global-set-key (kbd "C-l") 'newline-under-current-line)
+
+(defun newline-above-current-line ()
+  (interactive)
+  (let ((oldpos (point)))
+    (beginning-of-line)
+    (newline-and-indent)
+    (previous-line)
+    (indent-for-tab-command)))
+(global-set-key (kbd "C-L") 'newline-above-current-line)
+
 ;; Changes enter to move to new line and indent
 (global-set-key "\C-m" 'newline-and-indent)
 ;; Changes parameter list to indent by four indents
@@ -74,6 +108,13 @@
 ;; Changes multiple line boolean statements to indent by two indents
 (setq c-offsets-alist '((statement . ++)))
 (setq c-offsets-alist '((statement-cont . ++)))
+
+;; language-specific modes
+(require 'go-mode)
+(require 'clojure-mode)
+(require 'clojure-test-mode)
+(add-hook 'lisp-mode-hook (lambda () (slime-mode t)))
+(add-hook 'inferior-lisp-mode-hook (lambda () (inferior-slime-mode t)))
 
 ;; diminish keeps the modeline tidy.
 ;; Required here to let other modes diminish themselves.
@@ -97,6 +138,10 @@
 (ac-config-default)
 (diminish 'auto-complete-mode)
 
+;; cider provides an IDE and REPL for clojure
+(require 'cider)
+(add-hook 'cider-mode-hook 'cider-turn-on-eldoc-mode)
+
 ;; command-frequency helps you find which commands you use most frequently
 (add-to-list 'load-path "~/.emacs.d/plugins/command-frequency")
 (require 'command-frequency)
@@ -104,16 +149,38 @@
 (command-frequency-mode 1)
 (command-frequency-autosave-mode 1)
 
-;; find-things-fast allows you to easily find files within a project
+;; find-file-in-project allows you to easily find files within a project
 (require 'find-file-in-project)
-(key-chord-define-global "qq" 'find-file-in-project)
+(key-chord-define-global "qq" 'ffip)
 (add-to-list 'ffip-patterns "*.java")
 (add-to-list 'ffip-patterns "*.h")
 (add-to-list 'ffip-patterns "*.cc")
 (add-to-list 'ffip-patterns "*.go")
+(setq ffip-limit 20000)
 
 ;; flx-ido provides better flex matching for IDO
 (require 'flx-ido)
+
+(require 'flymake)
+(setq flymake-start-syntax-check-on-newline nil)
+;; Make the flymake errors more obvious
+(custom-set-faces
+ '(flymake-errline ((t (:background "firebrick" :foreground "color-231")))))
+;; Show the flymake error in the minibuffer
+(custom-set-variables
+ '(help-at-pt-timer-delay 0.1)
+ '(help-at-pt-display-when-idle '(flymake-overlay)))
+(key-chord-define-global ".," 'flymake-goto-prev-error)
+(key-chord-define-global ",." 'flymake-goto-next-error)
+
+;; go-autocomplete provides autocomplete for go
+(require 'go-autocomplete)
+(require 'auto-complete-config)
+(add-hook 'before-save-hook 'gofmt-before-save) ;; automatically format before saving
+
+;; go-flymake provides syntax checking for go
+(add-to-list 'load-path "~/go/src/github.com/dougm/goflymake")
+(require 'go-flymake)
 
 ;; ido gives you options in the minibuffer
 (require 'ido)
@@ -127,7 +194,7 @@
 (require 'ido-ubiquitous)
 (ido-ubiquitous-mode 1)
 
-;; js2-mode fixes javascript emacs
+;; js2-mode fixes javascript in emacs
 (require 'js2-mode)
 (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
 
@@ -143,10 +210,6 @@
 (require 'magit)
 (global-set-key (kbd "C-x g") 'magit-status)
 
-;; nrepl
-(add-to-list 'load-path "~/.emacs.d/plugins/nrepl")
-(require 'nrepl)
-
 ;; There's currently a problem where smartparens doesn't pull in the
 ;; correct version of 'cl. This should fix the problem.
 (unless (fboundp 'cl-flet)
@@ -154,7 +217,9 @@
 
 ;; smartparens provides various useful methods for handling balanced tags
 (require 'smartparens-config)
-(setq sp-autoskip-closing-pair 'always)
+(setq sp-highlight-wrap-overlay nil
+      sp-autoescape-string-quote nil
+      sp-autoskip-closing-pair 'always)
 (smartparens-global-mode 1)
 (diminish 'smartparens-mode)
 
@@ -190,13 +255,6 @@
 (add-hook 'nxml-mode-hook (lambda()
                             (setq indent-tabs-mode nil)))
 
-;; language-specific modes
-(require 'go-mode)
-(require 'clojure-mode)
-; (load "~/.emacs.d/plugins/nxhtml/autostart")
-(add-hook 'lisp-mode-hook (lambda () (slime-mode t)))
-(add-hook 'inferior-lisp-mode-hook (lambda () (inferior-slime-mode t)))
-
 ;; Load additional modes
 (add-to-list 'load-path "~/.emacs.d/modes")
 (require 'markdown-mode)
@@ -231,3 +289,18 @@
                                  (interactive)
                                  (increase-frame-size-by-one-frame-size)
                                  (balance-windows)))
+
+(defun rename-file-and-buffer (new-name)
+  "Renames both current buffer and file it's visiting to NEW-NAME."
+  (interactive "sNew name: ")
+  (let ((name (buffer-name))
+        (filename (buffer-file-name)))
+    (if (not filename)
+        (message "Buffer '%s' is not visiting a file!" name)
+      (if (get-buffer new-name)
+          (message "A buffer named '%s' already exists!" new-name)
+        (progn
+          (rename-file name new-name 1)
+          (rename-buffer new-name)
+          (set-visited-file-name new-name)
+          (set-buffer-modified-p nil))))))
