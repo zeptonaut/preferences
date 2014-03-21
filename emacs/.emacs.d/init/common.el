@@ -6,6 +6,9 @@
                          ("melpa" . "http://melpa.milkbox.net/packages/")))
 (package-initialize)
 
+;; Open up this file as a buffer as soon as emacs opens
+(find-file "~/.emacs.d/init/common.el")
+
 ;; automatically re-byte-compile any out of date files
 (require 'auto-compile)
 (auto-compile-on-load-mode 1)

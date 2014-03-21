@@ -1,3 +1,6 @@
+;; Open up this file as a buffer as soon as emacs opens
+(find-file "~/.emacs.d/init/google.el")
+
 ;; Main google load file
 (load-file "/google/src/files/head/depot/eng/elisp/google.el")
 (load-file "/google/src/files/head/depot/eng/elisp/google-cc-extras.el")
