@@ -1,2 +1,7 @@
-# Backup files
-*~
+emacs/.emacs.d/backups/*
+emacs/.emacs.d/init/google.el
+emacs/.emacs.d/ac*
+emacs/.emacs.d/backups/*
+emacs/.emacs.d/tramp
+emacs/.emacs.d/auto-save-list/*
+terminal/.google-bashrc

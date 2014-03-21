@@ -1,0 +1,11 @@
+# -*- mode: snippet -*-
+# name: getset
+# key: getset
+# --
+public ${2:type} get${1:name}() {
+  return this.${3:variable_name};
+}
+
+public void set$1($2 $3) {
+  this.$3 = $3;
+}
