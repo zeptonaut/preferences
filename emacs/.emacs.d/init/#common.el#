@@ -9,6 +9,10 @@
 ;; Open up this file as a buffer as soon as emacs opens
 (find-file "~/.emacs.d/init/common.el")
 
+;; automatically re-byte-compile any out of date files
+(require 'auto-compile)
+(auto-compile-on-load-mode 1)
+
 ;; Required here to allow chord bindings throughout the file
 (require 'key-chord)
 
@@ -22,7 +26,7 @@
 (add-to-list 'custom-theme-load-path
              (file-name-as-directory "~/.emacs.d/themes/"))
 
-(load-theme 'vim-colors t)
+(load-theme 'wombat)
 
 ;; highlight the current line
 (global-hl-line-mode 1)
