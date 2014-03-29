@@ -19,6 +19,8 @@
 (add-to-list 'custom-theme-load-path
              (file-name-as-directory "~/.emacs.d/themes/"))
 
+(setq vc-follow-symlinks t)
+
 (load-theme 'wombat)
 
 ;; highlight the current line
