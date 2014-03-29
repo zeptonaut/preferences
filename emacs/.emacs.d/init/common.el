@@ -14,33 +14,19 @@
 
 ;; Disable annoying things
 (setq visible-bell t)
-(setq-default scroll-bar-width 10)
-(if (fboundp 'tool-bar-mode) (tool-bar-mode -1))
-(if (fboundp 'menu-bar-mode) (menu-bar-mode -1))
 (setq enable-recursive-minibuffers t)
 
 (add-to-list 'custom-theme-load-path
              (file-name-as-directory "~/.emacs.d/themes/"))
 
-(load-theme 'vim-colors t)
+(load-theme 'wombat)
 
 ;; highlight the current line
 (global-hl-line-mode 1)
-(custom-set-faces
- '(hl-line ((((class grayscale color) (background light)) (:background "gainsboro"))))
- '(hl-line ((((class grayscale color) (background dark)) (:background "color-234")))))
-
-;; Show line numbers
-(global-linum-mode t)
+(set-face-background hl-line-face "color-234")
 
 ;; Always use filesystem versions of files
 (global-auto-revert-mode 1)
-
-;; Write all backups to the backup directory
-(setq backup-directory-alist
-      `((".*" . "~/.emacs.d/backups/")))
-(setq auto-save-file-name-transforms
-      `((".*" "~/.emacs.d/backups/" t)))
 
 ;; Key bindings
 (global-set-key (kbd "C-w") 'clipboard-kill-region)
@@ -137,6 +123,9 @@
 (ac-config-default)
 (diminish 'auto-complete-mode)
 
+;; better-defaults fixes some of emacs's bad defaults
+(require 'better-defaults)
+
 ;; cider provides an IDE and REPL for clojure
 (require 'cider)
 (add-hook 'cider-mode-hook 'cider-turn-on-eldoc-mode)
@@ -182,8 +171,6 @@
 ;(require 'go-flymake)
 
 ;; ido gives you options in the minibuffer
-(require 'ido)
-(ido-mode 1)
 (flx-ido-mode 1)
 (setq ido-use-faces nil)
 (setq ido-auto-merge-work-directories-length -1) ; allow me to create files, dammit
@@ -209,10 +196,8 @@
 (require 'magit)
 (global-set-key (kbd "C-x g") 'magit-status)
 
-;; There's currently a problem where smartparens doesn't pull in the
-;; correct version of 'cl. This should fix the problem.
-(unless (fboundp 'cl-flet)
-  (defalias 'cl-flet 'flet))
+;; Reduce the amount of time it takes the matchin parenthesis to show up
+(setq show-paren-delay 0)
 
 ;; smartparens provides various useful methods for handling balanced tags
 (require 'smartparens-config)
@@ -228,10 +213,6 @@
 ;; tramp allows you to locally edit remote files
 (require 'tramp)
 (setq tramp-default-method "ssh")
-
-;; uniquify adds useful postfixes to uniquily identify buffers with the same name
-(require 'uniquify)
-(setq uniquify-buffer-name-style 'post-forward)
 
 ;; web-mode allows you to edit HTML files with other languages inline
 ;; (require 'web-mode)

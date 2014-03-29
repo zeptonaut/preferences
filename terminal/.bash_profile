@@ -2,6 +2,7 @@
 alias ed='emacs --daemon'
 alias e="emacsclient -c"
 alias ka="killall -9"
+alias gc="git commit -m"
 
 export TERM=xterm-256color
 
