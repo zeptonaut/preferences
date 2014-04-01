@@ -211,6 +211,13 @@
 (require 'magit)
 (global-set-key (kbd "C-x g") 'magit-status)
 
+;; markdown-mode gives an emacs mode for markdown
+(require 'markdown-mode)
+(add-to-list 'auto-mode-alist '("\\.text\\'" . markdown-mode))
+(add-to-list 'auto-mode-alist '("\\.markdown\\'" . markdown-mode))
+(add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
+(add-to-list 'auto-mode-alist '("README.md\\'" . gfm-mode))
+
 ;; Reduce the amount of time it takes the matchin parenthesis to show up
 (setq show-paren-delay 0)
 
@@ -239,22 +246,14 @@
   (windmove-default-keybindings))
 
 ;; yasnippet provides template for frequently-used idioms
-(add-to-list 'load-path "~/.emacs.d/plugins/yasnippet-0.6.1c")
-(require 'yasnippet) ;; not yasnippet-bundle
+(require 'yasnippet)
 (setq yas/trigger-key (kbd "C-c C-f"))
-(yas/initialize)
-(yas/load-directory "~/.emacs.d/plugins/yasnippet-0.6.1c/snippets")
-(diminish 'yas/minor-mode)
+(yas-global-mode 1)
+(diminish 'yas-minor-mode)
 
 ;; Disable tabs in nxml mode
 (add-hook 'nxml-mode-hook (lambda()
                             (setq indent-tabs-mode nil)))
-
-;; Load additional modes
-(add-to-list 'load-path "~/.emacs.d/modes")
-(require 'markdown-mode)
-(require 'javascript-mode)
-(require 'php-mode)
 
 ;; Easily resize the frame with (C-c -) and (C-c +)
 (setq my-frame-size 120.0)
