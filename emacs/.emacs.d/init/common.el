@@ -50,6 +50,9 @@
 (global-set-key (kbd "C-<") 'uncomment-region)
 (global-set-key (kbd "C->") 'comment-region)
 
+;; don't open *scratch* as the inital buffer
+(setq initial-scratch-buffer nil)
+
 ;; Bind F5 to revert-buffer (like refresh for a browser)
 (global-set-key [f5] 'revert-buffer)
 
@@ -138,6 +141,16 @@
 (command-frequency-table-load)
 (command-frequency-mode 1)
 (command-frequency-autosave-mode 1)
+
+;; desktop-save-mode automatically saves emacs when closing it
+(setq desktop-dirname             "~/.emacs.d/desktop/"
+      desktop-base-file-name      "emacs.desktop"
+      desktop-base-lock-name      "lock"
+      desktop-path                (list desktop-dirname)
+      desktop-save                t
+      desktop-files-not-to-save   "^$" ;reload tramp paths
+      desktop-load-locked-desktop nil)
+(desktop-save-mode 1)
 
 ;; find-file-in-project allows you to easily find files within a project
 (require 'find-file-in-project)

@@ -1,4 +1,5 @@
 # Convenient aliases
+alias ked="emacsclient -e '(kill-emacs)'"
 alias ed='emacs --daemon'
 alias e="emacsclient -c"
 alias ka="killall -9"

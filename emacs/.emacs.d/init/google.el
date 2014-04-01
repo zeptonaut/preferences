@@ -1,4 +1,4 @@
-;; Open up this file as a buffer as soon as emacs opens
+;; ;; Open up this file as a buffer as soon as emacs opens
 (find-file "~/.emacs.d/init/google.el")
 
 ;; Main google load file
@@ -23,7 +23,7 @@
 (require 'google3-build)
 (setq google-build-system "blaze")
 
-(require 'google-flymake)
+;; (require 'google-flymake)
 
 ;; NOTE: These are still a bit flaky. Fix them.
 ;; C++ and java autocomplete
