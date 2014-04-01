@@ -13,8 +13,8 @@ if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
 fi
 
-# Bash completion
-if [ -f $(brew --prefix)/etc/bash_completion ]; then
+# Add bash completion if it exists
+if [ hash brew >/dev/null 2>&1 && -f $(brew --prefix)/etc/bash_completion ]; then
     . $(brew --prefix)/etc/bash_completion
 fi
 
