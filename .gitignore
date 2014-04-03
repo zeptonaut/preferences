@@ -5,5 +5,6 @@ emacs/.emacs.d/backups/*
 emacs/.emacs.d/desktop/*
 emacs/.emacs.d/places
 emacs/.emacs.d/tramp
+emacs/.emacs.d/url
 emacs/.emacs.d/auto-save-list/*
 terminal/.google-bashrc

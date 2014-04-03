@@ -30,6 +30,9 @@
 ;; Always use filesystem versions of files
 (global-auto-revert-mode 1)
 
+;; Don't create lockfiles
+(setq create-lockfiles nil)
+
 ;; Key bindings
 (global-set-key (kbd "C-w") 'clipboard-kill-region)
 (global-set-key (kbd "M-w") 'clipboard-kill-ring-save)
@@ -201,8 +204,10 @@
 
 ;; ac-js2-mode provides contextual autocomplete for javascript
 ;; NOTE: included here because of js2-mode dependency
-;; (require 'ac-js2)
-;; (add-hook 'js2-mode-hook 'ac-js2-mode)
+(require 'ac-js2)
+(add-hook 'js2-mode-hook 'ac-js2-mode)
+(setq ac-js2-evaluate-calls t)
+(add-to-list ac-js2-external-libraries '("/usr/local/google/home/charliea/Documents/preferences/emacs/.emacs.d/lib/d3.min.js"))
 
 ;; key-chord allows you to use chords of keys as a binding option
 (key-chord-mode 1)
