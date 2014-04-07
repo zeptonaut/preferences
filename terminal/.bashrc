@@ -28,6 +28,5 @@ export PATH="/usr/local/bin:$PATH"
 # Command line prompt
 export PS1="\[\e[01;30m\][\u@\h:\[\e[0;31m\]\w\[\e[01;30m\]] \[\e[m\]"
 
-
-
-
+# Don't forget about .google-bashrc!
+[[ -r ~/.google-bashrc ]] && . ~/.google-bashrc
