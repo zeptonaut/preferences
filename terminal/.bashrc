@@ -1,7 +1,7 @@
 # Convenient aliases
 alias ked="emacsclient -e '(kill-emacs)'"
 alias ed='emacs --daemon'
-alias e="emacsclient -c"
+alias e="emacsclient -c -nw"
 alias ka="killall -9"
 alias gc="git commit -m"
 alias gp="git push origin master"

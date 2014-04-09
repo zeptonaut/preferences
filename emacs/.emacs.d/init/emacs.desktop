@@ -1,0 +1,40 @@
+;; -*- mode: emacs-lisp; coding: emacs-mule; -*-
+;; --------------------------------------------------------------------------
+;; Desktop File for Emacs
+;; --------------------------------------------------------------------------
+;; Created Tue Apr  8 11:00:15 2014
+;; Desktop file format version 206
+;; Emacs version 24.3.1
+
+;; Global section:
+(setq desktop-missing-file-warning nil)
+(setq tags-file-name nil)
+(setq tags-table-list nil)
+(setq search-ring nil)
+(setq regexp-search-ring nil)
+(setq register-alist nil)
+(setq file-name-history '("~/.emacs.d/init/"))
+
+;; Buffer section -- buffers listed in same order as in buffer list:
+(desktop-create-buffer 206
+  "/usr/local/google/home/charliea/.emacs.d/init/google.el"
+  "google.el"
+  'emacs-lisp-mode
+  '(global-auto-revert-mode anzu-mode auto-complete-mode flx-ido-mode magit-auto-revert-mode smartparens-mode yas-minor-mode)
+  1
+  '(nil nil)
+  nil
+  nil
+  '((buffer-file-coding-system . undecided-unix)))
+
+(desktop-create-buffer 206
+  "/usr/local/google/home/charliea/Documents/preferences/emacs/.emacs.d/init/common.el"
+  "common.el"
+  'emacs-lisp-mode
+  '(global-auto-revert-mode anzu-mode auto-complete-mode flx-ido-mode magit-auto-revert-mode smartparens-mode yas-minor-mode)
+  227
+  '(nil nil)
+  nil
+  nil
+  '((buffer-file-coding-system . undecided-unix)))
+
