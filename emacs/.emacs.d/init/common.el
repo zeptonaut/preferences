@@ -23,9 +23,9 @@
 
 (load-theme 'wombat)
 
-;; highlight the current line
-(global-hl-line-mode 1)
-(set-face-background hl-line-face "color-234")
+;; hl-line+ highlights the current line when emacs is idle
+(require 'hl-line+)
+(toggle-hl-line-when-idle 1)
 
 ;; Always use filesystem versions of files
 (global-auto-revert-mode 1)
@@ -155,6 +155,7 @@
       desktop-load-locked-desktop nil)
 (desktop-save-mode 1)
 
+(require 'fill-column-indicator)
 ;; find-file-in-project allows you to easily find files within a project
 (require 'find-file-in-project)
 (key-chord-define-global "qq" 'ffip)
