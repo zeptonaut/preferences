@@ -226,6 +226,10 @@
 ;; Reduce the amount of time it takes the matchin parenthesis to show up
 (setq show-paren-delay 0)
 
+;; scss-mode allows you to work with Sass
+(require 'scss-mode)
+(add-to-list 'auto-mode-alist '("\\.scss\\'" . scss-mode))
+
 ;; smartparens provides various useful methods for handling balanced tags
 (require 'smartparens-config)
 (setq sp-highlight-wrap-overlay nil
