@@ -19,10 +19,10 @@ fi
 # Use xterm-256color as the terminal unless we're using tmux, then use
 # screen-256color. tmux requires a screen terminal in order to work
 # properly
-if [ -n "$TMUX" ]; then
-  export TERM="screen-256color"
-else
+if [ -z "$TMUX" ] then 
   export TERM="xterm-256color"
+else
+  export TERM="screen-256color"
 fi
 
 # Go needs $GOPATH to get new binaries and such

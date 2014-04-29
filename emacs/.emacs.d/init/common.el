@@ -6,9 +6,6 @@
                          ("melpa" . "http://melpa.milkbox.net/packages/")))
 (package-initialize)
 
-;; Open up this file as a buffer as soon as emacs opens
-(find-file "~/.emacs.d/init/common.el")
-
 ;; Required here to allow chord bindings throughout the file
 (require 'key-chord)
 
@@ -22,10 +19,6 @@
 (setq vc-follow-symlinks t)
 
 (load-theme 'wombat)
-
-;; hl-line+ highlights the current line when emacs is idle
-(require 'hl-line+)
-(toggle-hl-line-when-idle 1)
 
 ;; Always use filesystem versions of files
 (global-auto-revert-mode 1)
@@ -138,6 +131,12 @@
 (require 'cider)
 (add-hook 'cider-mode-hook 'cider-turn-on-eldoc-mode)
 
+;; clean-buffer-list cleans out all buffers that haven't been used in a while
+(setq clean-buffer-list-delay-general 1)
+(setq clean-buffer-list-kill-never-buffer-names
+      '("common.el"
+        "google.el"))
+
 ;; command-frequency helps you find which commands you use most frequently
 (add-to-list 'load-path "~/.emacs.d/plugins/command-frequency")
 (require 'command-frequency)
@@ -155,7 +154,8 @@
       desktop-load-locked-desktop nil)
 (desktop-save-mode 1)
 
-(require 'fill-column-indicator)
+(require 'emmet-mode)
+
 ;; find-file-in-project allows you to easily find files within a project
 (require 'find-file-in-project)
 (key-chord-define-global "qq" 'ffip)
@@ -188,6 +188,10 @@
 ;; go-flymake provides syntax checking for go
 ;(add-to-list 'load-path "~/go/src/github.com/dougm/goflymake")
 ;(require 'go-flymake)
+
+;; hl-line+ highlights the current line when emacs is idle
+(require 'hl-line+)
+(toggle-hl-line-when-idle 1)
 
 ;; ido gives you options in the minibuffer
 (flx-ido-mode 1)
@@ -227,11 +231,18 @@
 ;; Reduce the amount of time it takes the matchin parenthesis to show up
 (setq show-paren-delay 0)
 
+;; Rainbow delimiters changes the color of () and {} so that it's
+;; easier to see when they're matched
+(require 'rainbow-delimiters)
+(global-rainbow-delimiters-mode)
+
 ;; smartparens provides various useful methods for handling balanced tags
 (require 'smartparens-config)
+(require 'smartparens-html)
 (setq sp-highlight-wrap-overlay nil
       sp-autoescape-string-quote nil
       sp-autoskip-closing-pair 'always)
+(add-to-list 'sp--html-modes '(nxml-mode))
 (smartparens-global-mode 1)
 (diminish 'smartparens-mode)
 

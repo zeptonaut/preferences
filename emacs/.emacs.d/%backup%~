@@ -1,0 +1,16 @@
+127.0.0.1	localhost
+
+# The following lines are desirable for IPv6 capable hosts
+::1     ip6-localhost ip6-loopback
+fe00::0 ip6-localnet
+ff00::0 ip6-mcastprefix
+ff02::1 ip6-allnodes
+ff02::2 ip6-allrouters
+ff02::3 ip6-allhosts
+172.31.47.47		charliea-desktop.chi.corp.google.com charliea-desktop
+0.0.0.0                 facebook.com
+0.0.0.0                 www.facebook.com
+0.0.0.0                 reddit.com
+0.0.0.0                 www.reddit.com
+0.0.0.0                 news.ycombinator.com
+0.0.0.0                 www.news.ycombinator.com
