@@ -236,6 +236,10 @@
 (require 'rainbow-delimiters)
 (global-rainbow-delimiters-mode)
 
+;; scss-mode allows you to work with Sass
+(require 'scss-mode)
+(add-to-list 'auto-mode-alist '("\\.scss\\'" . scss-mode))
+
 ;; smartparens provides various useful methods for handling balanced tags
 (require 'smartparens-config)
 (require 'smartparens-html)
