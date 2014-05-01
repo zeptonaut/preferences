@@ -13,6 +13,10 @@
 (setq visible-bell t)
 (setq enable-recursive-minibuffers t)
 
+;; Get copy and paste working
+(setq x-select-enable-clipboard t)
+(setq interprogram-paste-function 'x-cut-buffer-or-selection-value)
+
 (add-to-list 'custom-theme-load-path
              (file-name-as-directory "~/.emacs.d/themes/"))
 
