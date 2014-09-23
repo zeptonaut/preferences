@@ -18,7 +18,7 @@
 
 (setq vc-follow-symlinks t)
 
-(load-theme 'wombat)
+;; (load-theme 'zenburn t)
 
 ;; Always use filesystem versions of files
 (global-auto-revert-mode 1)
@@ -43,48 +43,8 @@
 (setq split-width-threshold 1000)
 (setq split-height-threshold nil)
 
-(global-set-key (kbd "C-<") 'uncomment-region)
-(global-set-key (kbd "C->") 'comment-region)
-
-;; don't open *scratch* as the inital buffer
-(setq initial-scratch-buffer nil)
-
 ;; Bind F5 to revert-buffer (like refresh for a browser)
 (global-set-key [f5] 'revert-buffer)
-
-;; Bind C-o opens up a new block at the point and moves the cursor to
-;; the middle line of the block
-(defun my-fake-curly-brace ()
-  (interactive)
-  (let ((command (key-binding "{")))
-    (setq last-command-event ?\{)
-    (setq this-command command)
-    (call-interactively command)))
-(defun newline-inside-current-block ()
-  (interactive)
-  (let ((oldpos (point)))
-    (my-fake-curly-brace)
-    (newline-and-indent)
-    (newline-and-indent)
-    (previous-line)
-    (indent-for-tab-command)))
-(global-set-key (kbd "C-o") 'newline-inside-current-block)
-
-(defun newline-under-current-line ()
-  (interactive)
-  (let ((oldpos (point)))
-    (end-of-line)
-    (newline-and-indent)))
-(global-set-key (kbd "C-l") 'newline-under-current-line)
-
-(defun newline-above-current-line ()
-  (interactive)
-  (let ((oldpos (point)))
-    (beginning-of-line)
-    (newline-and-indent)
-    (previous-line)
-    (indent-for-tab-command)))
-(global-set-key (kbd "C-L") 'newline-above-current-line)
 
 ;; Changes enter to move to new line and indent
 (global-set-key "\C-m" 'newline-and-indent)
@@ -122,6 +82,8 @@
 ;; autocomplete provides auto-completion based on other open buffers
 ;; (require 'auto-complete-config)
 ;; (ac-config-default)
+;; (setq ac-delay 0.050)
+;; (setq ac-menu-height 20)
 ;; (diminish 'auto-complete-mode)
 
 ;; better-defaults fixes some of emacs's bad defaults
@@ -148,7 +110,7 @@
 (require 'company)
 (global-set-key (kbd "M-/") 'company-complete)
 (setq company-idle-delay 0.010)
-(setq company-minimum-prefix-length 0)
+(setq company-minimum-prefix-length 3)
 (setq company-show-numbers t)
 
 (custom-set-faces
@@ -253,8 +215,15 @@
 (add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
 (add-to-list 'auto-mode-alist '("README.md\\'" . gfm-mode))
 
-;; Reduce the amount of time it takes the matchin parenthesis to show up
-(setq show-paren-delay 0)
+;; org-mode helps you organize your life
+(require 'org)
+(define-key global-map "\C-cl" 'org-store-link)
+(define-key global-map "\C-ca" 'org-agenda)
+(setq org-log-done t)
+(setq org-agenda-files (list "~/.emacs.d/org"))
+(require 'ox-md)
+(eval-after-load "org"
+  '(require 'ox-md nil t))
 
 ;; Rainbow delimiters changes the color of () and {} so that it's
 ;; easier to see when they're matched
@@ -275,6 +244,9 @@
 (smartparens-global-mode 1)
 (diminish 'smartparens-mode)
 
+;; Reduce the amount of time it takes the matching parenthesis to show up
+(setq show-paren-delay 0)
+
 ;; subword-mode makes it so that camelcase is treated properyl
 (global-subword-mode 1)
 
@@ -290,6 +262,10 @@
 ;; windmove allows you to better navigate between frames
 (when (fboundp 'windmove-default-keybindings)
   (windmove-default-keybindings))
+
+;; ws-butler cleans up whitespace, but only on lines that you touch
+(require 'ws-butler)
+(add-hook 'c++-mode-hook 'ws-butler-mode)
 
 ;; yasnippet provides template for frequently-used idioms
 (require 'yasnippet)

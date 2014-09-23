@@ -1,0 +1,167 @@
+;; Make font smaller
+(set-face-attribute 'default nil :family "Inconsolata" :height 120)
+
+;; Open up this file as a buffer as soon as emacs opens
+
+;; ;; Main google load file
+;; (load-file "/google/src/files/head/depot/eng/elisp/google.el")
+;; (load-file "/google/src/files/head/depot/eng/elisp/google-cc-extras.el")
+;; (load-file "/google/src/files/head/depot/eng/elisp/google-autogen.el")
+
+;; ;; Default browser to Chrome
+;; (setq browse-url-browser-function 'browse-url-generic
+;;       browse-url-generic-program "google-chrome")
+
+(require 'google)
+(require 'google3-build)
+(require 'rotate-among-files)
+(require 'google-imports)
+(require 'p4-google)
+;; (require 'compilation-colorization)
+(key-chord-define-global "qc" 'g4-citc-find-file)
+;; (require 'p4-files)
+;; (require 'google-autogen)
+;; (require 'google-jswat)
+;; ;; Support for blaze builds
+;; (require 'google3)
+
+;; (setq google-build-system "blaze")
+
+;; (require 'google-flymake)
+
+;; ;; NOTE: These are still a bit flaky. Fix them.
+;; ;; C++ and java autocomplete
+;; (require 'gcomplete)
+;; (gcomplete-setup-flymake)
+;; (gcomplete-setup-for-auto-complete)
+
+
+;; ;; Set up grok
+;; (setq grok-api-bns "/bns/global/ns/aggregator/grok/grokservice.us_east/2")
+;; (grok-init)
+
+;; eclim provides eclipse features inside of emacs
+;; (require 'eclim)
+;; (global-eclim-mode)
+;; (custom-set-variables
+;;    '(eclim-eclipse-dirs '("/usr/local/google/users/charliea/eclipse43/stable"))
+;;    '(eclim-executable "/usr/local/google/users/charliea/eclipse43/stable/eclim"))
+
+;; ;; ;; company-emacs-eclim provides autocomplete for eclim
+;; (require 'company-emacs-eclim)
+;; (company-emacs-eclim-setup)
+;; (global-company-mode t)
+
+(global-set-key (kbd "C-c x") 'google-rotate-among-files)
+(global-set-key (kbd "C-c b") 'google3-build)
+(global-set-key (kbd "C-c t") 'google3-test)
+;; (add-hook 'c++-mode-hook
+;;           (lambda () (local-set-key (kbd "C-c f") 'google-clang-format-file)))
+(global-set-key (kbd "C-c i") 'google-imports-add-import-from-tag)
+
+
+;; (global-set-key (kbd "C-c s") 'cs)
+;; (global-set-key (kbd "C-c w") 'delete-trailing-whitespace)
+;; (global-set-key (kbd "C-c o") 'google-imports-organize-imports)
+
+;; Don't show trailing whitespace
+(setq google-show-trailing-whitespace nil)
+
+;; Highlight and lines that go past the fill column
+(require 'whitespace)
+(setq whitespace-style '(face tab lines-tail))
+(add-hook 'nxml-mode-hook (lambda ()
+                            (setq whitespace-line-column 100)
+                            (whitespace-mode t)))
+(add-hook 'java-mode-hook (lambda ()
+                            (setq whitespace-line-column 100)
+                            (setq-default fill-column 100)
+                            (whitespace-mode t)))
+(add-hook 'borg-mode-hook (lambda ()
+                           (setq whitespace-line-column 80)
+                           (setq-default fill-column 80)
+                           (whitespace-mode t)))
+(add-hook 'plxsql-mode-hook (lambda ()
+                           (setq whitespace-line-column 80)
+                           (setq-default fill-column 80)
+                           (whitespace-mode t)))
+(add-hook 'python-mode-hook (lambda ()
+                           (setq whitespace-line-column 80)
+                           (setq-default fill-column 80)
+                           (whitespace-mode t)))
+(add-hook 'google3-build-mode-hook (lambda ()
+                           (setq whitespace-line-column 80)
+                           (setq-default fill-column 80)
+                           (whitespace-mode t)))
+(add-hook 'c++-mode-hook (lambda ()
+                           (setq whitespace-line-column 80)
+                           (setq-default fill-column 80)
+                           (whitespace-mode t)))
+
+(add-hook 'c-mode-common-hook
+	  (lambda()
+	    (add-hook 'write-contents-functions
+		      (lambda()
+			(save-excursion
+			  (google-imports-organize-imports))))))
+
+;; ;; autogen new files
+;; (setq google-autogen-on-file-not-found 'cc-generator)
+
+;; ;; increase gc threshold
+;; (setq gc-cons-threshold 20000000)
+
+;; ;; Fix jswat path
+;; (defun jswat ()
+;;   (interactive)
+;;   (setq google-jdb-jswat-command "~/bin/jswat-launcher")
+;;   (google-jswat))
+
+;; ;; Fix java indentation
+;; (add-to-list 'load-path "~/.emacs.d/plugins/java-mode-indent-annotations")
+;; (require 'java-mode-indent-annotations)
+
+;; (add-hook 'java-mode-hook (lambda ()
+;;                             (c-set-offset 'statement-cont
+;;                                           '(c-no-indent-after-java-annotations ++))))
+
+(add-hook 'borg-mode-hook '(lambda () (set-fill-column 80)))
+(add-hook 'c++-mode-hook '(lambda () (set-fill-column 80)))
+(add-hook 'plxsql-mode-hook '(lambda () (set-fill-column 80)))
+
+;; PLXSQL command to comment/uncomment text
+(defun plxsql-comment-dwim (arg)
+  "Comment or uncomment current line or region in a smart way.
+For detail, see `comment-dwim'."
+  (interactive "*P")
+  (require 'newcomment)
+  (let (
+        (comment-start "//") (comment-end "")
+        )
+    (comment-dwim arg)))
+
+;; keywords for syntax coloring
+(setq plxsql-keywords `())
+
+;; PLXSQL syntax table
+(defvar plxsql-syntax-table nil "Syntax table for `plxsql-mode'.")
+(setq plxsql-syntax-table
+      (let ((synTable (make-syntax-table)))
+
+        ;; bash style comment: “# …”
+        (modify-syntax-entry ?\/ ". 12b" synTable)
+        (modify-syntax-entry ?\n "> b" synTable)
+
+        synTable))
+
+;; define the major mode.
+(define-derived-mode plxsql-mode fundamental-mode
+  "plxsql-mode is a major mode for editing language plxsql."
+  :syntax-table plxsql-syntax-table
+
+  (setq font-lock-defaults '(plxsql-keywords))
+  (setq mode-name "plxsql-mode")
+
+  ;; modify the keymap
+  (define-key plxsql-mode-map [remap comment-dwim] 'plxsql-comment-dwim)
+  )

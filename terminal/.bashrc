@@ -1,7 +1,7 @@
 # Convenient aliases
 alias ked="emacsclient -e '(kill-emacs)'"
 alias ed='emacs --daemon'
-alias e="emacsclient -c -nw"
+alias e="emacsclient -c"
 alias ka="killall -9"
 alias gc="git commit -m"
 alias gp="git push origin master"
@@ -36,3 +36,6 @@ export PS1="\[\e[01;30m\][\u@\h:\[\e[0;31m\]\w\[\e[01;30m\]] \[\e[m\]"
 
 # Don't forget about .google-bashrc!
 [[ -r ~/.google-bashrc ]] && . ~/.google-bashrc
+
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
