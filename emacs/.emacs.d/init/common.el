@@ -6,8 +6,12 @@
                          ("melpa" . "http://melpa.milkbox.net/packages/")))
 (package-initialize)
 
+;; Makes path be the same as in my shell
+(exec-path-from-shell-initialize)
+
 ;; Required here to allow chord bindings throughout the file
 (require 'key-chord)
+(key-chord-mode 1)
 
 ;; Disable annoying things
 (setq visible-bell t)
@@ -18,7 +22,7 @@
 
 (setq vc-follow-symlinks t)
 
-(load-theme 'wombat)
+(load-theme 'vim-colors t)
 
 ;; Always use filesystem versions of files
 (global-auto-revert-mode 1)
@@ -95,13 +99,6 @@
 (setq c-offsets-alist '((statement . ++)))
 (setq c-offsets-alist '((statement-cont . ++)))
 
-;; language-specific modes
-;; (require 'go-mode)
-(require 'clojure-mode)
-(require 'clojure-test-mode)
-(add-hook 'lisp-mode-hook (lambda () (slime-mode t)))
-(add-hook 'inferior-lisp-mode-hook (lambda () (inferior-slime-mode t)))
-
 ;; diminish keeps the modeline tidy.
 ;; Required here to let other modes diminish themselves.
 (require 'diminish)
@@ -127,16 +124,6 @@
 ;; better-defaults fixes some of emacs's bad defaults
 (require 'better-defaults)
 
-;; cider provides an IDE and REPL for clojure
-(require 'cider)
-(add-hook 'cider-mode-hook 'cider-turn-on-eldoc-mode)
-
-;; clean-buffer-list cleans out all buffers that haven't been used in a while
-(setq clean-buffer-list-delay-general 1)
-(setq clean-buffer-list-kill-never-buffer-names
-      '("common.el"
-        "google.el"))
-
 ;; command-frequency helps you find which commands you use most frequently
 (add-to-list 'load-path "~/.emacs.d/plugins/command-frequency")
 (require 'command-frequency)
@@ -147,63 +134,52 @@
 ;; company mode provides an auto-complete framework
 (require 'company)
 (global-set-key (kbd "M-/") 'company-complete)
-(setq company-idle-delay 0.010)
 (setq company-minimum-prefix-length 0)
 (setq company-show-numbers t)
+(setq company-tooltip-limit 20)                      ; bigger popup window
+(setq company-idle-delay .01)                         ; decrease delay before autocompletion popup shows
+(setq company-echo-delay 0)                          ; remove annoying blinking
+(setq company-begin-commands '(self-insert-command)) ; start autocompletion only after typing
 
-(custom-set-faces
- '(company-preview
-   ((t (:foreground "darkgray" :underline t))))
- '(company-preview-common
-   ((t (:inherit company-preview))))
- '(company-tooltip
-   ((t (:background "lightgray" :foreground "black"))))
- '(company-tooltip-selection
-   ((t (:background "black" :foreground "lightgray"))))
- '(company-tooltip-common
-   ((((type x)) (:inherit company-tooltip :weight bold))
-    (t (:inherit company-tooltip))))
- '(company-tooltip-common-selection
-   ((((type x)) (:inherit company-tooltip-selection :weight bold))
-    (t (:inherit company-tooltip-selection))))
- `(company-scrollbar-bg ((t (:background "white"))))
- `(company-scrollbar-fg ((t (:background "black")))))
+;; (custom-set-faces
+;;  '(company-preview
+;;    ((t (:foreground "darkgray" :underline t))))
+;;  '(company-preview-common
+;;    ((t (:inherit company-preview))))
+;;  '(company-tooltip
+;;    ((t (:background "lightgray" :foreground "black"))))
+;;  '(company-tooltip-selection
+;;    ((t (:background "black" :foreground "lightgray"))))
+;;  '(company-tooltip-common
+;;    ((((type x)) (:inherit company-tooltip :weight bold))
+;;     (t (:inherit company-tooltip))))
+;;  '(company-tooltip-common-selection
+;;    ((((type x)) (:inherit company-tooltip-selection :weight bold))
+;;     (t (:inherit company-tooltip-selection))))
+;;  `(company-scrollbar-bg ((t (:background "white"))))
+;;  `(company-scrollbar-fg ((t (:background "black")))))
 
-;; desktop-save-mode automatically saves emacs when closing it
-(setq desktop-dirname             "~/.emacs.d/desktop/"
-      desktop-base-file-name      "emacs.desktop"
-      desktop-base-lock-name      "lock"
-      desktop-path                (list desktop-dirname)
-      desktop-save                t
-      desktop-files-not-to-save   "^$" ;reload tramp paths
-      desktop-load-locked-desktop nil)
-(desktop-save-mode 1)
+(require 'company-go)
+(add-hook 'go-mode-hook (lambda ()
+                          (set (make-local-variable 'company-backends) '(company-go))
+                          (company-mode)))
 
 (require 'emmet-mode)
-
-;; find-file-in-project allows you to easily find files within a project
-(require 'find-file-in-project)
-(key-chord-define-global "qq" 'ffip)
-(add-to-list 'ffip-patterns "*.java")
-(add-to-list 'ffip-patterns "*.h")
-(add-to-list 'ffip-patterns "*.cc")
-(add-to-list 'ffip-patterns "*.go")
-(setq ffip-limit 20000)
 
 ;; flx-ido provides better flex matching for IDO
 (require 'flx-ido)
 
-(require 'flymake)
-(setq flymake-start-syntax-check-on-newline nil)
-;; Make the flymake errors more obvious
-(custom-set-faces
- '(flymake-errline ((t (:background "firebrick" :foreground "color-231")))))
-;; Show the flymake error in the minibuffer
-(custom-set-variables
- '(help-at-pt-timer-delay 0.1)
- '(help-at-pt-display-when-idle '(flymake-overlay)))
-(key-chord-define-global ".," 'flymake-goto-prev-error)
-(key-chord-define-global ",." 'flymake-goto-next-error)
+;; (require 'flymake)
+;; (setq flymake-start-syntax-check-on-newline nil)
+;; ;; Make the flymake errors more obvious
+;; (custom-set-faces
+;;  '(flymake-errline ((t (:background "firebrick" :foreground "color-231")))))
+;; ;; Show the flymake error in the minibuffer
+;; (custom-set-variables
+;;  '(help-at-pt-timer-delay 0.1)
+;;  '(help-at-pt-display-when-idle '(flymake-overlay)))
+;; (key-chord-define-global ".," 'flymake-goto-prev-error)
+;; (key-chord-define-global ",." 'flymake-goto-next-error)
 
 ;; go-autocomplete provides autocomplete for go
 ;(require 'go-autocomplete)
@@ -213,6 +189,9 @@
 ;; go-flymake provides syntax checking for go
 ;(add-to-list 'load-path "~/go/src/github.com/dougm/goflymake")
 ;(require 'go-flymake)
+
+(require 'go-mode)
+(add-hook 'before-save-hook 'gofmt-before-save)
 
 ;; hl-line+ highlights the current line when emacs is idle
 (require 'hl-line+)
@@ -228,6 +207,10 @@
 (require 'ido-ubiquitous)
 (ido-ubiquitous-mode 1)
 
+;; jedi understands python
+(add-hook 'python-mode-hook 'jedi:setup)
+(setq jedi:complete-on-dot t)
+
 ;; js2-mode fixes javascript in emacs
 (require 'js2-mode)
 (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
@@ -238,9 +221,6 @@
 ;; (add-hook 'js2-mode-hook 'ac-js2-mode)
 ;; (setq ac-js2-evaluate-calls t)
 ;; (setq ac-js2-external-libraries '(concat user-emacs-directory "lib/d3.min.js"))
-
-;; key-chord allows you to use chords of keys as a binding option
-(key-chord-mode 1)
 
 ;; magit is an emacs interface to git
 (require 'magit)
@@ -258,8 +238,8 @@
 
 ;; Rainbow delimiters changes the color of () and {} so that it's
 ;; easier to see when they're matched
-(require 'rainbow-delimiters)
-(global-rainbow-delimiters-mode)
+;; (require 'rainbow-delimiters)
+;; (global-rainbow-delimiters-mode)
 
 ;; scss-mode allows you to work with Sass
 (require 'scss-mode)
@@ -287,10 +267,6 @@
 ;; (add-to-list 'auto-mode-alist '("\\.erb\\'" . web-mode))
 ;; (add-to-list 'auto-mode-alist '("\\.html\\'" . web-mode))
 
-;; windmove allows you to better navigate between frames
-(when (fboundp 'windmove-default-keybindings)
-  (windmove-default-keybindings))
-
 ;; yasnippet provides template for frequently-used idioms
 (require 'yasnippet)
 (setq yas/trigger-key (kbd "C-c C-f"))
@@ -300,35 +276,6 @@
 ;; Disable tabs in nxml mode
 (add-hook 'nxml-mode-hook (lambda()
                             (setq indent-tabs-mode nil)))
-
-;; Easily resize the frame with (C-c -) and (C-c +)
-(setq my-frame-size 120.0)
-(defun increase-frame-size-by-one-frame-size ()
-  (interactive)
-  (change-frame-size-by-number-of-frame-sizes 1))
-
-(defun decrease-frame-size-by-one-frame-size ()
-  (interactive)
-  (change-frame-size-by-number-of-frame-sizes -1))
-
-(defun change-frame-size-by-number-of-frame-sizes (vertical-split-delta)
-  (set-vertical-split-count (+ (get-vertical-split-count) vertical-split-delta)))
-
-(defun get-vertical-split-count ()
-  (floor (/ (frame-width (selected-frame)) my-frame-size)))
-
-(defun set-vertical-split-count (vertical-split-count)
-  (let ((new-width (round (* my-frame-size vertical-split-count))))
-    (set-frame-width (selected-frame) new-width)))
-
-(global-set-key (kbd "C-c -") '(lambda ()
-                                 (interactive)
-                                 (decrease-frame-size-by-one-frame-size)
-                                 (balance-windows)))
-(global-set-key (kbd "C-c =") '(lambda ()
-                                 (interactive)
-                                 (increase-frame-size-by-one-frame-size)
-                                 (balance-windows)))
 
 (defun rename-file-and-buffer (new-name)
   "Renames both current buffer and file it's visiting to NEW-NAME."
@@ -344,3 +291,4 @@
           (rename-buffer new-name)
           (set-visited-file-name new-name)
           (set-buffer-modified-p nil))))))
+

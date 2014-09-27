@@ -1,7 +1,7 @@
 # Convenient aliases
 alias ked="emacsclient -e '(kill-emacs)'"
 alias ed='emacs --daemon'
-alias e="emacsclient -c -nw"
+alias e="emacsclient -c"
 alias ka="killall -9"
 alias gc="git commit -m"
 alias gp="git push origin master"
@@ -28,11 +28,13 @@ fi
 # Go needs $GOPATH to get new binaries and such
 export GOPATH=$HOME/go
 
-# Prefer /usr/local/bin binaries of /usr/bin binaries
-export PATH="/usr/local/bin:$PATH"
+# # Prefer /usr/local/bin binaries of /usr/bin binaries
+# export PATH="/usr/local/bin:/usr/local/share/npm/bin:$PATH:$GOPATH/bin"
 
 # Command line prompt
 export PS1="\[\e[01;30m\][\u@\h:\[\e[0;31m\]\w\[\e[01;30m\]] \[\e[m\]"
 
 # Don't forget about .google-bashrc!
 [[ -r ~/.google-bashrc ]] && . ~/.google-bashrc
+
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting

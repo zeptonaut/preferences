@@ -1,0 +1,19 @@
+;; -*- mode: emacs-lisp; coding: emacs-mule; -*-
+;; --------------------------------------------------------------------------
+;; Desktop File for Emacs
+;; --------------------------------------------------------------------------
+;; Created Sat Sep 27 16:40:24 2014
+;; Desktop file format version 206
+;; Emacs version 24.4.50.1
+
+;; Global section:
+(setq desktop-saved-frameset [frameset 1 (21543 8376 897354 0) (desktop . "206") "Charlie@eolian.local" nil nil ((((tty-type . "xterm-256color") (tty . "/dev/tty") (display-type . color) (background-mode . light) (foreground-color . "#000000") (cursor-color . "#000000") (menu-bar-lines . 0) (tool-bar-lines . 0) (vertical-scroll-bars) (background-color . "#ffffff") (scroll-bar-background . "grey75") (scroll-bar-foreground . "#000000") (mouse-color . "#000000") (border-color . "black") (font . "tty") (height . 24) (width . 80) (modeline . t) (unsplittable) (frameset--id . "E009-16D7-3CEA-7360") (frameset--mini t) (minibuffer . t)) ((min-height . 4) (min-width . 10) (min-height-ignore . 2) (min-width-ignore . 2) (min-height-safe . 1) (min-width-safe . 2) (min-pixel-height . 4) (min-pixel-width . 10) (min-pixel-height-ignore . 2) (min-pixel-width-ignore . 2) (min-pixel-height-safe . 1) (min-pixel-width-safe . 2)) leaf (pixel-width . 80) (pixel-height . 23) (total-width . 80) (total-height . 23) (normal-height . 1.0) (normal-width . 1.0) (buffer "*scratch*" (selected . t) (hscroll . 0) (fringes 0 0 nil) (margins nil) (scroll-bars 0 0 t 0 0 nil) (vscroll . 0) (dedicated) (point . 192) (start . 1))))])
+(setq desktop-missing-file-warning nil)
+(setq tags-file-name nil)
+(setq tags-table-list nil)
+(setq search-ring nil)
+(setq regexp-search-ring nil)
+(setq register-alist nil)
+(setq file-name-history '("~/Documents/preferences/"))
+
+;; Buffer section -- buffers listed in same order as in buffer list:
