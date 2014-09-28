@@ -84,13 +84,6 @@
 ;; better-defaults fixes some of emacs's bad defaults
 (require 'better-defaults)
 
-;; command-frequency helps you find which commands you use most frequently
-(add-to-list 'load-path "~/.emacs.d/plugins/command-frequency")
-(require 'command-frequency)
-(command-frequency-table-load)
-(command-frequency-mode 1)
-(command-frequency-autosave-mode 1)
-
 ;; company mode provides an auto-complete framework
 (require 'company)
 (global-set-key (kbd "M-/") 'company-complete)
@@ -131,6 +124,11 @@
 ;; flx-ido provides better flex matching for IDO
 (require 'flx-ido)
 
+;; flycheck shows errors as you go
+(require 'flycheck)
+(add-hook 'python-mode-hook (lambda ()
+                              (flycheck-mode)))
+(setq flycheck-display-errors-delay 0.01)
 ;; (require 'flymake)
 ;; (setq flymake-start-syntax-check-on-newline nil)
 ;; ;; Make the flymake errors more obvious
@@ -225,7 +223,7 @@
 (diminish 'smartparens-mode)
 
 ;; Reduce the amount of time it takes the matching parenthesis to show up
-(setq show-paren-delay 0)
+(setq show-paren-delay 0.01)
 
 ;; subword-mode makes it so that camelcase is treated properyl
 (global-subword-mode 1)
@@ -238,6 +236,20 @@
 ;; (require 'web-mode)
 ;; (add-to-list 'auto-mode-alist '("\\.erb\\'" . web-mode))
 ;; (add-to-list 'auto-mode-alist '("\\.html\\'" . web-mode))
+
+;; whitespace highlights lines that are too long
+(require 'whitespace)
+(setq whitespace-style '(face lines-tail))
+(set-face-attribute 'whitespace-line nil
+                    :background "red1"
+                    :foreground "white")
+(add-hook 'python-mode-hook 'whitespace-mode)
+(add-hook 'python-mode-hook (lambda()
+                              (setq whitespace-line-column 80
+                                    whitespace-style '(face tabs trailing lines-tail))))
+
+
+(add-hook 'prog-mode-hook 'whitespace-mode)
 
 ;; ws-butler cleans up whitespace, but only on lines that you touch
 (require 'ws-butler)
