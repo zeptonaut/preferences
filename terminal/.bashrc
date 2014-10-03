@@ -38,7 +38,4 @@ export PS1="\[\e[01;30m\][\u@\h:\[\e[0;31m\]\w\[\e[01;30m\]] \[\e[m\]"
 [[ -r ~/.google-bashrc ]] && . ~/.google-bashrc
 
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
-<<<<<<< HEAD
-=======
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
->>>>>>> 40c7bc42fd73ea03ee2f83868e5b6d399bd0f8f6
