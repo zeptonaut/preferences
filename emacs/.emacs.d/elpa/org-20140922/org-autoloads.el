@@ -9,8 +9,9 @@
 ;;;;;;  org-run-like-in-org-mode turn-on-orgstruct++ turn-on-orgstruct
 ;;;;;;  orgstruct-mode org-global-cycle org-cycle org-mode org-clock-persistence-insinuate
 ;;;;;;  turn-on-orgtbl org-version org-babel-load-file org-babel-do-load-languages)
-;;;;;;  "org" "org.el" (21537 61017 173087 63000))
-;;; Generated autoloads from org.el
+;;;;;;  "org" "../../../../../../.emacs.d/elpa/org-20140922/org.el"
+;;;;;;  "033218aae8894a88c9b1567f140250a4")
+;;; Generated autoloads from ../../../../../../.emacs.d/elpa/org-20140922/org.el
 
 (autoload 'org-babel-do-load-languages "org" "\
 Load the languages defined in `org-babel-load-languages'.
@@ -235,9 +236,9 @@ Call the customize function with org as argument.
 ;;;;;;  org-diary org-agenda-list-stuck-projects org-tags-view org-todo-list
 ;;;;;;  org-search-view org-agenda-list org-batch-store-agenda-views
 ;;;;;;  org-store-agenda-views org-batch-agenda-csv org-batch-agenda
-;;;;;;  org-agenda org-toggle-sticky-agenda) "org-agenda" "org-agenda.el"
-;;;;;;  (21537 61014 961061 228000))
-;;; Generated autoloads from org-agenda.el
+;;;;;;  org-agenda org-toggle-sticky-agenda) "org-agenda" "../../../../../../.emacs.d/elpa/org-20140922/org-agenda.el"
+;;;;;;  "3b018568466058e978725f906d67ffaa")
+;;; Generated autoloads from ../../../../../../.emacs.d/elpa/org-20140922/org-agenda.el
 
 (autoload 'org-toggle-sticky-agenda "org-agenda" "\
 Toggle `org-agenda-sticky'.
@@ -510,9 +511,9 @@ to override `appt-message-warning-time'.
 ;;;***
 
 ;;;### (autoloads (org-capture-import-remember-templates org-capture
-;;;;;;  org-capture-string) "org-capture" "org-capture.el" (21537
-;;;;;;  61016 293076 785000))
-;;; Generated autoloads from org-capture.el
+;;;;;;  org-capture-string) "org-capture" "../../../../../../.emacs.d/elpa/org-20140922/org-capture.el"
+;;;;;;  "6654418b54cdf0ad9e5ba5927fb47de9")
+;;; Generated autoloads from ../../../../../../.emacs.d/elpa/org-20140922/org-capture.el
 
 (autoload 'org-capture-string "org-capture" "\
 Capture STRING with the template selected by KEYS.
@@ -556,8 +557,9 @@ Set `org-capture-templates' to be similar to `org-remember-templates'.
 ;;;### (autoloads (org-agenda-columns org-insert-columns-dblock org-dblock-write:columnview
 ;;;;;;  org-columns-number-to-string org-columns-compute org-columns
 ;;;;;;  org-columns-get-format-and-top-level org-columns-remove-overlays)
-;;;;;;  "org-colview" "org-colview.el" (21537 61014 213052 492000))
-;;; Generated autoloads from org-colview.el
+;;;;;;  "org-colview" "../../../../../../.emacs.d/elpa/org-20140922/org-colview.el"
+;;;;;;  "47a4761bb9175e02cfe8f6283586c048")
+;;; Generated autoloads from ../../../../../../.emacs.d/elpa/org-20140922/org-colview.el
 
 (autoload 'org-columns-remove-overlays "org-colview" "\
 Remove all currently active column overlays.
@@ -619,9 +621,9 @@ Turn on or update column view in the agenda.
 
 ;;;***
 
-;;;### (autoloads (org-check-version) "org-compat" "org-compat.el"
-;;;;;;  (21537 61013 353042 448000))
-;;; Generated autoloads from org-compat.el
+;;;### (autoloads (org-check-version) "org-compat" "../../../../../../.emacs.d/elpa/org-20140922/org-compat.el"
+;;;;;;  "668893deb9fb3311c65f69bdf1aa2e31")
+;;; Generated autoloads from ../../../../../../.emacs.d/elpa/org-20140922/org-compat.el
 
 (autoload 'org-check-version "org-compat" "\
 Try very hard to provide sensible version strings.
@@ -630,9 +632,9 @@ Try very hard to provide sensible version strings.
 
 ;;;***
 
-;;;### (autoloads (org-load-noerror-mustsuffix) "org-macs" "org-macs.el"
-;;;;;;  (21537 61015 185063 844000))
-;;; Generated autoloads from org-macs.el
+;;;### (autoloads (org-load-noerror-mustsuffix) "org-macs" "../../../../../../.emacs.d/elpa/org-20140922/org-macs.el"
+;;;;;;  "cecb6b1723e83088090af0bf62686937")
+;;; Generated autoloads from ../../../../../../.emacs.d/elpa/org-20140922/org-macs.el
 
 (autoload 'org-load-noerror-mustsuffix "org-macs" "\
 Load FILE with optional arguments NOERROR and MUSTSUFFIX.  Drop the MUSTSUFFIX argument for XEmacs, which doesn't recognize it.
@@ -641,9 +643,9 @@ Load FILE with optional arguments NOERROR and MUSTSUFFIX.  Drop the MUSTSUFFIX a
 
 ;;;***
 
-;;;### (autoloads (org-git-version org-release) "org-version" "org-version.el"
-;;;;;;  (21537 61016 625080 663000))
-;;; Generated autoloads from org-version.el
+;;;### (autoloads (org-git-version org-release) "org-version" "../../../../../../.emacs.d/elpa/org-20140922/org-version.el"
+;;;;;;  "fca0c63a85d8da7c9967aace33eb8ee8")
+;;; Generated autoloads from ../../../../../../.emacs.d/elpa/org-20140922/org-version.el
 
 (autoload 'org-release "org-version" "\
 The release version of org-mode.
@@ -662,30 +664,107 @@ The location of ODT styles.")
 
 ;;;***
 
-;;;### (autoloads nil nil ("ob-C.el" "ob-R.el" "ob-asymptote.el"
-;;;;;;  "ob-awk.el" "ob-calc.el" "ob-clojure.el" "ob-comint.el" "ob-core.el"
-;;;;;;  "ob-css.el" "ob-ditaa.el" "ob-dot.el" "ob-emacs-lisp.el"
-;;;;;;  "ob-eval.el" "ob-exp.el" "ob-fortran.el" "ob-gnuplot.el"
-;;;;;;  "ob-haskell.el" "ob-io.el" "ob-java.el" "ob-js.el" "ob-keys.el"
-;;;;;;  "ob-latex.el" "ob-ledger.el" "ob-lilypond.el" "ob-lisp.el"
-;;;;;;  "ob-lob.el" "ob-makefile.el" "ob-matlab.el" "ob-maxima.el"
-;;;;;;  "ob-mscgen.el" "ob-ocaml.el" "ob-octave.el" "ob-org.el" "ob-perl.el"
-;;;;;;  "ob-picolisp.el" "ob-plantuml.el" "ob-python.el" "ob-ref.el"
-;;;;;;  "ob-ruby.el" "ob-sass.el" "ob-scala.el" "ob-scheme.el" "ob-screen.el"
-;;;;;;  "ob-sh.el" "ob-shen.el" "ob-sql.el" "ob-sqlite.el" "ob-table.el"
-;;;;;;  "ob-tangle.el" "ob.el" "org-archive.el" "org-attach.el" "org-bbdb.el"
-;;;;;;  "org-bibtex.el" "org-clock.el" "org-crypt.el" "org-ctags.el"
-;;;;;;  "org-datetree.el" "org-docview.el" "org-element.el" "org-entities.el"
-;;;;;;  "org-eshell.el" "org-faces.el" "org-feed.el" "org-footnote.el"
-;;;;;;  "org-gnus.el" "org-habit.el" "org-id.el" "org-indent.el"
-;;;;;;  "org-info.el" "org-inlinetask.el" "org-install.el" "org-irc.el"
-;;;;;;  "org-list.el" "org-loaddefs.el" "org-macro.el" "org-mhe.el"
-;;;;;;  "org-mobile.el" "org-mouse.el" "org-pcomplete.el" "org-pkg.el"
-;;;;;;  "org-plot.el" "org-protocol.el" "org-rmail.el" "org-src.el"
-;;;;;;  "org-table.el" "org-timer.el" "org-w3m.el" "ox-ascii.el"
-;;;;;;  "ox-beamer.el" "ox-html.el" "ox-icalendar.el" "ox-latex.el"
-;;;;;;  "ox-man.el" "ox-md.el" "ox-odt.el" "ox-org.el" "ox-publish.el"
-;;;;;;  "ox-texinfo.el" "ox.el") (21537 61018 305171 490000))
+;;;### (autoloads nil nil ("../../../../../../.emacs.d/elpa/org-20140922/ob-C.el"
+;;;;;;  "../../../../../../.emacs.d/elpa/org-20140922/ob-R.el" "../../../../../../.emacs.d/elpa/org-20140922/ob-asymptote.el"
+;;;;;;  "../../../../../../.emacs.d/elpa/org-20140922/ob-awk.el"
+;;;;;;  "../../../../../../.emacs.d/elpa/org-20140922/ob-calc.el"
+;;;;;;  "../../../../../../.emacs.d/elpa/org-20140922/ob-clojure.el"
+;;;;;;  "../../../../../../.emacs.d/elpa/org-20140922/ob-comint.el"
+;;;;;;  "../../../../../../.emacs.d/elpa/org-20140922/ob-core.el"
+;;;;;;  "../../../../../../.emacs.d/elpa/org-20140922/ob-css.el"
+;;;;;;  "../../../../../../.emacs.d/elpa/org-20140922/ob-ditaa.el"
+;;;;;;  "../../../../../../.emacs.d/elpa/org-20140922/ob-dot.el"
+;;;;;;  "../../../../../../.emacs.d/elpa/org-20140922/ob-emacs-lisp.el"
+;;;;;;  "../../../../../../.emacs.d/elpa/org-20140922/ob-eval.el"
+;;;;;;  "../../../../../../.emacs.d/elpa/org-20140922/ob-exp.el"
+;;;;;;  "../../../../../../.emacs.d/elpa/org-20140922/ob-fortran.el"
+;;;;;;  "../../../../../../.emacs.d/elpa/org-20140922/ob-gnuplot.el"
+;;;;;;  "../../../../../../.emacs.d/elpa/org-20140922/ob-haskell.el"
+;;;;;;  "../../../../../../.emacs.d/elpa/org-20140922/ob-io.el" "../../../../../../.emacs.d/elpa/org-20140922/ob-java.el"
+;;;;;;  "../../../../../../.emacs.d/elpa/org-20140922/ob-js.el" "../../../../../../.emacs.d/elpa/org-20140922/ob-keys.el"
+;;;;;;  "../../../../../../.emacs.d/elpa/org-20140922/ob-latex.el"
+;;;;;;  "../../../../../../.emacs.d/elpa/org-20140922/ob-ledger.el"
+;;;;;;  "../../../../../../.emacs.d/elpa/org-20140922/ob-lilypond.el"
+;;;;;;  "../../../../../../.emacs.d/elpa/org-20140922/ob-lisp.el"
+;;;;;;  "../../../../../../.emacs.d/elpa/org-20140922/ob-lob.el"
+;;;;;;  "../../../../../../.emacs.d/elpa/org-20140922/ob-makefile.el"
+;;;;;;  "../../../../../../.emacs.d/elpa/org-20140922/ob-matlab.el"
+;;;;;;  "../../../../../../.emacs.d/elpa/org-20140922/ob-maxima.el"
+;;;;;;  "../../../../../../.emacs.d/elpa/org-20140922/ob-mscgen.el"
+;;;;;;  "../../../../../../.emacs.d/elpa/org-20140922/ob-ocaml.el"
+;;;;;;  "../../../../../../.emacs.d/elpa/org-20140922/ob-octave.el"
+;;;;;;  "../../../../../../.emacs.d/elpa/org-20140922/ob-org.el"
+;;;;;;  "../../../../../../.emacs.d/elpa/org-20140922/ob-perl.el"
+;;;;;;  "../../../../../../.emacs.d/elpa/org-20140922/ob-picolisp.el"
+;;;;;;  "../../../../../../.emacs.d/elpa/org-20140922/ob-plantuml.el"
+;;;;;;  "../../../../../../.emacs.d/elpa/org-20140922/ob-python.el"
+;;;;;;  "../../../../../../.emacs.d/elpa/org-20140922/ob-ref.el"
+;;;;;;  "../../../../../../.emacs.d/elpa/org-20140922/ob-ruby.el"
+;;;;;;  "../../../../../../.emacs.d/elpa/org-20140922/ob-sass.el"
+;;;;;;  "../../../../../../.emacs.d/elpa/org-20140922/ob-scala.el"
+;;;;;;  "../../../../../../.emacs.d/elpa/org-20140922/ob-scheme.el"
+;;;;;;  "../../../../../../.emacs.d/elpa/org-20140922/ob-screen.el"
+;;;;;;  "../../../../../../.emacs.d/elpa/org-20140922/ob-sh.el" "../../../../../../.emacs.d/elpa/org-20140922/ob-shen.el"
+;;;;;;  "../../../../../../.emacs.d/elpa/org-20140922/ob-sql.el"
+;;;;;;  "../../../../../../.emacs.d/elpa/org-20140922/ob-sqlite.el"
+;;;;;;  "../../../../../../.emacs.d/elpa/org-20140922/ob-table.el"
+;;;;;;  "../../../../../../.emacs.d/elpa/org-20140922/ob-tangle.el"
+;;;;;;  "../../../../../../.emacs.d/elpa/org-20140922/ob.el" "../../../../../../.emacs.d/elpa/org-20140922/org-agenda.el"
+;;;;;;  "../../../../../../.emacs.d/elpa/org-20140922/org-archive.el"
+;;;;;;  "../../../../../../.emacs.d/elpa/org-20140922/org-attach.el"
+;;;;;;  "../../../../../../.emacs.d/elpa/org-20140922/org-bbdb.el"
+;;;;;;  "../../../../../../.emacs.d/elpa/org-20140922/org-bibtex.el"
+;;;;;;  "../../../../../../.emacs.d/elpa/org-20140922/org-capture.el"
+;;;;;;  "../../../../../../.emacs.d/elpa/org-20140922/org-clock.el"
+;;;;;;  "../../../../../../.emacs.d/elpa/org-20140922/org-colview.el"
+;;;;;;  "../../../../../../.emacs.d/elpa/org-20140922/org-compat.el"
+;;;;;;  "../../../../../../.emacs.d/elpa/org-20140922/org-crypt.el"
+;;;;;;  "../../../../../../.emacs.d/elpa/org-20140922/org-ctags.el"
+;;;;;;  "../../../../../../.emacs.d/elpa/org-20140922/org-datetree.el"
+;;;;;;  "../../../../../../.emacs.d/elpa/org-20140922/org-docview.el"
+;;;;;;  "../../../../../../.emacs.d/elpa/org-20140922/org-element.el"
+;;;;;;  "../../../../../../.emacs.d/elpa/org-20140922/org-entities.el"
+;;;;;;  "../../../../../../.emacs.d/elpa/org-20140922/org-eshell.el"
+;;;;;;  "../../../../../../.emacs.d/elpa/org-20140922/org-faces.el"
+;;;;;;  "../../../../../../.emacs.d/elpa/org-20140922/org-feed.el"
+;;;;;;  "../../../../../../.emacs.d/elpa/org-20140922/org-footnote.el"
+;;;;;;  "../../../../../../.emacs.d/elpa/org-20140922/org-gnus.el"
+;;;;;;  "../../../../../../.emacs.d/elpa/org-20140922/org-habit.el"
+;;;;;;  "../../../../../../.emacs.d/elpa/org-20140922/org-id.el"
+;;;;;;  "../../../../../../.emacs.d/elpa/org-20140922/org-indent.el"
+;;;;;;  "../../../../../../.emacs.d/elpa/org-20140922/org-info.el"
+;;;;;;  "../../../../../../.emacs.d/elpa/org-20140922/org-inlinetask.el"
+;;;;;;  "../../../../../../.emacs.d/elpa/org-20140922/org-install.el"
+;;;;;;  "../../../../../../.emacs.d/elpa/org-20140922/org-irc.el"
+;;;;;;  "../../../../../../.emacs.d/elpa/org-20140922/org-list.el"
+;;;;;;  "../../../../../../.emacs.d/elpa/org-20140922/org-loaddefs.el"
+;;;;;;  "../../../../../../.emacs.d/elpa/org-20140922/org-macro.el"
+;;;;;;  "../../../../../../.emacs.d/elpa/org-20140922/org-macs.el"
+;;;;;;  "../../../../../../.emacs.d/elpa/org-20140922/org-mhe.el"
+;;;;;;  "../../../../../../.emacs.d/elpa/org-20140922/org-mobile.el"
+;;;;;;  "../../../../../../.emacs.d/elpa/org-20140922/org-mouse.el"
+;;;;;;  "../../../../../../.emacs.d/elpa/org-20140922/org-pcomplete.el"
+;;;;;;  "../../../../../../.emacs.d/elpa/org-20140922/org-pkg.el"
+;;;;;;  "../../../../../../.emacs.d/elpa/org-20140922/org-plot.el"
+;;;;;;  "../../../../../../.emacs.d/elpa/org-20140922/org-protocol.el"
+;;;;;;  "../../../../../../.emacs.d/elpa/org-20140922/org-rmail.el"
+;;;;;;  "../../../../../../.emacs.d/elpa/org-20140922/org-src.el"
+;;;;;;  "../../../../../../.emacs.d/elpa/org-20140922/org-table.el"
+;;;;;;  "../../../../../../.emacs.d/elpa/org-20140922/org-timer.el"
+;;;;;;  "../../../../../../.emacs.d/elpa/org-20140922/org-version.el"
+;;;;;;  "../../../../../../.emacs.d/elpa/org-20140922/org-w3m.el"
+;;;;;;  "../../../../../../.emacs.d/elpa/org-20140922/org.el" "../../../../../../.emacs.d/elpa/org-20140922/ox-ascii.el"
+;;;;;;  "../../../../../../.emacs.d/elpa/org-20140922/ox-beamer.el"
+;;;;;;  "../../../../../../.emacs.d/elpa/org-20140922/ox-html.el"
+;;;;;;  "../../../../../../.emacs.d/elpa/org-20140922/ox-icalendar.el"
+;;;;;;  "../../../../../../.emacs.d/elpa/org-20140922/ox-latex.el"
+;;;;;;  "../../../../../../.emacs.d/elpa/org-20140922/ox-man.el"
+;;;;;;  "../../../../../../.emacs.d/elpa/org-20140922/ox-md.el" "../../../../../../.emacs.d/elpa/org-20140922/ox-odt.el"
+;;;;;;  "../../../../../../.emacs.d/elpa/org-20140922/ox-org.el"
+;;;;;;  "../../../../../../.emacs.d/elpa/org-20140922/ox-publish.el"
+;;;;;;  "../../../../../../.emacs.d/elpa/org-20140922/ox-texinfo.el"
+;;;;;;  "../../../../../../.emacs.d/elpa/org-20140922/ox.el") (21539
+;;;;;;  11624 404433 17000))
 
 ;;;***
 
