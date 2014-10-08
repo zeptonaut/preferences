@@ -33,6 +33,7 @@
 (global-set-key (kbd "M-w") 'clipboard-kill-ring-save)
 (global-set-key (kbd "C-y") 'clipboard-yank)
 (global-set-key (kbd "C-c e") 'eval-region)
+(global-set-key (kbd "C-c E") 'eval-buffer)
 (global-set-key (kbd "C-c C-r") 'replace-string)
 (global-set-key (kbd "C-c C-/") 'replace-regexp)
 (global-set-key (kbd "C-c C-t i") 'timeclock-in)
@@ -83,6 +84,7 @@
 
 ;; better-defaults fixes some of emacs's bad defaults
 (require 'better-defaults)
+(scroll-bar-mode 1)
 
 ;; company mode provides an auto-complete framework
 (require 'company)
@@ -92,9 +94,10 @@
 (setq company-minimum-prefix-length 3)
 (setq company-show-numbers t)
 (setq company-tooltip-limit 20)                      ; bigger popup window
-(setq company-idle-delay .01)                         ; decrease delay before autocompletion popup shows
+(setq company-idle-delay .01)                        ; decrease delay before autocompletion popup shows
 (setq company-echo-delay 0)                          ; remove annoying blinking
 (setq company-begin-commands '(self-insert-command)) ; start autocompletion only after typing
+(add-hook 'after-init-hook 'global-company-mode)
 
 ;; (custom-set-faces
 ;;  '(company-preview
@@ -257,7 +260,8 @@
 
 ;; yasnippet provides template for frequently-used idioms
 (require 'yasnippet)
-(setq yas/trigger-key (kbd "C-c C-f"))
+(key-chord-define-global "kj" 'yas-expand-from-trigger-key)
+(setq yas-snippet-dirs '("~/.emacs.d/mysnippets"))
 (yas-global-mode 1)
 (diminish 'yas-minor-mode)
 
@@ -280,3 +284,6 @@
           (set-visited-file-name new-name)
           (set-buffer-modified-p nil))))))
 
+;; Playground
+(add-to-list 'load-path "~/.emacs.d/playground")
+(require 'friendly-veterinarian)

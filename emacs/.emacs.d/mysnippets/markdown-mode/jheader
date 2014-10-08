@@ -1,0 +1,12 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: jheader
+# key: jheader
+# binding: direct-keybinding
+# --
+---
+layout: post
+title: "${1:name}"
+date: `(print (format-time-string "%Y-%m-%d %H:%M"))`
+categories: ${2:categories}
+---
+$0
