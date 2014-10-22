@@ -88,6 +88,7 @@
 
 ;; coffee-mode provides support for coffeescript
 (require 'coffee-mode)
+(custom-set-variables '(coffee-tab-width 2))
 
 ;; company mode provides an auto-complete framework
 (require 'company)

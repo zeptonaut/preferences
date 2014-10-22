@@ -1,0 +1,8 @@
+this is a test
+
+(flycheck-check-modes 'error-on-one-checker)
+(flycheck-check-predicate 'error-on-one-checker) 
+(flycheck-check-executable 'error-on-one)
+
+a  
+this line has a q on it  

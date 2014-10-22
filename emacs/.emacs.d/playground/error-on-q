@@ -1,0 +1,27 @@
+#!/bin/bash
+# Capture the first argument and put it into $FILE
+FILE=$1
+
+# Capture the output of grep and put it into $MATCHES
+# Parameters:
+# --color=never  Don't colorize the output - we want plain text
+# -n             Print the line number of the match
+# -i             We don't care about the case of the letter
+# "q"            Our search string - the letter 'q'
+# $FILE          The file to search
+MATCHES=$(grep --color=never -i -n "q" $FILE)
+
+# Capture the output status of grep so we know if we found any q's
+GREP_EXIT_STATUS=$?
+
+if [ $GREP_EXIT_STATUS -eq 0 ]; then
+  # Print output in the form file:line_no:Ick! Q! I hate that letter!
+  echo "$MATCHES" | awk -F ":" '{print $1":Ick! Q! I hate that letter!"}'
+
+  # If we found a 'q', return 1 to indicate there was a problem
+  # with the file
+  exit 1;
+else
+  # Otherwise, return 0
+  exit 0;
+fi

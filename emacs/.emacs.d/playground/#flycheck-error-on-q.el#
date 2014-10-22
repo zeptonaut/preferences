@@ -1,0 +1,9 @@
+(flycheck-define-checker error-on-q
+  "A syntax checker that always says that line 1 has an error."
+
+  :command ("~/.emacs.d/playground/error-on-q" source)
+  :error-patterns
+  ((error line-start line ":" (message) line-end))
+  :modes text-mode)
+
+(provide 'flycheck-error-on-q)
