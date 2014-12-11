@@ -1,10 +1,11 @@
 # Convenient aliases
 alias ked="emacsclient -e '(kill-emacs)'"
-alias ed='emacs --daemon'
+alias edm='emacs --daemon'
 alias e="emacsclient -c"
 alias ka="killall -9"
 alias gc="git commit -m"
 alias gp="git push origin master"
+
 
 # dircolors
 if [ -x /usr/bin/dircolors ]; then
@@ -26,10 +27,18 @@ else
 fi
 
 # Go needs $GOPATH to get new binaries and such
-export GOPATH=$HOME/go
+export GOPATH="$HOME/go"
 
-# # Prefer /usr/local/bin binaries of /usr/bin binaries
-# export PATH="/usr/local/bin:/usr/local/share/npm/bin:$PATH:$GOPATH/bin"
+# Add $GOPATH to $PATH
+export PATH="$PATH:$GOPATH/bin"
+
+# Add Go appengine to $PATH and $GOPATH
+export APPENGINE_SDK="$HOME/bin/go_appengine"
+export PATH="$PATH:$APPENGINE_SDK"
+alias ae="export GOROOT=$APPENGINE_SDK/goroot"
+
+# Prefer /usr/local/bin binaries of /usr/bin binaries
+#export PATH="/usr/local/bin:/usr/local/share/npm/bin:$PATH:$GOPATH/bin"
 
 # Add depot tools to path (for Chrome development)
 export PATH="$PATH:$HOME/depot_tools"
