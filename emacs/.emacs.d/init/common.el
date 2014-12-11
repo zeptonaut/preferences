@@ -93,38 +93,19 @@
 ;; company mode provides an auto-complete framework
 (require 'company)
 (global-set-key (kbd "M-/") 'company-complete)
-(setq company-minimum-prefix-length 0)
-(setq company-idle-delay 0.010)
-(setq company-minimum-prefix-length 3)
+(setq company-minimum-prefix-length 1)
 (setq company-show-numbers t)
 (setq company-tooltip-limit 20)                      ; bigger popup window
-(setq company-idle-delay .01)                        ; decrease delay before autocompletion popup shows
+(setq company-idle-delay .1)                        ; decrease delay before autocompletion popup shows
 (setq company-echo-delay 0)                          ; remove annoying blinking
 (setq company-begin-commands '(self-insert-command)) ; start autocompletion only after typing
 (add-hook 'after-init-hook 'global-company-mode)
 
-;; (custom-set-faces
-;;  '(company-preview
-;;    ((t (:foreground "darkgray" :underline t))))
-;;  '(company-preview-common
-;;    ((t (:inherit company-preview))))
-;;  '(company-tooltip
-;;    ((t (:background "lightgray" :foreground "black"))))
-;;  '(company-tooltip-selection
-;;    ((t (:background "black" :foreground "lightgray"))))
-;;  '(company-tooltip-common
-;;    ((((type x)) (:inherit company-tooltip :weight bold))
-;;     (t (:inherit company-tooltip))))
-;;  '(company-tooltip-common-selection
-;;    ((((type x)) (:inherit company-tooltip-selection :weight bold))
-;;     (t (:inherit company-tooltip-selection))))
-;;  `(company-scrollbar-bg ((t (:background "white"))))
-;;  `(company-scrollbar-fg ((t (:background "black")))))
-
 (require 'company-go)
+;; only use company-go when completing in go-mode
 (add-hook 'go-mode-hook (lambda ()
-                          (set (make-local-variable 'company-backends) '(company-go))
-                          (company-mode)))
+			  (set (make-local-variable 'company-backends) '(company-go))
+			  (company-mode)))
 
 (require 'emmet-mode)
 
@@ -161,7 +142,11 @@
 ;(require 'go-flymake)
 
 (require 'go-mode)
-(add-hook 'before-save-hook 'gofmt-before-save)
+(setq gofmt-command "goimports")
+(add-hook 'go-mode-hook (lambda()
+                          (add-hook 'before-save-hook 'gofmt-before-save)
+                          (setq tab-width 2
+                                whitespace-style '())))
 
 ;; hl-line+ highlights the current line when emacs is idle
 (require 'hl-line+)

@@ -1,11 +1,10 @@
 # Convenient aliases
 alias ked="emacsclient -e '(kill-emacs)'"
-alias edm='emacs --daemon'
+alias ed='emacs --daemon'
 alias e="emacsclient -c"
 alias ka="killall -9"
 alias gc="git commit -m"
 alias gp="git push origin master"
-
 
 # dircolors
 if [ -x /usr/bin/dircolors ]; then
@@ -27,18 +26,10 @@ else
 fi
 
 # Go needs $GOPATH to get new binaries and such
-export GOPATH="$HOME/go"
+export GOPATH=$HOME/go
 
-# Add $GOPATH to $PATH
-export PATH="$PATH:$GOPATH/bin"
-
-# Add Go appengine to $PATH and $GOPATH
-export APPENGINE_SDK="$HOME/bin/go_appengine"
-export PATH="$PATH:$APPENGINE_SDK"
-alias ae="export GOROOT=$APPENGINE_SDK/goroot"
-
-# Prefer /usr/local/bin binaries of /usr/bin binaries
-#export PATH="/usr/local/bin:/usr/local/share/npm/bin:$PATH:$GOPATH/bin"
+# # Prefer /usr/local/bin binaries of /usr/bin binaries
+# export PATH="/usr/local/bin:/usr/local/share/npm/bin:$PATH:$GOPATH/bin"
 
 # Command line prompt
 export PS1="\[\e[01;30m\][\u@\h:\[\e[0;31m\]\w\[\e[01;30m\]] \[\e[m\]"
