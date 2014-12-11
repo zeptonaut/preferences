@@ -76,15 +76,17 @@
 (diminish 'anzu-mode)
 
 ;; autocomplete provides auto-completion based on other open buffers
-;; (require 'auto-complete-config)
-;; (ac-config-default)
-;; (setq ac-delay 0.050)
-;; (setq ac-menu-height 20)
-;; (diminish 'auto-complete-mode)
+(require 'auto-complete-config)
+(ac-config-default)
+(setq ac-delay 0.010)
+(setq ac-menu-height 20)
+(diminish 'auto-complete-mode)
 
 ;; better-defaults fixes some of emacs's bad defaults
 (require 'better-defaults)
 (scroll-bar-mode 1)
+
+(require 'circe)
 
 ;; coffee-mode provides support for coffeescript
 (require 'coffee-mode)
@@ -101,7 +103,7 @@
 (setq company-idle-delay .01)                        ; decrease delay before autocompletion popup shows
 (setq company-echo-delay 0)                          ; remove annoying blinking
 (setq company-begin-commands '(self-insert-command)) ; start autocompletion only after typing
-(add-hook 'after-init-hook 'global-company-mode)
+;; (add-hook 'after-init-hook 'global-company-mode)
 
 ;; (custom-set-faces
 ;;  '(company-preview

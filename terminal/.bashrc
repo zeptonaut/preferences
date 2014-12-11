@@ -31,6 +31,9 @@ export GOPATH=$HOME/go
 # # Prefer /usr/local/bin binaries of /usr/bin binaries
 # export PATH="/usr/local/bin:/usr/local/share/npm/bin:$PATH:$GOPATH/bin"
 
+# Add depot tools to path (for Chrome development)
+export PATH="$PATH:$HOME/depot_tools"
+
 # Command line prompt
 export PS1="\[\e[01;30m\][\u@\h:\[\e[0;31m\]\w\[\e[01;30m\]] \[\e[m\]"
 
