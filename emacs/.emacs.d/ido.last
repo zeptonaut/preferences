@@ -1,0 +1,124 @@
+;;; -*- coding: utf-8 -*-
+
+;; ----- ido-last-directory-list -----
+(
+ ("/Users/charliea/Documents/pongladder/" . "models/")
+ ("/Users/charliea/bin/" . "go_appengine/")
+ ("/Users/charliea/Documents/threejs/learning-threejs/" . "chapter-02/")
+ ("/Users/charliea/Documents/threejs/" . "learning-threejs/")
+ ("/Users/charliea/Documents/threejs/three.js/" . "examples/")
+ ("/Users/charliea/github/zeptonaut.github.io/js/" . "2014-11-04-threejs-intro/")
+ ("/Users/charliea/github/zeptonaut.github.io/" . "js/")
+ ("/Users/charliea/github/" . "zeptonaut.github.io/")
+ ("/Users/charliea/Documents/" . "pongladder/")
+ ("/Users/charliea/" . "Documents/")
+)
+
+;; ----- ido-work-directory-list -----
+(
+ "/Users/charliea/Documents/pongladder/"
+ "/Users/charliea/Documents/pongladder/models/"
+ "/Users/charliea/.emacs.d/init/"
+ "/Users/charliea/Documents/icicle/"
+ "/Users/charliea/Documents/pongladder/handlers/"
+ "/Users/charliea/Documents/myapp/"
+ "/Users/charliea/Documents/pongladder/views/"
+ "/Users/charliea/"
+ "/Users/charliea/Documents/threejs/learning-threejs/chapter-02/"
+ "/Users/charliea/Documents/threejs/learning-threejs/chapter-01/"
+ "/Users/charliea/Documents/threejs/"
+ "/Users/charliea/Documents/threejs/book/"
+ "/Users/charliea/github/zeptonaut.github.io/js/2014-11-04-threejs-intro/"
+ "/Users/charliea/github/zeptonaut.github.io/js/"
+ "/Users/charliea/github/zeptonaut.github.io/_posts/"
+ "/Users/charliea/github/zeptonaut.github.io/_sass/"
+ "/Users/charliea/github/preferences/emacs/.emacs.d/init/"
+)
+
+;; ----- ido-work-file-list -----
+(
+ "user.go"
+ "app.yaml"
+ "router.go"
+ "welcome.go"
+ "common.el"
+ "news.ycombinator.com"
+ "treemaker.go"
+ "other.el"
+ "elo_games.go"
+ "report.go"
+)
+
+;; ----- ido-dir-file-cache -----
+(
+ ("/Users/charliea/Documents/pongladder/models/" (21610 29843 0 0) "user.go" "elo_games.go" "../" "./")
+
+ ("/Users/charliea/.emacs.d/init/" (21610 29576 0 0) "other.el" "common.el" "../" "./")
+
+ ("/Users/charliea/.emacs.d/" (21615 43311 0 0) "themes/" "session.10e5515deff29bf3b9141159157121392500000038190047" "session.10e5515deff29bf3b9141157849552010500000038190045" "session.10e5515deff29bf3b914115099492486500000038190044" "session.10e5515deff29bf3b9141141375176793000000038190043" "session.105691c3bc9b49bd65141347134756585000000293700048" "session.1031b3fbbc77859ff114129613066371700000293480074" "session.1031b3fbbc77859ff1141168831121858500000293480043" "plugins/" "playground/" "places" "org/" "mysnippets/" "lib/" "init/" "ido.last" "elpa/" "desktop/" "backups/" "auto-save-list/" ".python-environments/" "../" "./")
+
+ ("/Users/charliea/" (21641 7325 0 0) "Public/" "Pictures/" "Music/" "Movies/" "Library/" "go/" "github/" "Downloads/" "Documents/" "Desktop/" "bin/" "Applications/" ".Xauthority" ".viminfo" ".Trash/" ".subversion/" ".sso/" ".ssh/" ".rvm/" ".rstudio-desktop/" ".rnd" ".Rhistory" ".profile" ".npm/" ".lesshst" ".gitconfig" ".gem/" ".esets/" ".emacs.d/" ".emacs" ".DS_Store" ".config/" ".coffee_history" ".CFUserTextEncoding" ".cache/" ".bzr.log" ".bashrc" ".bash_profile" ".bash_history" ".appcfg_nag" "../" "./")
+
+ ("/Users/charliea/Documents/icicle/" (21620 5 0 0) "treemaker.go" "#treemaker.go#" "../" "./")
+
+ ("/Users/charliea/Documents/" (21615 43637 0 0) "threejs/" "pongladder/" "myapp/" "icicle/" ".localized" "../" "./")
+
+ ("/Users/charliea/Documents/pongladder/" (21614 27974 0 0) "welcome.go" "user.go" "router.go" "report.go" "register.go" "models/" "github.com/" "app.yaml" "../" "./")
+
+ ("/Users/charliea/Documents/pongladder/handlers/" (21609 3618 0 0) "welcome.go" "report.go" "register.go" "../" "./")
+
+ ("/Users/charliea/Documents/myapp/" (21606 33658 0 0) "hello.go" "app.yaml" "../" "./")
+
+ ("/Users/charliea/bin/go_appengine/goroot/pkg/" (21605 30467 0 0) "tool/" "darwin_amd64_appengine/" "../" "./")
+
+ ("/Users/charliea/bin/go_appengine/goroot/" (21584 7404 0 0) "VERSION" "src/" "README" "pkg/" "PATENTS" "LICENSE" "favicon.ico" "doc/" "CONTRIBUTORS" "bin/" "AUTHORS" "../" "./")
+
+ ("/Users/charliea/bin/go_appengine/" (21605 14690 0 0) "wrapper_util.pyc" "wrapper_util.py" "VERSION" "tools/" "run_tests.py" "RELEASE_NOTES.python" "RELEASE_NOTES" "php_cli.py" "LICENSE" "lib/" "goroot/" "gopath/" "google/" "gofmt" "godoc" "goapp" "endpointscfg.py" "download_appstats.py" "dev_appserver.py" "demos/" "bulkloader.py" "bulkload_client.py" "BUGS" "backends_conversion.py" "appcfg.py" "_python_runtime.py" "../" "./")
+
+ ("/Users/charliea/bin/" (21605 14679 0 0) "go_appengine/" "../" "./")
+
+ ("/Users/charliea/go/" (21605 18577 0 0) "src/" "pkg/" "bin/" "../" "./")
+
+ ("/Users/charliea/github/preferences/terminal/" (21605 26407 0 0) "TomorrowNight.terminal" "setup-theme.sh" ".tmux.conf" ".profile" ".git-completion.bash" ".bashrc~" ".bashrc" ".bash_profile" "../" "./")
+
+ ("/Users/" (21583 60833 0 0) "Shared/" "provision/" "lroberson/" "charliea/" ".localized" "../" "./")
+
+ ("/Users/charliea/Documents/threejs/learning-threejs/chapter-02/" (21596 62741 0 0) "README.md" "08-cameras-lookat.html" "07-both-cameras.html" "06-mesh-properties.html" "05-custom-geometry.html" "04-geometries.html" "03-forced-materials.html" "02.js" "02.coffee" "02-foggy-scene.html" "01.js" "01.coffee" "01-basic-scene.html" "../" "./")
+
+ ("/Users/charliea/Documents/threejs/learning-threejs/chapter-01/" (21596 62094 0 0) "README.md" "06-screen-size-change.html" "05-control-gui.html" "04-materials-light-animation.html" "03-materials-light.html" "02-first-scene.html" "01.js" "01.coffee" "01-basic-skeleton.html" "../" "./")
+
+ ("/Users/charliea/Documents/threejs/learning-threejs/libs/" (21596 55619 0 0) "WebGLDeferredRenderer.js" "VTKLoader.js" "tween.min.js" "TrackballControls.js" "ThreeBSP.js" "ThreeBSP.coffee" "three.js" "STLLoader.js" "stats.js" "spin.js" "sketch.js" "shaders/" "ShaderPass.js" "ShaderDeferred.js" "SceneLoader.js" "SceneExporter.js" "RollControls.js" "RenderPass.js" "postprocessing/" "PLYLoader.js" "physijs_worker.js" "physi.js" "perlin.js" "PDBLoader.js" "PathControls.js" "ParametricGeometries.js" "OrbitControls.js" "OBJMTLLoader.js" "OBJLoader.js" "MTLLoader.js" "MD2Character.js" "MaskPass.js" "lzma.js" "literally/" "JSONLoader_old.js" "JSONLoader.js" "jquery-1.9.0.js" "GeometryExporter.js" "FXAAShader.js" "FlyControls.js" "FirstPersonControls.js" "EffectComposer.js" "dat.gui.js" "d3-threeD.js" "CTMWorker.js" "CTMLoader.js" "ctm.js" "CopyShader.js" "ConvexGeometry.js" "ColladaLoader.js" "coffee-script.js" "chroma.js" "AsciiEffect.js" "ammo.js" "../" "./")
+
+ ("/Users/charliea/Documents/threejs/learning-threejs/chapter-12/" (21596 55619 0 0) "README.md" "hinge.html" "05-dof-constraint.html" "04-constraints.html" "03-shapes.html" "02-material-properties.html" "01-basic-scene.html" "../" "./")
+
+ ("/Users/charliea/Documents/threejs/" (21596 55799 0 0) "three.js/" "one.js" "one.html" "one.coffee" "learning-threejs/" "book/" "../" "./")
+
+ ("/Users/charliea/Documents/threejs/book/" (21596 55810 0 0) "#one.html#" "../" "./")
+
+ ("/Users/charliea/Documents/threejs/learning-threejs/" (21596 55619 0 0) "unassigned/" "README.md" "libs/" "learning-threejs-sources.zip" "chapter-12/" "chapter-11/" "chapter-10/" "chapter-09/" "chapter-08/" "chapter-07/" "chapter-06/" "chapter-05/" "chapter-04/" "chapter-03/" "chapter-02/" "chapter-01/" "assets/" ".gitignore" ".git/" "../" "./")
+
+ ("/Users/charliea/Documents/threejs/three.js/examples/js/controls/" (21595 39075 0 0) "VRControls.js" "TransformControls.js" "TrackballControls.js" "PointerLockControls.js" "OrthographicTrackballControls.js" "OrbitControls.js" "OculusControls.js" "FlyControls.js" "FirstPersonControls.js" "EditorControls.js" "DeviceOrientationControls.js" "../" "./")
+
+ ("/Users/charliea/Documents/threejs/three.js/examples/js/" (21595 39075 0 0) "wip/" "WaterShader.js" "utils/" "UCSCharacter.js" "TypedArrayUtils.js" "Sparks.js" "SkyShader.js" "SimulationRenderer.js" "SimplexNoise.js" "ShaderToon.js" "ShaderTerrain.js" "ShaderSkin.js" "shaders/" "ShaderGodRays.js" "ShaderDeferred.js" "renderers/" "PRNG.js" "postprocessing/" "ParametricGeometries.js" "Octree.js" "Ocean.js" "modifiers/" "Mirror.js" "MD2CharacterComplex.js" "MD2Character.js" "math/" "MarchingCubes.js" "loaders/" "libs/" "ImprovedNoise.js" "geometries/" "exporters/" "effects/" "Detector.js" "curves/" "CurveExtras.js" "crossfade/" "controls/" "Cloth.js" "Car.js" "cameras/" "BlendCharacterGui.js" "BlendCharacter.js" "AudioObject.js" "../" "./")
+
+ ("/Users/charliea/Documents/threejs/three.js/examples/" (21595 39076 0 0) "webgldeferred_pointlights.html" "webgldeferred_arealights.html" "webgldeferred_animation.html" "webgl_video_panorama_equirectangular.html" "webgl_trails.html" "webgl_test_memory2.html" "webgl_test_memory.html" "webgl_terrain_dynamic.html" "webgl_sprites.html" "webgl_skinning_simple.html" "webgl_shadowmap_performance.html" "webgl_shadowmap.html" "webgl_shading_physical.html" "webgl_shaders_vector.html" "webgl_shaders_sky.html" "webgl_shaders_ocean2.html" "webgl_shaders_ocean.html" "webgl_shader_lava.html" "webgl_shader2.html" "webgl_shader.html" "webgl_sandbox.html" "webgl_rtt.html" "webgl_postprocessing_godrays.html" "webgl_postprocessing_glitch.html" "webgl_postprocessing_dof2.html" "webgl_postprocessing_dof.html" "webgl_postprocessing_crossfade.html" "webgl_postprocessing_advanced.html" "webgl_postprocessing.html" "webgl_performance_static.html" "webgl_performance_doublesided.html" "webgl_performance.html" "webgl_particles_sprites.html" "webgl_particles_shapes.html" "webgl_particles_random.html" "webgl_particles_dynamic.html" "webgl_particles_billboards_colors.html" "webgl_particles_billboards.html" "webgl_panorama_equirectangular.html" "webgl_octree_raycasting.html" "webgl_octree.html" "webgl_objects_update.html" "webgl_nearestneighbour.html" "webgl_multiple_views.html" "webgl_multiple_canvases_grid.html" "webgl_multiple_canvases_complex.html" "webgl_multiple_canvases_circle.html" "webgl_morphtargets_md2_control.html" "webgl_morphtargets_md2.html" "webgl_morphtargets_human.html" "webgl_morphtargets_horse.html" "webgl_morphtargets.html" "webgl_morphnormals.html" "webgl_mirror.html" "webgl_materials_wireframe.html" "webgl_materials_video.html" "webgl_materials_texture_tga.html" "webgl_materials_texture_pvrtc.html" "webgl_materials_texture_manualmipmap.html" "webgl_materials_texture_filters.html" "webgl_materials_texture_compressed.html" "webgl_materials_texture_anisotropy.html" "webgl_materials_skin.html" "webgl_materials_shaders_fresnel.html" "webgl_materials_parallaxmap.html" "webgl_materials_normalmap2.html" "webgl_materials_normalmap.html" "webgl_materials_lightmap.html" "webgl_materials_grass.html" "webgl_materials_cubemap_refraction.html" "webgl_materials_cubemap_escher.html" "webgl_materials_cubemap_dynamic2.html" "webgl_materials_cubemap_dynamic.html" "webgl_materials_cubemap_balls_refraction.html" "webgl_materials_cubemap_balls_reflection.html" "webgl_materials_cubemap.html" "webgl_materials_cars_camaro.html" "webgl_materials_cars.html" "webgl_materials_bumpmap_skin.html" "webgl_materials_bumpmap.html" "webgl_materials_blending_custom.html" "webgl_materials_blending.html" "webgl_materials2.html" "webgl_materials.html" "webgl_marchingcubes.html" "webgl_lod.html" "webgl_loader_vtk.html" "webgl_loader_vrml.html" "webgl_loader_utf8.html" "webgl_loader_stl.html" "webgl_loader_scene.html" "webgl_loader_ply.html" "webgl_loader_pdb.html" "webgl_loader_obj_mtl.html" "webgl_loader_obj.html" "webgl_loader_msgpack.html" "webgl_loader_json_objconverter.html" "webgl_loader_json_blender.html" "webgl_loader_gltf.html" "webgl_loader_ctm_materials.html" "webgl_loader_ctm.html" "webgl_loader_collada_skinning.html" "webgl_loader_collada_kinematics.html" "webgl_loader_collada_keyframe.html" "webgl_loader_collada.html" "webgl_loader_awd.html" "webgl_loader_assimp2json.html" "webgl_lines_splines.html" "webgl_lines_sphere.html" "webgl_lines_dashed.html" "webgl_lines_cubes.html" "webgl_lines_colors.html" "webgl_lights_pointlights2.html" "webgl_lights_pointlights.html" "webgl_lights_hemisphere.html" "webgl_lensflares.html" "webgl_kinect.html" "webgl_interactive_voxelpainter.html" "webgl_interactive_raycasting_pointcloud.html" "webgl_interactive_particles.html" "webgl_interactive_lines.html" "webgl_interactive_draggablecubes.html" "webgl_interactive_cubes_ortho.html" "webgl_interactive_cubes_gpu.html" "webgl_interactive_cubes.html" "webgl_interactive_buffergeometry.html" "webgl_helpers.html" "webgl_hdr.html" "webgl_gpgpu_birds.html" "webgl_geometry_text2.html" "webgl_geometry_text.html" "webgl_geometry_tessellation.html" "webgl_geometry_terrain_raycast.html" "webgl_geometry_terrain_fog.html" "webgl_geometry_terrain.html" "webgl_geometry_subdivision.html" "webgl_geometry_shapes.html" "webgl_geometry_nurbs.html" "webgl_geometry_normals.html" "webgl_geometry_minecraft_ao.html" "webgl_geometry_minecraft.html" "webgl_geometry_large_mesh.html" "webgl_geometry_hierarchy2.html" "webgl_geometry_hierarchy.html" "webgl_geometry_extrude_splines.html" "webgl_geometry_extrude_shapes2.html" "webgl_geometry_extrude_shapes.html" "webgl_geometry_dynamic.html" "webgl_geometry_cube.html" "webgl_geometry_convex.html" "webgl_geometry_colors_lookuptable.html" "webgl_geometry_colors_blender.html" "webgl_geometry_colors.html" "webgl_geometries2.html" "webgl_geometries.html" "webgl_effects_vr.html" "webgl_effects_stereo.html" "webgl_effects_parallaxbarrier.html" "webgl_effects_oculusrift.html" "webgl_effects_anaglyph.html" "webgl_decals.html" "webgl_custom_attributes_particles3.html" "webgl_custom_attributes_particles2.html" "webgl_custom_attributes_particles.html" "webgl_custom_attributes_lines.html" "webgl_custom_attributes.html" "webgl_camera_logarithmicdepthbuffer.html" "webgl_camera.html" "webgl_buffergeometry_uint.html" "webgl_buffergeometry_rawshader.html" "webgl_buffergeometry_particles.html" "webgl_buffergeometry_lines_indexed.html" "webgl_buffergeometry_lines.html" "webgl_buffergeometry_custom_attributes_particles.html" "webgl_buffergeometry.html" "webgl_animation_skinning_morph.html" "webgl_animation_skinning_blending.html" "webgl_animation_cloth.html" "textures/" "svg_sandbox.html" "sounds/" "software_sandbox.html" "software_geometry_earth.html" "scenes/" "raytracing_sandbox.html" "obj/" "models/" "misc_uv_tests.html" "misc_ubiquity_test2.html" "misc_ubiquity_test.html" "misc_sound.html" "misc_lookat.html" "misc_lights_test.html" "misc_fps.html" "misc_controls_transform.html" "misc_controls_trackball.html" "misc_controls_pointerlock.html" "misc_controls_orbit.html" "misc_controls_oculusrift.html" "misc_controls_fly.html" "misc_controls_deviceorientation.html" "misc_animation_keys.html" "js/" "index.html" "fonts/" "files/" "css3dstereo_periodictable.html" "css3d_youtube.html" "css3d_sprites.html" "css3d_sandbox.html" "css3d_periodictable.html" "css3d_panorama_deviceorientation.html" "css3d_panorama.html" "css3d_molecules.html" "canvas_sandbox.html" "canvas_performance.html" "canvas_particles_waves.html" "canvas_particles_sprites.html" "canvas_particles_shapes.html" "canvas_particles_random.html" "canvas_particles_floor.html" "canvas_morphtargets_horse.html" "canvas_materials_video.html" "canvas_materials_reflection.html" "canvas_materials_normal.html" "canvas_materials_depth.html" "canvas_materials.html" "canvas_lines_sphere.html" "canvas_lines_dashed.html" "canvas_lines_colors_2d.html" "canvas_lines_colors.html" "canvas_lines.html" "canvas_lights_pointlights.html" "canvas_interactive_voxelpainter.html" "canvas_interactive_particles.html" "canvas_interactive_cubes_tween.html" "canvas_interactive_cubes.html" "canvas_geometry_text.html" "canvas_geometry_terrain.html" "canvas_geometry_shapes.html" "canvas_geometry_panorama_fisheye.html" "canvas_geometry_panorama.html" "canvas_geometry_nurbs.html" "canvas_geometry_hierarchy.html" "canvas_geometry_earth.html" "canvas_geometry_cube.html" "canvas_geometry_birds.html" "canvas_effects_stereo.html" "canvas_camera_orthographic2.html" "canvas_camera_orthographic.html" "canvas_ascii_effect.html" "../" "./")
+
+ ("/Users/charliea/Documents/threejs/three.js/" (21595 39076 0 0) "utils/" "test/" "src/" "README.md" "LICENSE" "examples/" "editor/" "docs/" "CONTRIBUTING.md" "build/" "bower.json" ".gitignore" ".git/" "../" "./")
+
+ ("/Users/charliea/github/zeptonaut.github.io/js/2014-11-04-threejs-intro/" (21593 23082 0 0) "one-square.js" "one-square.html" "one-rotating.js" "one-rotating.html" "../" "./")
+
+ ("/Users/charliea/github/zeptonaut.github.io/js/" (21593 18937 0 0) "embed-d3.js" "embed-d3.coffee" "2014-11-04-threejs-intro/" "../" "./")
+
+ ("/Users/charliea/github/zeptonaut.github.io/_posts/" (21593 18529 0 0) "2014-11-04-frustum.md" "2014-10-16-embedding-d3-in-jekyll.md" "2014-10-12-remedying-a-defect-in-spaceballs-mode.md" "2014-10-11-the-missing-emacs-mode-spaceballs-mode.md" "2014-10-10-allergic-to-q.md" "2014-10-08-the-friendly-veterinarian-2.md" "2014-10-07-the-friendly-veterinarian.md" "../" "./")
+
+ ("/Users/charliea/github/zeptonaut.github.io/_sass/" (21593 6531 0 0) "_syntax-highlighting.scss" "_layout.scss" "_base.scss" "../" "./")
+
+ ("/Users/charliea/github/zeptonaut.github.io/" (21593 11058 0 0) "README.md" "js/" "index.html" "feed.xml" "css/" "CNAME" "assets/" "about.md" "_site/" "_sass/" "_posts/" "_layouts/" "_includes/" "_config.yml" ".sass-cache/" ".gitignore" ".git/" "../" "./")
+
+ ("/Users/charliea/github/" (21593 6530 0 0) "zeptonaut.github.io/" "preferences/" "../" "./")
+
+ ("/Users/charliea/github/preferences/emacs/.emacs.d/init/" (21591 51007 0 0) "other.el" "common.el" "../" "./")
+)
+
+;; ----- ido-unc-hosts-cache -----
+t

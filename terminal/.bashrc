@@ -40,6 +40,9 @@ alias ae="export GOROOT=$APPENGINE_SDK/goroot"
 # Prefer /usr/local/bin binaries of /usr/bin binaries
 #export PATH="/usr/local/bin:/usr/local/share/npm/bin:$PATH:$GOPATH/bin"
 
+# Add Chrome's depot_tools to the end of the path
+export PATH="$PATH:$HOME/bin/depot_tools"
+
 # Command line prompt
 export PS1="\[\e[01;30m\][\u@\h:\[\e[0;31m\]\w\[\e[01;30m\]] \[\e[m\]"
 
