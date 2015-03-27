@@ -229,13 +229,11 @@
 (define-key global-map "\C-cl" 'org-store-link)
 (define-key global-map "\C-ca" 'org-agenda)
 (setq org-log-done t)
-<<<<<<< HEAD
 (setq org-directory "~/org/projects")
 (setq org-agenda-files (list "~/org/projects"))
 (setq org-mobile-directory "~/mobileorg")
 (add-hook 'org-mode-hook (lambda() (visual-line-mode t)))
 
-=======
 (setq org-agenda-files (list "~/org/projects"))
 (add-hook 'org-mode-hook (lambda()
                            (visual-line-mode t)))
