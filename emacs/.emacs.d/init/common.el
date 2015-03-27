@@ -12,6 +12,8 @@
 ;; Required here to allow chord bindings throughout the file
 (require 'key-chord)
 (key-chord-mode 1)
+(custom-set-variables '(key-chord-two-keys-delay 0.05)
+                      '(key-chord-one-key-delay 0.1))
 
 ;; Disable annoying things
 (setq visible-bell t)
@@ -76,15 +78,18 @@
 (diminish 'anzu-mode)
 
 ;; autocomplete provides auto-completion based on other open buffers
-(require 'auto-complete-config)
-(ac-config-default)
-(setq ac-delay 0.010)
-(setq ac-menu-height 20)
-(diminish 'auto-complete-mode)
+;; (require 'auto-complete-config)
+;; (ac-config-default)
+;; (setq ac-delay 0.010)
+;; (setq ac-menu-height 20)
+;; (diminish 'auto-complete-mode)
 
 ;; better-defaults fixes some of emacs's bad defaults
-(require 'better-defaults)
-(scroll-bar-mode 1)
+;; (require 'better-defaults)
+(if (display-graphic-p)
+    (progn
+      (tool-bar-mode -1)
+            (scroll-bar-mode -1)))
 
 (require 'circe)
 
@@ -98,18 +103,24 @@
 (setq company-minimum-prefix-length 1)
 (setq company-show-numbers t)
 (setq company-tooltip-limit 20)                      ; bigger popup window
-(setq company-idle-delay .1)                        ; decrease delay before autocompletion popup shows
+(setq company-idle-delay .1)                         ; decrease delay before autocompletion popup shows
 (setq company-echo-delay 0)                          ; remove annoying blinking
 (setq company-begin-commands '(self-insert-command)) ; start autocompletion only after typing
 ;; (add-hook 'after-init-hook 'global-company-mode)
 
+;; company-go provides auto-completion for go code
 (require 'company-go)
-;; only use company-go when completing in go-mode
 (add-hook 'go-mode-hook (lambda ()
 			  (set (make-local-variable 'company-backends) '(company-go))
 			  (company-mode)))
 
 (require 'emmet-mode)
+
+;; find-file-in-project finds files in projects
+(require 'find-file-in-project)
+(key-chord-define-global "jf" 'find-file-in-project)
+(custom-set-variables '(ffip-limit 2056)
+                      '(ffip-fullpaths 1))
 
 ;; flx-ido provides better flex matching for IDO
 (require 'flx-ido)
@@ -160,9 +171,31 @@
 (setq ido-auto-merge-work-directories-length -1) ; allow me to create files, dammit
 (setq ido-enable-tramp-completion nil) ; ido over tramp = slow
 
+;; Don't use ido's history, because it gets in the way more than it helps
+(custom-set-variables
+ '(ido-enable-last-directory-history nil)
+ '(ido-record-commands nil)
+ '(ido-max-work-directory-list 0)
+ '(ido-max-work-file-list 0))
+
 ;; ido-ubiquitous gives you ido-mode everywhere
 (require 'ido-ubiquitous)
 (ido-ubiquitous-mode 1)
+
+;; Display ido results vertically, rather than horizontally
+(setq ido-decorations '("\n-> " "" "\n   " "\n   ..."
+                        "[" "]" " [No match]" " [Matched]"
+                        " [Not readable]" " [Too big]" " [Confirm]"))
+(defun ido-disable-line-trucation () 
+  (set (make-local-variable 'truncate-lines) nil))
+(add-hook 'ido-minibuffer-setup-hook 'ido-disable-line-trucation)
+
+;; Returns true if the current buffer is part of Chromium
+(defun is-chromium ()
+  (string-match "chrome/src/" buffer-file-name))
+
+(add-hook 'c++-mode-hook (lambda() (if (is-chromium)
+                                       (irony-mode))))
 
 ;; jedi understands python
 (add-hook 'python-mode-hook 'jedi:setup)
@@ -195,12 +228,18 @@
 (define-key global-map "\C-cl" 'org-store-link)
 (define-key global-map "\C-ca" 'org-agenda)
 (setq org-log-done t)
-(setq org-agenda-files (list "~/.emacs.d/org"))
-(add-hook 'org-mode-hook (lambda()
-                           (visual-line-mode t)))
+(setq org-directory "~/org/projects")
+(setq org-agenda-files (list "~/org/projects"))
+(setq org-mobile-directory "~/mobileorg")
+(add-hook 'org-mode-hook (lambda() (visual-line-mode t)))
+
 (require 'ox-md)
 (eval-after-load "org"
   '(require 'ox-md nil t))
+
+;; TODO(charliea): Use this in google.el.
+;; (require 'org-mobile-sync)
+;; (org-mobile-sync-mode 1)
 
 ;; Rainbow delimiters changes the color of () and {} so that it's
 ;; easier to see when they're matched
@@ -232,9 +271,10 @@
 (setq tramp-default-method "ssh")
 
 ;; web-mode allows you to edit HTML files with other languages inline
-;; (require 'web-mode)
-;; (add-to-list 'auto-mode-alist '("\\.erb\\'" . web-mode))
-;; (add-to-list 'auto-mode-alist '("\\.html\\'" . web-mode))
+(require 'web-mode)
+(add-to-list 'auto-mode-alist '("\\.erb\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.html\\'" . web-mode))
+(setq web-mode-code-indent-offset 2)
 
 ;; whitespace highlights lines that are too long
 (require 'whitespace)
@@ -246,7 +286,6 @@
 (add-hook 'python-mode-hook (lambda()
                               (setq whitespace-line-column 80
                                     whitespace-style '(face tabs trailing lines-tail))))
-
 
 (add-hook 'prog-mode-hook 'whitespace-mode)
 
@@ -282,5 +321,3 @@
 
 ;; Playground
 (add-to-list 'load-path "~/.emacs.d/playground")
-;; (require 'flycheck-error-on-q)
-;; (add-to-list 'flycheck-checkers 'error-on-q)

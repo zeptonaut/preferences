@@ -2,6 +2,12 @@
 
 ;; ----- ido-last-directory-list -----
 (
+ ("/Users/charliea/github/trace-viewer/trace_viewer/extras/" . "about_tracing/")
+ ("/Users/charliea/github/trace-viewer/trace_viewer/" . "extras/")
+ ("/Users/charliea/github/trace-viewer/" . "trace_viewer/")
+ ("/Users/charliea/.emacs.d/" . "org/")
+ ("/Users/charliea/github/pc/icpc/ecna/" . "2010/")
+ ("/Users/charliea/github/pc/icpc/" . "ecna/")
  ("/Users/charliea/Documents/pongladder/" . "models/")
  ("/Users/charliea/bin/" . "go_appengine/")
  ("/Users/charliea/Documents/threejs/learning-threejs/" . "chapter-02/")
@@ -9,61 +15,157 @@
  ("/Users/charliea/Documents/threejs/three.js/" . "examples/")
  ("/Users/charliea/github/zeptonaut.github.io/js/" . "2014-11-04-threejs-intro/")
  ("/Users/charliea/github/zeptonaut.github.io/" . "js/")
- ("/Users/charliea/github/" . "zeptonaut.github.io/")
+ ("/Users/charliea/github/" . "trace-viewer/")
  ("/Users/charliea/Documents/" . "pongladder/")
  ("/Users/charliea/" . "Documents/")
 )
 
 ;; ----- ido-work-directory-list -----
 (
+ "/Users/charliea/.emacs.d/init/"
+ "/Users/charliea/github/trace-viewer/"
+ "/Users/charliea/github/trace-viewer/trace_viewer/extras/audits/"
+ "/Users/charliea/.emacs.d/org/"
+ "/Users/charliea/"
+ "/Users/charliea/github/zeptonaut.github.io/_posts/"
+ "/Users/charliea/github/litterbug/"
+ "/Users/charliea/github/pc/icpc/ecna/2010/"
+ "/tmp/"
  "/Users/charliea/Documents/pongladder/"
  "/Users/charliea/Documents/pongladder/models/"
- "/Users/charliea/.emacs.d/init/"
  "/Users/charliea/Documents/icicle/"
  "/Users/charliea/Documents/pongladder/handlers/"
  "/Users/charliea/Documents/myapp/"
  "/Users/charliea/Documents/pongladder/views/"
- "/Users/charliea/"
  "/Users/charliea/Documents/threejs/learning-threejs/chapter-02/"
  "/Users/charliea/Documents/threejs/learning-threejs/chapter-01/"
  "/Users/charliea/Documents/threejs/"
  "/Users/charliea/Documents/threejs/book/"
  "/Users/charliea/github/zeptonaut.github.io/js/2014-11-04-threejs-intro/"
  "/Users/charliea/github/zeptonaut.github.io/js/"
- "/Users/charliea/github/zeptonaut.github.io/_posts/"
  "/Users/charliea/github/zeptonaut.github.io/_sass/"
  "/Users/charliea/github/preferences/emacs/.emacs.d/init/"
 )
 
 ;; ----- ido-work-file-list -----
 (
- "user.go"
- "app.yaml"
- "router.go"
- "welcome.go"
  "common.el"
- "news.ycombinator.com"
- "treemaker.go"
- "other.el"
- "elo_games.go"
- "report.go"
+ "BUILD.gn"
+ "chrome_model_helper.html"
+ "text.js"
+ "chrome_auditor.html"
+ "side_panel.org"
+ ".bashrc"
+ ".bash_profile"
+ ".profile"
+ "2014-10-07-the-friendly-veterinarian.md"
 )
 
 ;; ----- ido-dir-file-cache -----
 (
+ ("/Users/charliea/.emacs.d/init/" (21781 52735 0 0) "other.el" "google3-gocode.el" "common.el" "#common.el#" "../" "./")
+
+ ("/Users/charliea/.emacs.d/" (21781 52718 0 0) "themes/" "session.10e5515deff29bf3b9141159157121392500000038190047" "session.10e5515deff29bf3b9141157849552010500000038190045" "session.10e5515deff29bf3b914115099492486500000038190044" "session.10e5515deff29bf3b9141141375176793000000038190043" "session.10b1eef9556c2d871c141591251521812000000270430043" "session.105691c3bc9b49bd65141347134756585000000293700048" "session.1031b3fbbc77859ff114129613066371700000293480074" "session.1031b3fbbc77859ff1141168831121858500000293480043" "plugins/" "playground/" "places" "org/" "mysnippets/" "lib/" "init/" "ido.last" "elpa/" "desktop/" "backups/" "auto-save-list/" ".python-environments/" ".org-id-locations" "../" "./")
+
+ ("/Users/charliea/" (21781 51714 0 0) "Public/" "Pictures/" "org/" "new-grad.txt" "Music/" "Movies/" "mobileorg/" "Library/" "go/" "github/" "example.h5" "Dropbox/" "Downloads/" "Documents/" "Desktop/" "chrome/" "bin/" "Applications/" ".Xauthority" ".viminfo" ".Trash/" ".subversion/" ".sso/" ".ssh/" ".rvm/" ".rstudio-desktop/" ".rnd" ".Rhistory" ".npm/" ".lesshst" ".last_codereview_email_address" ".httr-oauth" ".gsutil/" ".gitignore" ".gitconfig" ".gem/" ".esets/" ".emacs.d/" ".emacs" ".DS_Store" ".dropbox/" ".config/" ".coffee_history" ".codereview_upload_cookies" ".CFUserTextEncoding" ".cache/" ".bzr.log" ".bashrc" ".bash_profile" ".bash_history" ".appcfg_nag" "../" "./")
+
+ ("/Users/charliea/github/trace-viewer/" (21781 50436 0 0) "why_imported" "vulcanize_trace_viewer" "trace_viewer.gyp" "trace_viewer/" "trace2html" "third_party/" "test_data/" "skp_data/" "run_tests" "run_dev_server" "README.md" "PRESUBMIT.py" "OWNERS" "LICENSE" "images/" "hooks/" "examples/" "codereview.settings" "BUILD.gn" "bower.json" "bin/" "AUTHORS" ".travis.yml" ".gitignore" ".git/" ".bowerrc" ".allow-devtools-save" "../" "./")
+
+ ("/Users/charliea/.emacs.d/elpa/org-20141110/" (21706 60864 0 0) "README_ELPA" "ox.elc" "ox.el" "ox-texinfo.elc" "ox-texinfo.el" "ox-publish.elc" "ox-publish.el" "ox-org.elc" "ox-org.el" "ox-odt.elc" "ox-odt.el" "ox-md.elc" "ox-md.el" "ox-man.elc" "ox-man.el" "ox-latex.elc" "ox-latex.el" "ox-icalendar.elc" "ox-icalendar.el" "ox-html.elc" "ox-html.el" "ox-beamer.elc" "ox-beamer.el" "ox-ascii.elc" "ox-ascii.el" "orgcard.pdf" "org.elc" "org.el" "org-w3m.elc" "org-w3m.el" "org-version.el" "org-timer.elc" "org-timer.el" "org-table.elc" "org-table.el" "org-src.elc" "org-src.el" "org-rmail.elc" "org-rmail.el" "org-protocol.elc" "org-protocol.el" "org-plot.elc" "org-plot.el" "org-pkg.elc" "org-pkg.el" "org-pcomplete.elc" "org-pcomplete.el" "org-mouse.elc" "org-mouse.el" "org-mobile.elc" "org-mobile.el" "org-mhe.elc" "org-mhe.el" "org-macs.elc" "org-macs.el" "org-macro.elc" "org-macro.el" "org-loaddefs.el" "org-list.elc" "org-list.el" "org-irc.elc" "org-irc.el" "org-install.el" "org-inlinetask.elc" "org-inlinetask.el" "org-info.elc" "org-info.el" "org-indent.elc" "org-indent.el" "org-id.elc" "org-id.el" "org-habit.elc" "org-habit.el" "org-gnus.elc" "org-gnus.el" "org-footnote.elc" "org-footnote.el" "org-feed.elc" "org-feed.el" "org-faces.elc" "org-faces.el" "org-eshell.elc" "org-eshell.el" "org-entities.elc" "org-entities.el" "org-element.elc" "org-element.el" "org-docview.elc" "org-docview.el" "org-datetree.elc" "org-datetree.el" "org-ctags.elc" "org-ctags.el" "org-crypt.elc" "org-crypt.el" "org-compat.elc" "org-compat.el" "org-colview.elc" "org-colview.el" "org-clock.elc" "org-clock.el" "org-capture.elc" "org-capture.el" "org-bibtex.elc" "org-bibtex.el" "org-bbdb.elc" "org-bbdb.el" "org-autoloads.el" "org-attach.elc" "org-attach.el" "org-archive.elc" "org-archive.el" "org-agenda.elc" "org-agenda.el" "org" "ob.elc" "ob.el" "ob-tangle.elc" "ob-tangle.el" "ob-table.elc" "ob-table.el" "ob-sqlite.elc" "ob-sqlite.el" "ob-sql.elc" "ob-sql.el" "ob-shen.elc" "ob-shen.el" "ob-sh.elc" "ob-sh.el" "ob-screen.elc" "ob-screen.el" "ob-scheme.elc" "ob-scheme.el" "ob-scala.elc" "ob-scala.el" "ob-sass.elc" "ob-sass.el" "ob-ruby.elc" "ob-ruby.el" "ob-ref.elc" "ob-ref.el" "ob-R.elc" "ob-R.el" "ob-python.elc" "ob-python.el" "ob-plantuml.elc" "ob-plantuml.el" "ob-picolisp.elc" "ob-picolisp.el" "ob-perl.elc" "ob-perl.el" "ob-org.elc" "ob-org.el" "ob-octave.elc" "ob-octave.el" "ob-ocaml.elc" "ob-ocaml.el" "ob-mscgen.elc" "ob-mscgen.el" "ob-maxima.elc" "ob-maxima.el" "ob-matlab.elc" "ob-matlab.el" "ob-makefile.elc" "ob-makefile.el" "ob-lob.elc" "ob-lob.el" "ob-lisp.elc" "ob-lisp.el" "ob-lilypond.elc" "ob-lilypond.el" "ob-ledger.elc" "ob-ledger.el" "ob-latex.elc" "ob-latex.el" "ob-keys.elc" "ob-keys.el" "ob-js.elc" "ob-js.el" "ob-java.elc" "ob-java.el" "ob-io.elc" "ob-io.el" "ob-haskell.elc" "ob-haskell.el" "ob-gnuplot.elc" "ob-gnuplot.el" "ob-fortran.elc" "ob-fortran.el" "ob-exp.elc" "ob-exp.el" "ob-eval.elc" "ob-eval.el" "ob-emacs-lisp.elc" "ob-emacs-lisp.el" "ob-dot.elc" "ob-dot.el" "ob-ditaa.elc" "ob-ditaa.el" "ob-css.elc" "ob-css.el" "ob-core.elc" "ob-core.el" "ob-comint.elc" "ob-comint.el" "ob-clojure.elc" "ob-clojure.el" "ob-calc.elc" "ob-calc.el" "ob-C.elc" "ob-C.el" "ob-awk.elc" "ob-awk.el" "ob-asymptote.elc" "ob-asymptote.el" "etc/" "dir" "COPYING" "../" "./")
+
+ ("/Users/charliea/github/trace-viewer/trace_viewer/core/trace_model/" (21781 50436 0 0) "x_marker_annotation.html" "trace_model_test.html" "trace_model_settings_test.html" "trace_model_settings.html" "trace_model.html" "timed_event.html" "time_to_object_instance_map_test.html" "time_to_object_instance_map.html" "thread_time_slice.html" "thread_test.html" "thread_slice.html" "thread.html" "stack_frame.html" "slice_test.html" "slice_group_test.html" "slice_group.html" "slice.html" "sample_test.html" "sample.html" "rect_annotation.html" "process_test.html" "process_memory_dump.html" "process_base.html" "process.html" "object_snapshot_test.html" "object_snapshot.html" "object_instance_test.html" "object_instance.html" "object_collection_test.html" "object_collection.html" "kernel_test.html" "kernel.html" "interaction_record.html" "instant_event.html" "global_memory_dump.html" "frame.html" "flow_event.html" "event_test.html" "event_container.html" "event.html" "cpu_test.html" "cpu_slice.html" "cpu.html" "counter_test.html" "counter_series.html" "counter_sample_test.html" "counter_sample.html" "counter.html" "async_slice_group_test.html" "async_slice_group.html" "async_slice.html" "annotation_test.html" "annotation.html" "alert_type.html" "alert.html" "../" "./")
+
+ ("/Users/charliea/github/trace-viewer/trace_viewer/core/" (21781 50436 0 0) "ui_state_test.html" "ui_state.html" "tracks/" "trace_model/" "timing_tool_test.html" "timing_tool.html" "timeline_viewport_test.html" "timeline_viewport.html" "timeline_view_test.html" "timeline_view.html" "timeline_view.css" "timeline_track_view_test.html" "timeline_track_view.html" "timeline_track_view.css" "timeline_interest_range.html" "timeline_display_transform_test.html" "timeline_display_transform_animations_test.html" "timeline_display_transform_animations.html" "timeline_display_transform.html" "test_utils.html" "side_panel/" "selection_test.html" "selection.html" "scripting_object.html" "scripting_controller_test.html" "scripting_controller.html" "scripting_control_test.html" "scripting_control.html" "location_test.html" "location.html" "importer/" "find_controller_test.html" "find_controller.html" "find_control_test.html" "find_control.html" "filter_test.html" "filter.html" "favicons.html" "fast_rect_renderer.html" "event_presenter.html" "elided_cache.html" "draw_helpers.html" "constants.html" "auditor.html" "analysis/" "../" "./")
+
+ ("/Users/charliea/github/trace-viewer/trace_viewer/extras/" (21780 35124 0 0) "tquery/" "tcmalloc/" "systrace_config.html" "system_stats/" "side_panel/" "net/" "lean_config.html" "importer/" "highlighter/" "gpu/" "full_config.html" "chrome_config.html" "cc/" "audits/" "analysis/" "about_tracing/" "../" "./")
+
+ ("/Users/charliea/github/trace-viewer/trace_viewer/extras/audits/" (21781 50436 0 0) "utils_test.html" "utils.html" "chrome_renderer_helper.html" "chrome_process_helper.html" "chrome_model_helper_test.html" "chrome_model_helper.html" "chrome_browser_helper.html" "chrome_auditor_test.html" "chrome_auditor.html" "android_surface_flinger.html" "android_model_helper_test.html" "android_model_helper.html" "android_auditor_test.html" "android_auditor.html" "android_app.html" "../" "./")
+
+ ("/Users/charliea/org/projects/" (21781 50148 0 0) "test2.org" "test.org" "#test.org#" "../" "./")
+
+ ("/Users/charliea/mobileorg/" (21781 49521 0 0) "mobileorg.org" "mobileorg/" "index.org" "checksums.dat" "agendas.org" "../" "./")
+
+ ("/Users/charliea/github/preferences/emacs/.emacs.d/init/" (21781 43052 0 0) "other.el" "google3-gocode.el" "common.el" "../" "./")
+
+ ("/Users/charliea/org/" (21781 43077 0 0) "projects/" "../" "./")
+
+ ("/Users/charliea/.emacs.d/elpa/" (21781 42347 0 0) "zenburn-theme-20150214.131/" "zenburn-0.1/" "yasnippet-20141102.1554/" "ws-butler-20140816.1448/" "web-mode-20150321.1140/" "tracking-20140906.548/" "smartparens-20141107.1100/" "shorten-20131201.620/" "scss-mode-20130105.1411/" "pkg-info-20140610.630/" "org-mobile-sync-20131118.1116/" "org-20141110/" "oauth2-0.10/" "multi-web-mode-20130823.2054/" "markdown-mode-20140914.1012/" "magit-20141104.647/" "lui-20141107.407/" "lcs-20121201.555/" "key-chord-20140929.2246/" "json-1.2/" "js2-mode-20141105.154/" "irony-20150227.1526/" "ido-ubiquitous-20140904.1547/" "hl-line+-20140617.1425/" "go-mode-20141025.219/" "github-theme-0.0.3/" "git-rebase-mode-20140928.1547/" "git-commit-mode-20141014.1634/" "flycheck-20141102.652/" "flx-ido-20140821.2033/" "flx-20140921.739/" "find-file-in-project-20141214.1952/" "exec-path-from-shell-20140731.907/" "epl-20140823.609/" "emmet-mode-20141025.1540/" "diminish-20091203.1012/" "dash-20141106.455/" "company-go-20141024.2248/" "company-20141108.1756/" "coffee-mode-20141110.608/" "circe-20140903.553/" "better-defaults-20140818.937/" "archives/" "anzu-20141005.1955/" "ace-jump-mode-20140616.115/" "ace-jump-buffer-20141107.1317/" "../" "./")
+
+ ("/Users/charliea/.emacs.d/elpa/org-mobile-sync-20131118.1116/" (21781 42358 0 0) "org-mobile-sync.elc" "org-mobile-sync.el" "org-mobile-sync-pkg.elc" "org-mobile-sync-pkg.el" "org-mobile-sync-autoloads.el" "../" "./")
+
+ ("/Users/charliea/github/preferences/emacs/.emacs.d/elpa/" (21781 42347 0 0) "zenburn-theme-20150214.131/" "zenburn-0.1/" "yasnippet-20141102.1554/" "ws-butler-20140816.1448/" "web-mode-20150321.1140/" "tracking-20140906.548/" "smartparens-20141107.1100/" "shorten-20131201.620/" "scss-mode-20130105.1411/" "pkg-info-20140610.630/" "org-mobile-sync-20131118.1116/" "org-20141110/" "oauth2-0.10/" "multi-web-mode-20130823.2054/" "markdown-mode-20140914.1012/" "magit-20141104.647/" "lui-20141107.407/" "lcs-20121201.555/" "key-chord-20140929.2246/" "json-1.2/" "js2-mode-20141105.154/" "irony-20150227.1526/" "ido-ubiquitous-20140904.1547/" "hl-line+-20140617.1425/" "go-mode-20141025.219/" "github-theme-0.0.3/" "git-rebase-mode-20140928.1547/" "git-commit-mode-20141014.1634/" "flycheck-20141102.652/" "flx-ido-20140821.2033/" "flx-20140921.739/" "find-file-in-project-20141214.1952/" "exec-path-from-shell-20140731.907/" "epl-20140823.609/" "emmet-mode-20141025.1540/" "diminish-20091203.1012/" "dash-20141106.455/" "company-go-20141024.2248/" "company-20141108.1756/" "coffee-mode-20141110.608/" "circe-20140903.553/" "better-defaults-20140818.937/" "archives/" "anzu-20141005.1955/" "ace-jump-mode-20140616.115/" "ace-jump-buffer-20141107.1317/" "../" "./")
+
+ ("/var/folders/38/v1hq_0c94n1_lkn47dv9c610005dlt/T/" (21781 41985 0 0) "xcrun_db" "tmux-177786/" "TemporaryItems/" "src/" "qt_menu.nib/" "pip_build_charliea/" "npm-21539-43fe5c7a/" "lsuseractivityd.log" "icssuis177786" "ics29668" "ics14666" "hsperfdata_charliea/" "emacs177786/" "com.microsoft.MDImporter.Office/" "com.getdropbox.dropbox.garcon/" "com.apple.WebKit.WebContent+com.sublimetext.2/" "com.apple.WebKit.WebContent+com.google.Chrome/" "com.apple.WebKit.WebContent+com.apple.Spotlight/" "com.apple.WebKit.WebContent+com.apple.Safari/" "com.apple.WebKit.WebContent+com.apple.Preview/" "com.apple.WebKit.WebContent+com.apple.appstore/" "com.apple.WebKit.Networking+com.apple.Safari/" "com.apple.WeatherKitService/" "com.apple.tonelibraryd/" "com.apple.TextEdit/" "com.apple.speech.speechsynthesisd/" "com.apple.SocialPushAgent/" "com.apple.soagent/" "com.apple.ShareKitHelper/" "com.apple.Safari.SearchHelper/" "com.apple.RemindersNC/" "com.apple.quicklook.ui.helper/" "com.apple.qtkitserver/" "com.apple.Preview/" "com.apple.notificationcenterui.WeatherSummary/" "com.apple.Notes/" "com.apple.ncplugin.weather/" "com.apple.ncplugin.stocks/" "com.apple.mdworker.sizing/" "com.apple.mdworker.bundle/" "com.apple.MDImporter.Image/" "com.apple.MailServiceAgent/" "com.apple.lateragent/" "com.apple.iPhoto/" "com.apple.internetaccounts/" "com.apple.IconServices/" "com.apple.iChat/" "com.apple.iCal.CalendarNC/" "com.apple.geod/" "com.apple.DataDetectorsDynamicData/" "com.apple.corerecents.recentsd/" "com.apple.CalendarAgent.CalNCService/" "com.apple.CalendarAgent/" "com.apple.BKAgentService/" "com.apple.appstore/" "com.apple.AddressBook.InternetAccountsBridge/" "CMakeFiles/" "CMakeCache.txt" "chrome-cyRi9F/" "build-irony-server-0.2.0-cvs4/" "BBA59C62-A73F-46A1-A8A0-02709FA1E886/" "babel-85838Hmj/" "babel-84511qkr/" "672B059C-9AD5-4A87-B5B8-17CCFB36E0BD/" "63D303C8-F1EF-4CBF-AC88-1FD1117CF253/" "6027C651-78D5-4B6D-9EDE-6AF77F6EFE38/" "45CB1942-A5BD-465D-B19E-E310EBE23137/" ".com.google.Chrome.Ak1Bmk/" ".CalendarLocks/" ".AddressBookLocks/" "../" "./")
+
+ ("/var/folders/38/v1hq_0c94n1_lkn47dv9c610005dlt/T/build-irony-server-0.2.0-cvs4/" (21780 42783 0 0) "../" "./")
+
+ ("/Users/charliea/chrome/src/third_party/WebKit/Source/core/animation/" (21728 59750 0 0) "VisibilityStyleInterpolationTest.cpp" "VisibilityStyleInterpolation.h" "VisibilityStyleInterpolation.cpp" "TimingInputTest.cpp" "TimingInput.h" "TimingInput.cpp" "TimingCalculationsTest.cpp" "TimingCalculations.h" "Timing.idl" "Timing.h" "Timing.cpp" "SVGLengthStyleInterpolationTest.cpp" "SVGLengthStyleInterpolation.h" "SVGLengthStyleInterpolation.cpp" "StyleInterpolation.h" "StringKeyframe.h" "StringKeyframe.cpp" "ShadowStyleInterpolationTest.cpp" "ShadowStyleInterpolation.h" "ShadowStyleInterpolation.cpp" "SampledEffect.h" "SampledEffect.cpp" "OWNERS" "ListStyleInterpolationTest.cpp" "ListStyleInterpolation.h" "LengthStyleInterpolationTest.cpp" "LengthStyleInterpolation.h" "LengthStyleInterpolation.cpp" "LengthPairStyleInterpolationTest.cpp" "LengthPairStyleInterpolation.h" "LengthPairStyleInterpolation.cpp" "LengthBoxStyleInterpolationTest.cpp" "LengthBoxStyleInterpolation.h" "LengthBoxStyleInterpolation.cpp" "LegacyStyleInterpolation.h" "KeyframeEffectModelTest.cpp" "KeyframeEffectModel.h" "KeyframeEffectModel.cpp" "Keyframe.h" "InterpolationEffectTest.cpp" "InterpolationEffect.h" "InterpolationEffect.cpp" "Interpolation.h" "Interpolation.cpp" "InterpolableValueTest.cpp" "InterpolableValue.h" "InterpolableValue.cpp" "InertAnimation.h" "InertAnimation.cpp" "ImageStyleInterpolation.h" "ImageStyleInterpolation.cpp" "ElementAnimation.idl" "ElementAnimation.h" "EffectInputTest.cpp" "EffectInput.h" "EffectInput.cpp" "DoubleStyleInterpolationTest.cpp" "DoubleStyleInterpolation.h" "DoubleStyleInterpolation.cpp" "DocumentAnimations.h" "DocumentAnimations.cpp" "DocumentAnimation.idl" "DocumentAnimation.h" "DeferredLegacyStyleInterpolationTest.cpp" "DeferredLegacyStyleInterpolation.h" "DeferredLegacyStyleInterpolation.cpp" "css/" "ConstantStyleInterpolation.h" "ComputedTimingProperties.idl" "CompositorPendingAnimations.h" "CompositorPendingAnimations.cpp" "CompositorAnimationsTestHelper.h" "CompositorAnimationsTest.cpp" "CompositorAnimationsImpl.h" "CompositorAnimations.h" "CompositorAnimations.cpp" "ColorStyleInterpolationTest.cpp" "ColorStyleInterpolation.h" "ColorStyleInterpolation.cpp" "AnimationTranslationUtilTest.cpp" "AnimationTranslationUtil.h" "AnimationTranslationUtil.cpp" "AnimationTimelineTest.cpp" "AnimationTimeline.idl" "AnimationTimeline.h" "AnimationTimeline.cpp" "AnimationTestHelper.h" "AnimationTestHelper.cpp" "AnimationTest.cpp" "AnimationStackTest.cpp" "AnimationStack.h" "AnimationStack.cpp" "AnimationPlayerTest.cpp" "AnimationPlayer.idl" "AnimationPlayer.h" "AnimationPlayer.cpp" "AnimationNodeTiming.h" "AnimationNodeTiming.cpp" "AnimationNodeTest.cpp" "AnimationNode.idl" "AnimationNode.h" "AnimationNode.cpp" "AnimationInputHelpersTest.cpp" "AnimationInputHelpers.h" "AnimationInputHelpers.cpp" "AnimationEffect.idl" "AnimationEffect.h" "AnimationClockTest.cpp" "AnimationClock.h" "AnimationClock.cpp" "Animation.idl" "Animation.h" "Animation.cpp" "animatable/" "ActiveAnimations.h" "ActiveAnimations.cpp" "../" "./")
+
+ ("/Users/charliea/chrome/src/third_party/WebKit/Source/core/" (21728 59750 0 0) "xmlhttprequest/" "xml/" "workers/" "timing/" "testing/" "svg/" "streams/" "storage/" "rendering/" "plugins/" "paint/" "page/" "OWNERS" "loader/" "LICENSE-LGPL-2.1" "LICENSE-LGPL-2" "LICENSE-APPLE" "layout/" "inspector/" "Init.h" "Init.cpp" "imagebitmap/" "html/" "frame/" "fileapi/" "fetch/" "events/" "editing/" "dom/" "DEPS" "css/" "CoreExport.h" "core_generated.gypi" "core_generated.gyp" "core.gypi" "core.gyp" "core.gni" "clipboard/" "BUILD.gn" "animation/" ".gitattributes" "../" "./")
+
+ ("/Users/charliea/chrome/src/third_party/WebKit/Source/" (21728 59750 0 0) "wtf/" "web/" "platform/" "OWNERS" "modules/" "devtools/" "DEPS" "core/" "config.h" "config.gyp" "config.gni" "BUILD.gn" "build/" "bindings/" ".gitignore" "../" "./")
+
+ ("/Users/charliea/chrome/src/third_party/WebKit/" (21728 59751 0 0) "WATCHLISTS" "Tools/" "Source/" "public/" "PRESUBMIT.py" "PerformanceTests/" "OWNERS" "ManualTests/" "LICENSE" "LayoutTests/" "codereview.settings" ".gitignore" ".gitattributes" ".git/" ".clang-format" "../" "./")
+
+ ("/Users/charliea/chrome/src/third_party/" (21728 59792 0 0) "zlib/" "yasm/" "x86inc/" "wtl/" "win_toolchain/" "widevine/" "webtreemap/" "webrtc/" "webpagereplay/" "WebKit/" "webgl/" "webdriver/" "v4l2capture/" "v4l-utils/" "usrsctp/" "usb_ids/" "typ/" "trace-viewer/" "tlslite/" "tcmalloc/" "talloc/" "swig/" "swiftshader/" "sudden_motion_sensor/" "stp/" "sqlite/" "speex/" "speech-dispatcher/" "snappy/" "smhasher/" "skia/" "sinonjs/" "simplejson/" "sfntly/" "scons-2.0.1/" "safe_browsing/" "requests/" "README.chromium.template" "README.chromium" "readability/" "re2/" "qunit/" "qcms/" "pywebsocket/" "python_gflags/" "pymock/" "pyftpdlib/" "pycoverage/" "py_trace_event/" "protobuf/" "PRESUBMIT.py" "power_gadget/" "polymer/" "ply/" "pexpect/" "pdfsqueeze/" "pdfium/" "OWNERS" "ots/" "opus/" "openmax_dl/" "omaha/" "ocmock/" "nss/" "npapi/" "mt19937ar/" "mozilla/" "mozc/" "motemplate/" "molokocacao/" "mojo_services/" "mojo/" "modp_b64/" "mockito/" "mesa/" "markupsafe/" "markdown/" "mach_override/" "lzma_sdk/" "llvm-build/" "llvm/" "lighttpd/" "libyuv/" "libxslt/" "libXNVCtrl/" "libxml/" "libwebp/" "libwebm/" "libvpx/" "libva/" "libusb/" "libudev/" "libsrtp/" "libsecret/" "libpng/" "libphonenumber/" "liblouis/" "libjpeg_turbo/" "libjpeg/" "libjingle/" "libexif/" "libevent/" "libc++abi/" "libc++/" "libaddressinput/" "leveldatabase/" "lcov/" "launchpad_translations/" "khronos/" "junit/" "jstemplate/" "jsr-305/" "jsoncpp/" "jinja2/" "isimpledom/" "instrumented_libraries/" "icu/" "iccjpeg/" "iaccessible2/" "hwcplus/" "hunspell_dictionaries/" "hunspell/" "harfbuzz-ng/" "gtk+/" "google_toolbox_for_mac/" "google_input_tools/" "google_appengine_cloudstorage/" "gardiner_mod/" "fuzzymatch/" "freetype2/" "fontconfig/" "flot/" "flac/" "fips181/" "ffmpeg/" "expat/" "elfutils/" "drmemory/" "dom_distiller_js/" "devscripts/" "decklink/" "d3/" "cython/" "colorama/" "codesighs/" "closure_linter/" "closure_compiler/" "cld_2/" "cld/" "checkstyle/" "cacheinvalidation/" "BUILD.gn" "bspatch/" "bsdtrees/" "brotli/" "boringssl/" "blanketjs/" "binutils/" "bintrees/" "bidichecker/" "ashmem/" "appurify-python/" "apple_sample_code/" "apple_apsl/" "apache-win32/" "angle/" "android_testrunner/" "android_swipe_refresh/" "android_protobuf/" "android_platform/" "android_opengl/" "android_data_chart/" "android_crazy_linker/" "analytics/" "adobe/" "accessibility-audit/" "../" "./")
+
+ ("/Users/charliea/chrome/src/" (21728 59786 0 0) "win8/" "webkit/" "WATCHLISTS" "v8/" "url/" "ui/" "tools/" "third_party/" "testing/" "sync/" "styleguide/" "storage/" "sql/" "skia/" "sdch/" "sandbox/" "rlz/" "remoting/" "printing/" "PRESUBMIT_test_mocks.py" "PRESUBMIT_test.py" "PRESUBMIT.py" "ppapi/" "pdf/" "OWNERS" "out/" "net/" "native_client_sdk/" "native_client/" "mojo/" "media/" "LICENSE.chromium_os" "LICENSE" "jingle/" "ipc/" "ios/" "gpu/" "google_update/" "google_apis/" "gin/" "extensions/" "device/" "DEPS" "dbus/" "crypto/" "courgette/" "content/" "components/" "codereview.settings" "cloud_print/" "chromeos/" "chromecast/" "chrome_elf/" "chrome/" "cc/" "buildtools/" "BUILD.gn" "build/" "breakpad/" "blink/" "base/" "AUTHORS" "ash/" "apps/" "android_webview/" "Android.mk" ".landmines" ".gn" ".gitignore" ".gitattributes" ".git/" ".clang-format" "../" "./")
+
+ ("/Users/charliea/chrome/" (21644 44322 0 0) "src/" ".gclient_entries" ".gclient" "../" "./")
+
+ ("/Users/charliea/github/preferences/emacs/.emacs.d/" (21780 16588 0 0) "themes/" "session.10e5515deff29bf3b9141159157121392500000038190047" "session.10e5515deff29bf3b9141157849552010500000038190045" "session.10e5515deff29bf3b914115099492486500000038190044" "session.10e5515deff29bf3b9141141375176793000000038190043" "session.10b1eef9556c2d871c141591251521812000000270430043" "session.105691c3bc9b49bd65141347134756585000000293700048" "session.1031b3fbbc77859ff114129613066371700000293480074" "session.1031b3fbbc77859ff1141168831121858500000293480043" "plugins/" "playground/" "places" "org/" "mysnippets/" "lib/" "init/" "ido.last" "elpa/" "desktop/" "backups/" "auto-save-list/" ".python-environments/" "../" "./")
+
+ ("/Users/charliea/github/trace-viewer/trace_viewer/core/side_panel/" (21780 16537 0 0) "side_panel_container_test.html" "side_panel_container.html" "side_panel.html" "../" "./")
+
+ ("/Users/charliea/github/trace-viewer/trace_viewer/extras/side_panel/" (21780 17192 0 0) "time_summary_test.html" "time_summary.html" "input_latency_test.html" "input_latency.html" "alerts_side_panel_test.html" "alerts_side_panel.html" "../" "./")
+
+ ("/Users/charliea/.emacs.d/org/" (21776 35519 0 0) "work.org" "side_panel.org" "2-15-15.org" "12-23-14.org" "12-22-14.org" "#2-15-15.org#" "#12-23-14.org#" "../" "./")
+
+ ("/Users/charliea/Documents/" (21756 49318 0 0) "utf8-notes.md" "threejs/" "pongladder/" "myapp/" "mark_and_measure/" "icicle/" "coursera/" ".localized" ".DS_Store" "#utf8-notes.md#" "../" "./")
+
+ ("/Users/" (21713 4026 0 0) "Shared/" "provision/" "charliea/" ".localized" "../" "./")
+
+ ("/Users/charliea/github/trace-viewer/trace_viewer/core/analysis/" (21776 47867 0 0) "util.html" "toggle_container_test.html" "toggle_container.html" "time_span_test.html" "time_span.html" "table_builder_test.html" "table_builder.html" "tab_view_test.html" "tab_view.html" "stub_analysis_table.html" "stub_analysis_results.html" "stack_frame_test.html" "stack_frame.html" "single_thread_time_slice_sub_view_test.html" "single_thread_time_slice_sub_view.html" "single_slice_sub_view_test.html" "single_slice_sub_view.html" "single_sample_sub_view_test.html" "single_sample_sub_view.html" "single_object_snapshot_sub_view_test.html" "single_object_snapshot_sub_view.html" "single_object_instance_sub_view_test.html" "single_object_instance_sub_view.html" "single_interaction_record_sub_view.html" "single_instant_event_sub_view_test.html" "single_instant_event_sub_view.html" "single_global_memory_dump_sub_view.html" "single_flow_event_sub_view_test.html" "single_flow_event_sub_view.html" "single_cpu_slice_sub_view_test.html" "single_cpu_slice_sub_view.html" "single_alert_sub_view.html" "object_snapshot_view.html" "object_instance_view.html" "multi_slice_sub_view_test.html" "multi_slice_sub_view.html" "multi_sample_sub_view_test.html" "multi_sample_sub_view.html" "multi_object_sub_view_test.html" "multi_object_sub_view.html" "multi_interaction_record_sub_view.html" "multi_instant_event_sub_view_test.html" "multi_instant_event_sub_view.html" "multi_global_memory_dump_sub_view.html" "multi_flow_event_sub_view_test.html" "multi_flow_event_sub_view.html" "multi_alert_sub_view.html" "generic_object_view_test.html" "generic_object_view.html" "generic_object_view.css" "counter_sample_sub_view_test.html" "counter_sample_sub_view.html" "analysis_view_test.html" "analysis_view.html" "analysis_sub_view_test.html" "analysis_sub_view.html" "analysis_results_test.html" "analysis_results.html" "analysis_results.css" "analysis_link_test.html" "analysis_link.html" "../" "./")
+
+ ("/Users/charliea/github/trace-viewer/trace_viewer/extras/about_tracing/" (21776 28509 0 0) "xhr_based_tracing_controller_client.html" "tracing_controller_client.html" "record_selection_dialog_test.html" "record_selection_dialog.html" "record_and_capture_controller_test.html" "record_and_capture_controller.html" "profiling_view_test.html" "profiling_view.html" "mock_tracing_controller_client.html" "inspector_tracing_controller_client_test.html" "inspector_tracing_controller_client.html" "inspector_connection.html" "common.css" "about_tracing.html" "../" "./")
+
+ ("/Users/charliea/github/trace-viewer/trace_viewer/" (21776 28594 0 0) "trace_viewer_project.pyc" "trace_viewer_project.py" "trace_viewer.html" "extras/" "core/" "build/" "base/" "__init__.pyc" "__init__.py" "../" "./")
+
+ ("/Users/charliea/github/preferences/emacs/" (21706 60863 0 0) ".emacs.d/" ".emacs" "../" "./")
+
+ ("/Users/charliea/github/" (21776 28485 0 0) "zeptonaut.github.io/" "trace-viewer/" "ProgrammingAssignment2/" "preferences/" "pc/" "litterbug/" "datasciencecoursera/" "../" "./")
+
+ ("/Users/charliea/github/preferences/terminal/" (21706 60864 0 0) "TomorrowNight.terminal" "setup-theme.sh" ".tmux.conf" ".profile" ".git-completion.bash" ".bashrc" ".bash_profile" "../" "./")
+
+ ("/Users/charliea/github/zeptonaut.github.io/_posts/" (21743 19188 0 0) "2015-2-10-golang-rpc.md" "2015-1-27-greedy-self-improvement.md" "2014-2-4-beauty-of-np.md" "2014-2-24-thou-with-hammer-whack.md" "2014-11-04-threejs-intro.md" "2014-10-16-embedding-d3-in-jekyll.md" "2014-10-12-remedying-a-defect-in-spaceballs-mode.md" "2014-10-11-the-missing-emacs-mode-spaceballs-mode.md" "2014-10-10-allergic-to-q.md" "2014-10-08-the-friendly-veterinarian-2.md" "2014-10-07-the-friendly-veterinarian.md" "#2015-2-26-most-qualified.md#" "../" "./")
+
+ ("/Users/charliea/github/litterbug/" (21726 12328 0 0) "word_generator.go" "README.md" "litterbug.go" "LICENSE" ".git/" "#litterbug.go#" "../" "./")
+
+ ("/Users/charliea/github/pc/icpc/ecna/2010/" (21706 62666 0 0) "c.py" "b_test.py" "b.py" "a_test.py" "a.py" "../" "./")
+
+ ("/Users/charliea/github/pc/icpc/ecna/" (21706 60672 0 0) "2011/" "2010/" "../" "./")
+
+ ("/Users/charliea/github/pc/icpc/" (21706 60672 0 0) "ecna/" "../" "./")
+
+ ("/Users/charliea/github/pc/" (21706 60672 0 0) "uva/" "README.md" "icpc/" "common/" ".git/" "../" "./")
+
+ ("/Users/charliea/github/preferences/" (21641 61697 0 0) "terminal/" "README.md" "install.sh" "emacs/" ".gitignore" ".git/" "../" "./")
+
+ ("/Users/charliea/github/zeptonaut.github.io/js/2014-11-04-threejs-intro/" (21593 23655 0 0) "one-square.js" "one-square.html" "one-rotating.js" "one-rotating.html" "../" "./")
+
+ ("/Users/charliea/Documents/threejs/book/" (21605 15724 0 0) "one.html" "../" "./")
+
+ ("/Users/charliea/Documents/threejs/learning-threejs/chapter-01/" (21605 15889 0 0) "README.md" "06-screen-size-change.html" "05-control-gui.html" "04-materials-light-animation.html" "03-materials-light.html" "02-first-scene.html" "01.js" "01.coffee" "01-basic-skeleton.html" "../" "./")
+
+ ("/Users/charliea/Documents/threejs/learning-threejs/chapter-02/" (21605 15889 0 0) "README.md" "08-cameras-lookat.html" "07-both-cameras.html" "06-mesh-properties.html" "05-custom-geometry.html" "04-geometries.html" "03-forced-materials.html" "02.js" "02.coffee" "02-foggy-scene.html" "01.js" "01.coffee" "01-basic-scene.html" "../" "./")
+
+ ("/Users/charliea/Documents/icicle/" (21643 38242 0 0) "treemaker.go" "../" "./")
+
+ ("/Users/charliea/Documents/pongladder/" (21643 38241 0 0) "welcome.go" "user.go" "router.go" "report.go" "register.go" "models/" "github.com/" "app.yaml" "../" "./")
+
+ ("/tmp/" (21706 62095 0 0) "steam_chrome_shmem" "roots__QTCsvD.pem" "pushy.runfiles-root/" "network_detect.runfiles-root/" "munki-Z6Px_7/" "munki-Wgo_WQ/" "munki-h6BFNc/" "munki-aOcftI/" "munki-7IsjYG/" "logs_exporter.runfiles-root/" "launchd-786.1DqY6s/" "launchd-338.aIavHF/" "launchd-2023.Q8iPsA/" "launch-pWxYmM/" "launch-0PRXOi/" "launch-0abvP3/" "KSOutOfProcessFetcher.177786.r55jifrBu08ZlGAfPLYXKgYad4c=/" "KSOutOfProcessFetcher.0.r55jifrBu08ZlGAfPLYXKgYad4c=/" "initgoogle_syslog_dir.0/" "gnubby-log.charliea.0GKtQKQiz5" "gmacupdater_binary.runfiles-root/" "gen_mnp_log_viewer.runfiles-root/" "gaudit.runfiles-root/" "cdb_provision.runfiles-root/" ".keystone_install_lock" "../" "./")
+
  ("/Users/charliea/Documents/pongladder/models/" (21610 29843 0 0) "user.go" "elo_games.go" "../" "./")
-
- ("/Users/charliea/.emacs.d/init/" (21610 29576 0 0) "other.el" "common.el" "../" "./")
-
- ("/Users/charliea/.emacs.d/" (21615 43311 0 0) "themes/" "session.10e5515deff29bf3b9141159157121392500000038190047" "session.10e5515deff29bf3b9141157849552010500000038190045" "session.10e5515deff29bf3b914115099492486500000038190044" "session.10e5515deff29bf3b9141141375176793000000038190043" "session.105691c3bc9b49bd65141347134756585000000293700048" "session.1031b3fbbc77859ff114129613066371700000293480074" "session.1031b3fbbc77859ff1141168831121858500000293480043" "plugins/" "playground/" "places" "org/" "mysnippets/" "lib/" "init/" "ido.last" "elpa/" "desktop/" "backups/" "auto-save-list/" ".python-environments/" "../" "./")
-
- ("/Users/charliea/" (21641 7325 0 0) "Public/" "Pictures/" "Music/" "Movies/" "Library/" "go/" "github/" "Downloads/" "Documents/" "Desktop/" "bin/" "Applications/" ".Xauthority" ".viminfo" ".Trash/" ".subversion/" ".sso/" ".ssh/" ".rvm/" ".rstudio-desktop/" ".rnd" ".Rhistory" ".profile" ".npm/" ".lesshst" ".gitconfig" ".gem/" ".esets/" ".emacs.d/" ".emacs" ".DS_Store" ".config/" ".coffee_history" ".CFUserTextEncoding" ".cache/" ".bzr.log" ".bashrc" ".bash_profile" ".bash_history" ".appcfg_nag" "../" "./")
-
- ("/Users/charliea/Documents/icicle/" (21620 5 0 0) "treemaker.go" "#treemaker.go#" "../" "./")
-
- ("/Users/charliea/Documents/" (21615 43637 0 0) "threejs/" "pongladder/" "myapp/" "icicle/" ".localized" "../" "./")
-
- ("/Users/charliea/Documents/pongladder/" (21614 27974 0 0) "welcome.go" "user.go" "router.go" "report.go" "register.go" "models/" "github.com/" "app.yaml" "../" "./")
 
  ("/Users/charliea/Documents/pongladder/handlers/" (21609 3618 0 0) "welcome.go" "report.go" "register.go" "../" "./")
 
@@ -79,21 +181,11 @@
 
  ("/Users/charliea/go/" (21605 18577 0 0) "src/" "pkg/" "bin/" "../" "./")
 
- ("/Users/charliea/github/preferences/terminal/" (21605 26407 0 0) "TomorrowNight.terminal" "setup-theme.sh" ".tmux.conf" ".profile" ".git-completion.bash" ".bashrc~" ".bashrc" ".bash_profile" "../" "./")
-
- ("/Users/" (21583 60833 0 0) "Shared/" "provision/" "lroberson/" "charliea/" ".localized" "../" "./")
-
- ("/Users/charliea/Documents/threejs/learning-threejs/chapter-02/" (21596 62741 0 0) "README.md" "08-cameras-lookat.html" "07-both-cameras.html" "06-mesh-properties.html" "05-custom-geometry.html" "04-geometries.html" "03-forced-materials.html" "02.js" "02.coffee" "02-foggy-scene.html" "01.js" "01.coffee" "01-basic-scene.html" "../" "./")
-
- ("/Users/charliea/Documents/threejs/learning-threejs/chapter-01/" (21596 62094 0 0) "README.md" "06-screen-size-change.html" "05-control-gui.html" "04-materials-light-animation.html" "03-materials-light.html" "02-first-scene.html" "01.js" "01.coffee" "01-basic-skeleton.html" "../" "./")
-
  ("/Users/charliea/Documents/threejs/learning-threejs/libs/" (21596 55619 0 0) "WebGLDeferredRenderer.js" "VTKLoader.js" "tween.min.js" "TrackballControls.js" "ThreeBSP.js" "ThreeBSP.coffee" "three.js" "STLLoader.js" "stats.js" "spin.js" "sketch.js" "shaders/" "ShaderPass.js" "ShaderDeferred.js" "SceneLoader.js" "SceneExporter.js" "RollControls.js" "RenderPass.js" "postprocessing/" "PLYLoader.js" "physijs_worker.js" "physi.js" "perlin.js" "PDBLoader.js" "PathControls.js" "ParametricGeometries.js" "OrbitControls.js" "OBJMTLLoader.js" "OBJLoader.js" "MTLLoader.js" "MD2Character.js" "MaskPass.js" "lzma.js" "literally/" "JSONLoader_old.js" "JSONLoader.js" "jquery-1.9.0.js" "GeometryExporter.js" "FXAAShader.js" "FlyControls.js" "FirstPersonControls.js" "EffectComposer.js" "dat.gui.js" "d3-threeD.js" "CTMWorker.js" "CTMLoader.js" "ctm.js" "CopyShader.js" "ConvexGeometry.js" "ColladaLoader.js" "coffee-script.js" "chroma.js" "AsciiEffect.js" "ammo.js" "../" "./")
 
  ("/Users/charliea/Documents/threejs/learning-threejs/chapter-12/" (21596 55619 0 0) "README.md" "hinge.html" "05-dof-constraint.html" "04-constraints.html" "03-shapes.html" "02-material-properties.html" "01-basic-scene.html" "../" "./")
 
  ("/Users/charliea/Documents/threejs/" (21596 55799 0 0) "three.js/" "one.js" "one.html" "one.coffee" "learning-threejs/" "book/" "../" "./")
-
- ("/Users/charliea/Documents/threejs/book/" (21596 55810 0 0) "#one.html#" "../" "./")
 
  ("/Users/charliea/Documents/threejs/learning-threejs/" (21596 55619 0 0) "unassigned/" "README.md" "libs/" "learning-threejs-sources.zip" "chapter-12/" "chapter-11/" "chapter-10/" "chapter-09/" "chapter-08/" "chapter-07/" "chapter-06/" "chapter-05/" "chapter-04/" "chapter-03/" "chapter-02/" "chapter-01/" "assets/" ".gitignore" ".git/" "../" "./")
 
@@ -105,19 +197,11 @@
 
  ("/Users/charliea/Documents/threejs/three.js/" (21595 39076 0 0) "utils/" "test/" "src/" "README.md" "LICENSE" "examples/" "editor/" "docs/" "CONTRIBUTING.md" "build/" "bower.json" ".gitignore" ".git/" "../" "./")
 
- ("/Users/charliea/github/zeptonaut.github.io/js/2014-11-04-threejs-intro/" (21593 23082 0 0) "one-square.js" "one-square.html" "one-rotating.js" "one-rotating.html" "../" "./")
-
  ("/Users/charliea/github/zeptonaut.github.io/js/" (21593 18937 0 0) "embed-d3.js" "embed-d3.coffee" "2014-11-04-threejs-intro/" "../" "./")
-
- ("/Users/charliea/github/zeptonaut.github.io/_posts/" (21593 18529 0 0) "2014-11-04-frustum.md" "2014-10-16-embedding-d3-in-jekyll.md" "2014-10-12-remedying-a-defect-in-spaceballs-mode.md" "2014-10-11-the-missing-emacs-mode-spaceballs-mode.md" "2014-10-10-allergic-to-q.md" "2014-10-08-the-friendly-veterinarian-2.md" "2014-10-07-the-friendly-veterinarian.md" "../" "./")
 
  ("/Users/charliea/github/zeptonaut.github.io/_sass/" (21593 6531 0 0) "_syntax-highlighting.scss" "_layout.scss" "_base.scss" "../" "./")
 
  ("/Users/charliea/github/zeptonaut.github.io/" (21593 11058 0 0) "README.md" "js/" "index.html" "feed.xml" "css/" "CNAME" "assets/" "about.md" "_site/" "_sass/" "_posts/" "_layouts/" "_includes/" "_config.yml" ".sass-cache/" ".gitignore" ".git/" "../" "./")
-
- ("/Users/charliea/github/" (21593 6530 0 0) "zeptonaut.github.io/" "preferences/" "../" "./")
-
- ("/Users/charliea/github/preferences/emacs/.emacs.d/init/" (21591 51007 0 0) "other.el" "common.el" "../" "./")
 )
 
 ;; ----- ido-unc-hosts-cache -----
