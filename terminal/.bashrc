@@ -32,6 +32,9 @@ export GOPATH="$HOME/go"
 # Add $GOPATH to $PATH
 export PATH="$PATH:$GOPATH/bin"
 
+# Necessary for Chromium development
+export CHROME_DEVEL_SANDBOX=/usr/local/sbin/chrome-devel-sandbox
+
 # Add Go appengine to $PATH and $GOPATH
 export APPENGINE_SDK="$HOME/bin/go_appengine"
 export PATH="$PATH:$APPENGINE_SDK"

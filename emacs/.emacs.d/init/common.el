@@ -204,6 +204,7 @@
 ;; js2-mode fixes javascript in emacs
 (require 'js2-mode)
 (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
+(add-to-list 'auto-mode-alist '("\\.json\\'" . js2-mode))
 
 ;; ac-js2-mode provides contextual autocomplete for javascript
 ;; NOTE: included here because of js2-mode dependency
@@ -228,10 +229,33 @@
 (define-key global-map "\C-cl" 'org-store-link)
 (define-key global-map "\C-ca" 'org-agenda)
 (setq org-log-done t)
+<<<<<<< HEAD
 (setq org-directory "~/org/projects")
 (setq org-agenda-files (list "~/org/projects"))
 (setq org-mobile-directory "~/mobileorg")
 (add-hook 'org-mode-hook (lambda() (visual-line-mode t)))
+
+=======
+(setq org-agenda-files (list "~/org/projects"))
+(add-hook 'org-mode-hook (lambda()
+                           (visual-line-mode t)))
+(custom-set-variables `(org-startup-folded (quote children)))
+(setq org-tag-persistent-alist '(("waiting" . ?w)))
+
+;; Files count as part of the tree
+(setq org-refile-use-outline-path 'file)
+;; Give us the whole tree, because we're using IDO
+(setq org-outline-path-complete-in-steps nil)
+;; Only list the files, don't list any subtrees within the file
+(setq org-refile-targets '((org-agenda-files :level . 0)))
+;; q-"capture"
+(key-chord-define-global "qc" 'org-capture)
+;; q-"switch"
+(key-chord-define-global "qs" 'org-iswitchb)
+(setq org-completion-use-ido t)
+
+(setq org-capture-templates
+      (quote (("t" "todo" entry (file "~/org/inbox.org") "* TODO %?\n"))))
 
 (require 'ox-md)
 (eval-after-load "org"
@@ -240,11 +264,6 @@
 ;; TODO(charliea): Use this in google.el.
 ;; (require 'org-mobile-sync)
 ;; (org-mobile-sync-mode 1)
-
-;; Rainbow delimiters changes the color of () and {} so that it's
-;; easier to see when they're matched
-;; (require 'rainbow-delimiters)
-;; (global-rainbow-delimiters-mode)
 
 ;; scss-mode allows you to work with Sass
 (require 'scss-mode)
@@ -275,6 +294,11 @@
 (add-to-list 'auto-mode-alist '("\\.erb\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.html\\'" . web-mode))
 (setq web-mode-code-indent-offset 2)
+
+;; web-beautify prettifies HTML/CSS/JS
+(require 'web-beautify)
+(eval-after-load 'js2-mode
+  '(define-key js2-mode-map (kbd "C-c C-b") 'web-beautify-js))
 
 ;; whitespace highlights lines that are too long
 (require 'whitespace)
