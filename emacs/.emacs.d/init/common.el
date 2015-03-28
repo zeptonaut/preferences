@@ -12,15 +12,10 @@
 ;; Required here to allow chord bindings throughout the file
 (require 'key-chord)
 (key-chord-mode 1)
-(custom-set-variables '(key-chord-two-keys-delay 0.05)
-                      '(key-chord-one-key-delay 0.1))
 
 ;; Disable annoying things
 (setq visible-bell t)
 (setq enable-recursive-minibuffers t)
-
-(add-to-list 'custom-theme-load-path
-             (file-name-as-directory "~/.emacs.d/themes/"))
 
 (setq vc-follow-symlinks t)
 
@@ -34,31 +29,19 @@
 (global-set-key (kbd "C-w") 'clipboard-kill-region)
 (global-set-key (kbd "M-w") 'clipboard-kill-ring-save)
 (global-set-key (kbd "C-y") 'clipboard-yank)
+(global-set-key "\C-m" 'newline-and-indent)
 (global-set-key (kbd "C-c e") 'eval-region)
 (global-set-key (kbd "C-c E") 'eval-buffer)
 (global-set-key (kbd "C-c C-r") 'replace-string)
 (global-set-key (kbd "C-c C-/") 'replace-regexp)
-(global-set-key (kbd "C-c C-t i") 'timeclock-in)
-(global-set-key (kbd "C-c C-t o") 'timeclock-out)
 (global-set-key (kbd "C-c b") 'compile)
 (global-set-key (kbd "C-c r") 'recompile)
+(global-set-key [f5] 'revert-buffer)
 
 ;; When you have to do a split (switch-file-other-buffer), always
 ;; split vertically and use the split window that you already have
 (setq split-width-threshold 1000)
 (setq split-height-threshold nil)
-
-;; Bind F5 to revert-buffer (like refresh for a browser)
-(global-set-key [f5] 'revert-buffer)
-
-;; Changes enter to move to new line and indent
-(global-set-key "\C-m" 'newline-and-indent)
-;; Changes parameter list to indent by four indents
-(setq c-offsets-alist '((arglist-intro . ++)))
-(setq c-offsets-alist '((arglist-cont-nonempty . ++)))
-;; Changes multiple line boolean statements to indent by two indents
-(setq c-offsets-alist '((statement . ++)))
-(setq c-offsets-alist '((statement-cont . ++)))
 
 ;; diminish keeps the modeline tidy.
 ;; Required here to let other modes diminish themselves.
@@ -67,10 +50,6 @@
 ;; ace-jump allows you to jump around your current buffer
 (autoload 'ace-jump-mode "ace-jump-mode" "Emacs quick move minor mode" t)
 (key-chord-define-global "jj" 'ace-jump-mode)
-
-;; ace-jump-buffer allows you to jump around between buffers
-(require 'ace-jump-buffer)
-(key-chord-define-global "kk" 'ace-jump-buffer)
 
 ;; anzu shows total search results in the mode line while searching
 (require 'anzu)
@@ -84,13 +63,7 @@
 ;; (setq ac-menu-height 20)
 ;; (diminish 'auto-complete-mode)
 
-;; better-defaults fixes some of emacs's bad defaults
-;; (require 'better-defaults)
-(if (display-graphic-p)
-    (progn
-      (tool-bar-mode -1)
-            (scroll-bar-mode -1)))
-
+;; circe is an IRC client within emacs
 (require 'circe)
 
 ;; coffee-mode provides support for coffeescript
@@ -251,6 +224,10 @@
 ;; q-"switch"
 (key-chord-define-global "qs" 'org-iswitchb)
 (setq org-completion-use-ido t)
+;; q-"waiting"
+(key-chord-define-global "qw" (lambda ()
+                                (interactive)
+                                (org-toggle-tag "waiting")))
 
 (setq org-capture-templates
       (quote (("t" "todo" entry (file "~/org/inbox.org") "* TODO %?\n"))))

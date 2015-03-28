@@ -29,6 +29,9 @@ fi
 # Go needs $GOPATH to get new binaries and such
 export GOPATH="$HOME/go"
 
+# Add $HOME/bin to path
+export PATH="$PATH:$HOME/bin"
+
 # Add $GOPATH to $PATH
 export PATH="$PATH:$GOPATH/bin"
 
