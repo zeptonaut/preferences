@@ -295,7 +295,6 @@
 ;; yasnippet provides template for frequently-used idioms
 (require 'yasnippet)
 (key-chord-define-global "kj" 'yas-expand-from-trigger-key)
-(setq yas-snippet-dirs '("~/.emacs.d/mysnippets"))
 (yas-global-mode 1)
 (diminish 'yas-minor-mode)
 
