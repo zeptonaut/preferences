@@ -6,6 +6,9 @@
                          ("melpa" . "http://melpa.milkbox.net/packages/")))
 (package-initialize)
 
+;; Load this file by default
+(find-file "~/.emacs.d/init/common.el")
+
 ;; Makes path be the same as in my shell
 (exec-path-from-shell-initialize)
 
@@ -202,12 +205,11 @@
 (define-key global-map "\C-cl" 'org-store-link)
 (define-key global-map "\C-ca" 'org-agenda)
 (setq org-log-done t)
-(setq org-directory "~/org/projects")
-(setq org-agenda-files (list "~/org/projects"))
-(setq org-mobile-directory "~/mobileorg")
+(setq org-directory "~/Dropbox/org/projects")
+(setq org-agenda-files (list "~/Dropbox/org/projects"))
+(setq org-mobile-directory "~/Dropbox/mobileorg")
 (add-hook 'org-mode-hook (lambda() (visual-line-mode t)))
 
-(setq org-agenda-files (list "~/org/projects"))
 (add-hook 'org-mode-hook (lambda()
                            (visual-line-mode t)))
 (custom-set-variables `(org-startup-folded (quote children)))
