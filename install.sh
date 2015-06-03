@@ -45,8 +45,10 @@ create_symlink `pwd`"/emacs/.emacs.d" $HOME"/.emacs.d"
 create_symlink `pwd`/terminal/.profile $HOME"/.profile"
 create_symlink `pwd`/terminal/.bashrc $HOME"/.bashrc"
 
-# no way to set default theme from command line?
+# TODO(charliea): Create system-specific installation files,
+# doing things like swapping the caps lock key.
 
-echo ""
-echo "TODO"
-echo "1. Set default terminal style."
+# git
+git config --global user.name "Charlie Andrews"
+git config --global core.editor emacs
+
