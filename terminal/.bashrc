@@ -6,6 +6,15 @@ alias ka="killall -9"
 alias gc="git commit -m"
 alias gp="git push origin master"
 
+# Load system-specific load files
+case `uname` in
+Linux)
+  source $HOME/.bashrc-linux
+  ;;
+Darwin)
+  source $HOME/.bashrc-mac
+  ;;
+esac
 
 # dircolors
 if [ -x /usr/bin/dircolors ]; then
@@ -44,7 +53,7 @@ export PATH="$PATH:$APPENGINE_SDK"
 alias ae="export GOROOT=$APPENGINE_SDK/goroot"
 
 # Prefer /usr/local/bin binaries of /usr/bin binaries
-#export PATH="/usr/local/bin:/usr/local/share/npm/bin:$PATH:$GOPATH/bin"
+export PATH="/usr/local/bin:$HOME/.local/bin:/usr/local/share/npm/bin:$PATH:$GOPATH/bin"
 
 # Add Chrome's depot_tools to the end of the path
 export PATH="$PATH:$HOME/bin/depot_tools"

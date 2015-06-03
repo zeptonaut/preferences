@@ -44,11 +44,11 @@ create_symlink `pwd`"/emacs/.emacs.d" $HOME"/.emacs.d"
 # terminal
 create_symlink `pwd`/terminal/.profile $HOME"/.profile"
 create_symlink `pwd`/terminal/.bashrc $HOME"/.bashrc"
-
-# TODO(charliea): Create system-specific installation files,
-# doing things like swapping the caps lock key.
+create symlink `pwd`/terminal/.bashrc-linux $HOME"/.bashrc-linux"
+create symlink `pwd`/terminal/.bashrc-mac $HOME"/.bashrc-mac"
 
 # git
 git config --global user.name "Charlie Andrews"
 git config --global core.editor emacs
 git config --global credential.helper 'cache --timeout=86400'
+

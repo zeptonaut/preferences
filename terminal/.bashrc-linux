@@ -1,0 +1,2 @@
+# Remap caps lock to control
+setxkbmap -option ctrl:nocaps

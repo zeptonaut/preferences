@@ -206,7 +206,7 @@
 (define-key global-map "\C-ca" 'org-agenda)
 (setq org-log-done t)
 (setq org-directory "~/Dropbox/org/projects")
-(setq org-agenda-files (list "~/Dropbox/org/projects"))
+(setq org-agenda-files '("~/Dropbox/org/projects/personal" "~/Dropbox/org/projects/work"))
 (setq org-mobile-directory "~/Dropbox/mobileorg")
 (add-hook 'org-mode-hook (lambda() (visual-line-mode t)))
 
