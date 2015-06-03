@@ -51,4 +51,4 @@ create_symlink `pwd`/terminal/.bashrc $HOME"/.bashrc"
 # git
 git config --global user.name "Charlie Andrews"
 git config --global core.editor emacs
-
+git config --global credential.helper 'cache --timeout=86400'
