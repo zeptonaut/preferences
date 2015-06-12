@@ -3,7 +3,7 @@ alias ked="emacsclient -e '(kill-emacs)'"
 alias edm='emacs --daemon'
 alias e="emacsclient -c"
 alias ka="killall -9"
-alias gc="git commit -m"
+alias gc="git commit -am 'Checkpoint.'"
 alias gp="git push origin master"
 
 # Load system-specific load files
