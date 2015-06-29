@@ -1,2 +1,7 @@
 # Remap caps lock to control
 setxkbmap -option ctrl:nocaps
+
+# Add bash completion if it exists
+if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
+  . /etc/bash_completion
+fi

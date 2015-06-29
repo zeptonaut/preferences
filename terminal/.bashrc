@@ -21,11 +21,6 @@ if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
 fi
 
-# Add bash completion if it exists
-if [ hash brew >/dev/null 2>&1 && -f $(brew --prefix)/etc/bash_completion ]; then
-    . $(brew --prefix)/etc/bash_completion
-fi
-
 # Use xterm-256color as the terminal unless we're using tmux, then use
 # screen-256color. tmux requires a screen terminal in order to work
 # properly
