@@ -226,14 +226,13 @@
 ;; q-"switch"
 (key-chord-define-global "qs" 'org-iswitchb)
 (setq org-completion-use-ido t)
-;; q-"waiting"
-(key-chord-define-global "qw" (lambda ()
-                                (interactive)
-                                (org-toggle-tag "waiting")))
-
 (setq org-capture-templates
       (quote (("t" "todo" entry (file "~/org/inbox.org") "* TODO %?\n"))))
-
+(setq org-todo-keywords
+      '((sequence "TODO(t)" "WAIT(w@)" "|" "DONE(d!)" "CANCELED(c@)")))
+(setq org-agenda-custom-commands
+      '(("w" todo "WAIT")))
+             
 (require 'ox-md)
 (eval-after-load "org"
   '(require 'ox-md nil t))
