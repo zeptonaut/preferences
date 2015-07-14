@@ -46,6 +46,7 @@ create_symlink `pwd`/terminal/.profile $HOME"/.profile"
 create_symlink `pwd`/terminal/.bashrc $HOME"/.bashrc"
 create_symlink `pwd`/terminal/.bashrc-linux $HOME"/.bashrc-linux"
 create_symlink `pwd`/terminal/.bashrc-mac $HOME"/.bashrc-mac"
+create_symlink `pwd`/terminal/.git-prompt.sh $HOME"/.git-prompt.sh"
 
 # git
 git config --global user.name "Charlie Andrews"

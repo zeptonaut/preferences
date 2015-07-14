@@ -9,6 +9,9 @@
 ;; Load this file by default
 (find-file "~/.emacs.d/init/common.el")
 
+;; Change the default font
+(set-default-font "Inconsolata 12")
+
 ;; Makes path be the same as in my shell
 (exec-path-from-shell-initialize)
 
