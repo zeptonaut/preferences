@@ -9,6 +9,9 @@
 ;; Load this file by default
 (find-file "~/.emacs.d/init/common.el")
 
+;; Change the default font
+(set-default-font "Inconsolata 12")
+
 ;; Makes path be the same as in my shell
 (exec-path-from-shell-initialize)
 
@@ -227,7 +230,7 @@
 (key-chord-define-global "qs" 'org-iswitchb)
 (setq org-completion-use-ido t)
 (setq org-capture-templates
-      (quote (("t" "todo" entry (file "~/org/inbox.org") "* TODO %?\n"))))
+      (quote (("t" "todo" entry (file "~/Dropbox/org/inbox.org") "* TODO %?\n"))))
 (setq org-todo-keywords
       '((sequence "TODO(t)" "WAIT(w@)" "|" "DONE(d!)" "CANCELED(c@)")))
 (setq org-agenda-custom-commands
@@ -288,10 +291,13 @@
                                     whitespace-style '(face tabs trailing lines-tail))))
 
 (add-hook 'prog-mode-hook 'whitespace-mode)
+(diminish 'whitespace-mode)
 
 ;; ws-butler cleans up whitespace, but only on lines that you touch
 (require 'ws-butler)
 (add-hook 'c++-mode-hook 'ws-butler-mode)
+(add-hook 'web-mode-hook 'ws-butler-mode)
+(diminish 'ws-butler-mode)
 
 ;; yasnippet provides template for frequently-used idioms
 (require 'yasnippet)

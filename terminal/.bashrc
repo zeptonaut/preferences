@@ -53,8 +53,13 @@ export PATH="/usr/local/bin:$HOME/.local/bin:/usr/local/share/npm/bin:$PATH:$GOP
 # Add Chrome's depot_tools to the end of the path
 export PATH="$PATH:$HOME/bin/depot_tools"
 
+# Put the git branch in the prompt if possible
+if [ -x $HOME/.git-prompt.sh ]; then
+  source ~/.git-prompt.sh
+fi
+
 # Command line prompt
-export PS1="\[\e[01;30m\][\u@\h:\[\e[0;31m\]\w\[\e[01;30m\]] \[\e[m\]"
+export PS1="\[\e[01;30m\][\[\e[0;31m\]\w\[\e[01;30m\]\$(__git_ps1)] \[\e[m\]"
 
 # Don't forget about .google-bashrc!
 [[ -r ~/.google-bashrc ]] && . ~/.google-bashrc
