@@ -216,8 +216,6 @@
                            (visual-line-mode t)))
 (custom-set-variables `(org-startup-folded (quote children)))
 (setq org-tag-persistent-alist '(("waiting" . ?w)))
-;; Open all of my org files when emacs starts
-(find-file "~/Dropbox/org/projects/*/*.org" "*")
 ;; Files count as part of the tree
 (setq org-refile-use-outline-path 'file)
 ;; Give us the whole tree, because we're using IDO
@@ -235,6 +233,8 @@
       '((sequence "TODO(t)" "WAIT(w@)" "|" "DONE(d!)" "CANCELED(c@)")))
 (setq org-agenda-custom-commands
       '(("w" todo "WAIT")))
+;; Open all of my org files when emacs starts
+(find-file "~/Dropbox/org/projects/*/*.org" "*")
              
 (require 'ox-md)
 (eval-after-load "org"

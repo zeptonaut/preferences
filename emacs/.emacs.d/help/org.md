@@ -9,3 +9,4 @@ Purpose: help file containing useful emacs commands.
     - `l`: Toggles whether DONE tasks are shown in the agenda
   - `qw` (`org-capture`): Captures a task from any buffer
 awef
+  - `C-c C-c` Toggle state of a checkbox in a sublist
