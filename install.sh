@@ -25,18 +25,6 @@ function create_symlink {
     fi
 }
 
-# anonymous pro font
-curl -O http://www.ms-studio.com/FontSales/AnonymousPro-1.002.zip
-unzip AnonymousPro-1.002.zip
-if [ "$os" == "linux-gnu" ] ; then
-    sudo cp -R AnonymousPro-1.002.001/ /usr/share/fonts/truetype/
-elif [ "$os" == "darwin" ] ; then
-    open AnonymousPro-1.002.001/*.ttf
-fi
-rm -rf Anon*
-rm -rf ._Anon*
-
-
 # emacs
 create_symlink `pwd`"/emacs/.emacs" $HOME"/.emacs"
 create_symlink `pwd`"/emacs/.emacs.d" $HOME"/.emacs.d"
