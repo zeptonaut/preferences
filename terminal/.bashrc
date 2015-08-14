@@ -66,3 +66,6 @@ export PS1="\[\e[01;30m\][\[\e[0;31m\]\w\[\e[01;30m\]\$(__git_ps1)] \[\e[m\]"
 
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+
+export GYP_GENERATORS="ninja"
+export GYP_DEFINES="use_goma=1"

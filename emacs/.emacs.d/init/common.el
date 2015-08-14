@@ -8,9 +8,10 @@
 
 ;; Load this file by default
 (find-file "~/.emacs.d/init/common.el")
+(find-file "~/.emacs.d/help/org.md")
 
 ;; Change the default font
-(set-default-font "Inconsolata 12")
+(setq default-frame-alist '((font . "Inconsolata-12")))
 
 ;; Makes path be the same as in my shell
 (exec-path-from-shell-initialize)
@@ -52,6 +53,9 @@
 ;; diminish keeps the modeline tidy.
 ;; Required here to let other modes diminish themselves.
 (require 'diminish)
+
+;; (require 'auto-complete)
+;; (ac-config-default)
 
 ;; ace-jump allows you to jump around your current buffer
 (autoload 'ace-jump-mode "ace-jump-mode" "Emacs quick move minor mode" t)
@@ -257,6 +261,17 @@
 (add-to-list 'sp--html-modes '(nxml-mode))
 (smartparens-global-mode 1)
 (diminish 'smartparens-mode)
+
+;; (require 'tern)
+;; (add-hook 'js2-mode-hook 'tern-mode)
+;; (setq tern-command (list "~/.emacs.d/vendor/tern/bin/tern"))
+
+;; (require 'company-tern)
+;; (add-to-list 'company-backends 'company-tern)
+;; (add-hook 'js2-mode-hook 'company-mode)
+;; (add-hook 'go-mode-hook (lambda ()
+;; 			  (set (make-local-variable 'company-backends) '(company-go))
+;; 			  (company-mode)))
 
 ;; Reduce the amount of time it takes the matching parenthesis to show up
 (setq show-paren-delay 0.01)

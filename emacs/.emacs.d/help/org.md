@@ -10,3 +10,4 @@ Purpose: help file containing useful emacs commands.
   - `qw` (`org-capture`): Captures a task from any buffer
 awef
   - `C-c C-c` Toggle state of a checkbox in a sublist
+  - `C-c a w` Retrieves a list of all tasks labeled WAIT
