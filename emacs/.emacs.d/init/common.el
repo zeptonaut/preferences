@@ -104,6 +104,9 @@
 (key-chord-define-global "jf" 'find-file-in-project)
 (custom-set-variables '(ffip-limit 2056)
                       '(ffip-fullpaths 1))
+(require 'find-things-fast)
+(key-chord-define-global "jf" 'ftf-find-file)
+(setq ftf-filetypes (cons "*.html" ftf-filetypes))
 
 ;; flx-ido provides better flex matching for IDO
 (require 'flx-ido)
@@ -216,10 +219,15 @@
 (setq org-agenda-files '("~/Dropbox/org/projects/personal" "~/Dropbox/org/projects/work"))
 (setq org-mobile-directory "~/Dropbox/mobileorg")
 (add-hook 'org-mode-hook (lambda() (visual-line-mode t)))
-(add-hook 'org-mode-hook (lambda()
-                           (visual-line-mode t)))
-(custom-set-variables `(org-startup-folded (quote children)))
-(setq org-tag-persistent-alist '(("waiting" . ?w)))
+(setq org-startup-folded (quote children))
+(setq org-agenda-dim-blocked-tasks t)
+(setq org-enforce-todo-dependencies t)
+(setq org-tag-persistent-alist '(("@home" . ?h)
+                                 ("@work" . ?w)
+                                 ("@errands" . ?e)))
+(setq org-agenda-skip-deadline-prewarning-if-scheduled t)
+(setq org-deadline-warning-days 7)
+
 ;; Files count as part of the tree
 (setq org-refile-use-outline-path 'file)
 ;; Give us the whole tree, because we're using IDO
@@ -228,6 +236,8 @@
 (setq org-refile-targets '((org-agenda-files :level . 0)))
 ;; q-"capture"
 (key-chord-define-global "qc" 'org-capture)
+;; q-"refile"
+(key-chord-define-global "qr" 'org-capture-goto-last-stored)
 ;; q-"switch"
 (key-chord-define-global "qs" 'org-iswitchb)
 (setq org-completion-use-ido t)
@@ -236,7 +246,14 @@
 (setq org-todo-keywords
       '((sequence "TODO(t)" "WAIT(w@)" "|" "DONE(d!)" "CANCELED(c@)")))
 (setq org-agenda-custom-commands
-      '(("w" todo "WAIT")))
+      '(("w" todo "WAIT")
+        ("d" todo "TODO")
+        ("A" agenda ""
+	    ((org-agenda-skip-function
+	      (lambda nil
+		(org-agenda-skip-entry-if (quote notregexp) "\\=.*\\[#A\\]")))
+	     (org-agenda-ndays 1)
+	     (org-agenda-overriding-header "Today's Priority #A tasks: ")))))
 ;; Open all of my org files when emacs starts
 (find-file "~/Dropbox/org/projects/*/*.org" "*")
              
