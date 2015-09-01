@@ -229,8 +229,8 @@
  '(org-agenda-sorting-strategy '(time-up priority-down))
  '(org-agenda-custom-commands
    '(("W" "Today at work"
-      ((agenda "" ((org-agenda-ndays 1)))
-       (tags-todo "WORK"))))))
+      ((agenda "" ((org-agenda-ndays 1)
+                   (org-agenda-tag-filter-preset '("WORK")))))))))
 (find-file "~/Dropbox/org/*.org")
 ;; (define-key global-map "\C-cl" 'org-store-link)
 ;; (setq org-log-done t)
