@@ -1,3 +1,7 @@
+;; Load this file by default
+(find-file "~/.emacs.d/init/common.el")
+(find-file "~/.emacs.d/help/org.md")
+
 ;; package allows for easy package management
 ;; Required here because this is what allows requiring of other packages.
 (require 'package)
@@ -6,17 +10,13 @@
                          ("melpa" . "http://melpa.milkbox.net/packages/")))
 (package-initialize)
 
-;; Load this file by default
-(find-file "~/.emacs.d/init/common.el")
-(find-file "~/.emacs.d/help/org.md")
-
 ;; Change the default font
 (setq default-frame-alist '((font . "Inconsolata-12")))
 
 ;; Makes path be the same as in my shell
 (exec-path-from-shell-initialize)
 
-;; Required here to allow chord bindings throughout the file
+;; Required here to allow chord bindings throughout the fiel
 (require 'key-chord)
 (key-chord-mode 1)
 
@@ -89,7 +89,8 @@
 (setq company-idle-delay .1)                         ; decrease delay before autocompletion popup shows
 (setq company-echo-delay 0)                          ; remove annoying blinking
 (setq company-begin-commands '(self-insert-command)) ; start autocompletion only after typing
-;; (add-hook 'after-init-hook 'global-company-mode)
+
+
 
 ;; company-go provides auto-completion for go code
 (require 'company-go)
@@ -217,72 +218,30 @@
 (key-chord-define-global "qc" 'org-capture)
 (custom-set-variables
  '(org-directory "~/Dropbox/org")
- '(org-refile-targets (quote (("~/Dropbox/org/todo.org" :maxlevel . 2)
-                              ("~/Dropbox/org/someday.org" :level . 2))))
+ '(org-refile-targets (quote (("~/Dropbox/org/todo.org" :maxlevel . 3)
+                              ("~/Dropbox/org/someday.org" :level . 3))))
  '(org-log-done t)
  '(org-agenda-dim-blocked-tasks t)
  '(org-agenda-skip-deadline-if-done t)
  '(org-agenda-skip-scheduled-if-done t)
  '(org-agenda-sorting-strategy (quote ((agenda time-up priority-down tag-up) (todo tag-up))))
  '(org-capture-templates
-               (quote (("t" "todo" entry (file "~/Dropbox/todo.org") "* TODO %?\n" "Inbox"))))
+               (quote (("t" "todo" entry (file "~/Dropbox/org/todo.org") "* TODO %?\n" "Inbox"))))
  '(org-agenda-sorting-strategy '(time-up priority-down))
  '(org-agenda-custom-commands
-   '(("W" "Today at work"
-      ((agenda "" ((org-agenda-ndays 1)))
-       (tags-todo "WORK"))))))
-(find-file "~/Dropbox/org/*.org")
-;; (define-key global-map "\C-cl" 'org-store-link)
-;; (setq org-log-done t)
-;; (setq org-directory "~/Dropbox/org/projects")
-;; (setq org-agenda-files '("~/Dropbox/org/projects/personal" "~/Dropbox/org/projects/work"))
-;; (setq org-mobile-directory "~/Dropbox/mobileorg")
-;; (add-hook 'org-mode-hook (lambda() (visual-line-mode t)))
-;; (setq org-startup-folded (quote children))
-;; (setq org-agenda-dim-blocked-tasks t)
-;; (setq org-enforce-todo-dependencies t)
-;; (setq org-tag-persistent-alist '(("@home" . ?h)
-;;                                  ("@work" . ?w)
-;;                                  ("@errands" . ?e)))
-;; (setq org-agenda-skip-deadline-prewarning-if-scheduled t)
-;; (setq org-deadline-warning-days 7)
+   '(("w" "Today at work"
+      ((agenda "" ((org-agenda-ndays 1)
+                   (org-agenda-tag-filter-preset '("+WORK"))))))
+     ("u" "Unscheduled" tags "-SCHEDULED={.+}-DEADLINE={.+}/!+TODO|+STARTED|+WAITING")))
+ '(org-outline-path-complete-in-steps nil)
+ '(org-refile-use-outline-path 'file))
+(setq org-completion-use-ido t)
 
-;; ;; Files count as part of the tree
-;; (setq org-refile-use-outline-path 'file)
 ;; ;; Give us the whole tree, because we're using IDO
-;; (setq org-outline-path-complete-in-steps nil)
-;; ;; Only list the files, don't list any subtrees within the file
-;; (setq org-refile-targets '((org-agenda-files :level . 0)))
-;; ;; q-"capture"
-;; (key-chord-define-global "qc" 'org-capture)
-;; ;; q-"refile"
-;; (key-chord-define-global "qr" 'org-capture-goto-last-stored)
-;; ;; q-"switch"
-;; (key-chord-define-global "qs" 'org-iswitchb)
-;; (setq org-completion-use-ido t)
-;; (setq org-capture-templates
-;;       (quote (("t" "todo" entry (file "~/Dropbox/org/inbox.org") "* TODO %?\n"))))
-;; (setq org-todo-keywords
-;;       '((sequence "TODO(t)" "WAIT(w@)" "|" "DONE(d!)" "CANCELED(c@)")))
-;; (setq org-agenda-custom-commands
-;;       '(("w" todo "WAIT")
-;;         ("d" todo "TODO")
-;;         ("A" agenda ""
-;; 	    ((org-agenda-skip-function
-;; 	      (lambda nil
-;; 		(org-agenda-skip-entry-if (quote notregexp) "\\=.*\\[#A\\]")))
-;; 	     (org-agenda-ndays 1)
-;; 	     (org-agenda-overriding-header "Today's Priority #A tasks: ")))))
-;; ;; Open all of my org files when emacs starts
-;; (find-file "~/Dropbox/org/projects/*/*.org" "*")
-             
-(require 'ox-md)
-(eval-after-load "org"
-  '(require 'ox-md nil t))
+(find-file "~/Dropbox/org/*.org")
 
-;; TODO(charliea): Use this in google.el.
-;; (require 'org-mobile-sync)
-;; (org-mobile-sync-mode 1)
+;; Files count as part of the tree
+(setq org-refile-use-outline-path 'file)
 
 ;; scss-mode allows you to work with Sass
 (require 'scss-mode)
@@ -297,17 +256,6 @@
 (add-to-list 'sp--html-modes '(nxml-mode))
 (smartparens-global-mode 1)
 (diminish 'smartparens-mode)
-
-;; (require 'tern)
-;; (add-hook 'js2-mode-hook 'tern-mode)
-;; (setq tern-command (list "~/.emacs.d/vendor/tern/bin/tern"))
-
-;; (require 'company-tern)
-;; (add-to-list 'company-backends 'company-tern)
-;; (add-hook 'js2-mode-hook 'company-mode)
-;; (add-hook 'go-mode-hook (lambda ()
-;; 			  (set (make-local-variable 'company-backends) '(company-go))
-;; 			  (company-mode)))
 
 ;; Reduce the amount of time it takes the matching parenthesis to show up
 (setq show-paren-delay 0.01)
@@ -374,6 +322,23 @@
           (rename-buffer new-name)
           (set-visited-file-name new-name)
           (set-buffer-modified-p nil))))))
+
+
+;; C++ tools for coding in Chromium
+;; (require 'ycmd)
+;; (require 'company-ycmd)
+;; (require 'flycheck-ycmd)
+
+;; (company-ycmd-setup)
+;; (flycheck-ycmd-setup)
+
+;; (add-hook 'c++-mode-hook 'ycmd-mode)
+;; (add-hook 'c++-mode-hook 'company-mode)
+;; ;; (add-hook 'c++-mode-hook 'flycheck-mode)
+;; (set-variable 'ycmd-server-command (list "python" (substitute-in-file-name "$HOME/YouCompleteMe/ycmd/ycmd/__main__.py")))
+;; (add-to-list 'ycmd-extra-conf-whitelist (substitute-in-file-name "$HOME/chromium/.ycm_extra_conf.py"))
+;; ;; Show flycheck errors in idle mode as well
+;; (setq ycmd-parse-conditions '(save new-line mode-enabled idle-change))
 
 ;; Playground
 (add-to-list 'load-path "~/.emacs.d/playground")

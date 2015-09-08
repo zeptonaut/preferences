@@ -16,3 +16,4 @@ Purpose: help file containing useful emacs commands.
   - `C-c C-x o` Toggles the ordered state of an entry. Task lists that are ordered must be completed in order.
   - `C-u C-u C-u C-c C-t` Toggles the TODO state of an entry, circumventing any task blocking.
   - `C-c ,` Sets the priority of the current entry.
+  - `C-c *` Turns a plain list into a headline
