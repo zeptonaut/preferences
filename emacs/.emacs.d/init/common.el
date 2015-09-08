@@ -1,4 +1,4 @@
-;; Load this file by default
+;; Load this file when emacs starts
 (find-file "~/.emacs.d/init/common.el")
 (find-file "~/.emacs.d/help/org.md")
 
@@ -323,22 +323,8 @@
           (set-visited-file-name new-name)
           (set-buffer-modified-p nil))))))
 
-
 ;; C++ tools for coding in Chromium
-;; (require 'ycmd)
-;; (require 'company-ycmd)
-;; (require 'flycheck-ycmd)
-
-;; (company-ycmd-setup)
-;; (flycheck-ycmd-setup)
-
-;; (add-hook 'c++-mode-hook 'ycmd-mode)
-;; (add-hook 'c++-mode-hook 'company-mode)
-;; ;; (add-hook 'c++-mode-hook 'flycheck-mode)
-;; (set-variable 'ycmd-server-command (list "python" (substitute-in-file-name "$HOME/YouCompleteMe/ycmd/ycmd/__main__.py")))
-;; (add-to-list 'ycmd-extra-conf-whitelist (substitute-in-file-name "$HOME/chromium/.ycm_extra_conf.py"))
-;; ;; Show flycheck errors in idle mode as well
-;; (setq ycmd-parse-conditions '(save new-line mode-enabled idle-change))
+(load-file "~/.emacs.d/init/chromium.el"))
 
 ;; Playground
 (add-to-list 'load-path "~/.emacs.d/playground")
