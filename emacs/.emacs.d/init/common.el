@@ -1,3 +1,4 @@
+
 ;; Load this file when emacs starts
 (find-file "~/.emacs.d/init/common.el")
 (find-file "~/.emacs.d/help/org.md")
@@ -66,13 +67,6 @@
 (global-anzu-mode +1)
 (diminish 'anzu-mode)
 
-;; autocomplete provides auto-completion based on other open buffers
-;; (require 'auto-complete-config)
-;; (ac-config-default)
-;; (setq ac-delay 0.010)
-;; (setq ac-menu-height 20)
-;; (diminish 'auto-complete-mode)
-
 ;; circe is an IRC client within emacs
 (require 'circe)
 
@@ -86,11 +80,8 @@
 (setq company-minimum-prefix-length 1)
 (setq company-show-numbers t)
 (setq company-tooltip-limit 20)                      ; bigger popup window
-(setq company-idle-delay .1)                         ; decrease delay before autocompletion popup shows
+(setq company-idle-delay 01)                        ; decrease delay before autocompletion popup shows
 (setq company-echo-delay 0)                          ; remove annoying blinking
-(setq company-begin-commands '(self-insert-command)) ; start autocompletion only after typing
-
-
 
 ;; company-go provides auto-completion for go code
 (require 'company-go)
@@ -226,7 +217,7 @@
  '(org-agenda-skip-scheduled-if-done t)
  '(org-agenda-sorting-strategy (quote ((agenda time-up priority-down tag-up) (todo tag-up))))
  '(org-capture-templates
-               (quote (("t" "todo" entry (file "~/Dropbox/org/todo.org") "* TODO %?\n" "Inbox"))))
+               (quote (("t" "todo" entry (file+headline "~/Dropbox/org/todo.org" "Inbox") "* TODO %?\n"))))
  '(org-agenda-sorting-strategy '(time-up priority-down))
  '(org-agenda-custom-commands
    '(("w" "Today at work"

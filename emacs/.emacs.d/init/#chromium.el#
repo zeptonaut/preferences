@@ -8,8 +8,9 @@
 
 ;; Create a modified Google style for Chromium
 (c-add-style "Chromium" '("Google"
-                        (c-offsets-alist . ((innamespace . +)
-                                            (arglist-cont-nonempty . ++)))))
+                          (fill-column . 80)
+                          (c-offsets-alist . ((innamespace . +)
+                                              (arglist-cont-nonempty . ++)))))
 
 ;; Create a modified Google style for WebKit
 (c-add-style "WebKit" '("Google"

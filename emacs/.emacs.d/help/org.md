@@ -17,3 +17,6 @@ Purpose: help file containing useful emacs commands.
   - `C-u C-u C-u C-c C-t` Toggles the TODO state of an entry, circumventing any task blocking.
   - `C-c ,` Sets the priority of the current entry.
   - `C-c *` Turns a plain list into a headline
+
+## c-mode
+  - `C-c C-s` Shows the syntactic element you're at in the code. Useful for customizing indentation with c-offset-alist.
