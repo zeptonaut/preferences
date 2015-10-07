@@ -89,7 +89,10 @@
 			  (set (make-local-variable 'company-backends) '(company-go))
 			  (company-mode)))
 
-(require 'emmet-mode)
+;; erc is an emacs mode for IRC
+(setq erc-prompt-for-password nil)
+(setq erc-autojoin-channels-alist
+      '(("freenode.net" "#chromium")))
 
 ;; find-file-in-project finds files in projects
 ;; (require 'find-file-in-project)
@@ -217,7 +220,8 @@
  '(org-agenda-skip-scheduled-if-done t)
  '(org-agenda-sorting-strategy (quote ((agenda time-up priority-down tag-up) (todo tag-up))))
  '(org-capture-templates
-               (quote (("t" "todo" entry (file+headline "~/Dropbox/org/todo.org" "Inbox") "* TODO %?\n"))))
+               (quote (("t" "todo" entry (file+headline "~/Dropbox/org/todo.org" "Inbox") "* TODO %?\n")
+                       ("w" "waiting" entry (file+headline "~/Dropbox/org/todo.org" "Inbox") "* WAITING %?\n"))))
  '(org-agenda-sorting-strategy '(time-up priority-down))
  '(org-agenda-custom-commands
    '(("w" "Today at work"
@@ -229,7 +233,7 @@
 (setq org-completion-use-ido t)
 
 ;; ;; Give us the whole tree, because we're using IDO
-(find-file "~/Dropbox/org/*.org")
+(find-file "~/Dropbox/org/todo.org")
 
 ;; Files count as part of the tree
 (setq org-refile-use-outline-path 'file)
@@ -315,7 +319,7 @@
           (set-buffer-modified-p nil))))))
 
 ;; C++ tools for coding in Chromium
-(load-file "~/.emacs.d/init/chromium.el"))
+(load-file "~/.emacs.d/init/chromium.el")
 
 ;; Playground
 (add-to-list 'load-path "~/.emacs.d/playground")
