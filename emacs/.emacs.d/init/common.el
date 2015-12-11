@@ -12,7 +12,7 @@
 (package-initialize)
 
 ;; Change the default font
-(setq default-frame-alist '((font . "Inconsolata-12")))
+(setq default-frame-alist '((font . "Inconsolata-10")))
 
 ;; Makes path be the same as in my shell
 (exec-path-from-shell-initialize)
@@ -38,18 +38,23 @@
 (global-set-key (kbd "M-w") 'clipboard-kill-ring-save)
 (global-set-key (kbd "C-y") 'clipboard-yank)
 (global-set-key "\C-m" 'newline-and-indent)
+(global-set-key (kbd "C-c c") 'compile)
+(global-set-key (kbd "C-c r") 'recompile)
 (global-set-key (kbd "C-c e") 'eval-region)
 (global-set-key (kbd "C-c E") 'eval-buffer)
 (global-set-key (kbd "C-c C-r") 'replace-string)
 (global-set-key (kbd "C-c C-/") 'replace-regexp)
-(global-set-key (kbd "C-c b") 'compile)
-(global-set-key (kbd "C-c r") 'recompile)
 (global-set-key [f5] 'revert-buffer)
+(key-chord-define-global "fd" 'save-buffer)
 
 ;; When you have to do a split (switch-file-other-buffer), always
 ;; split vertically and use the split window that you already have
 (setq split-width-threshold 1000)
 (setq split-height-threshold nil)
+
+;; Default to 80 column fill for C++
+(add-hook 'c++-mode-hook (lambda ()
+                          (customize-set-variable 'fill-column 80)))
 
 ;; diminish keeps the modeline tidy.
 ;; Required here to let other modes diminish themselves.
@@ -60,7 +65,7 @@
 
 ;; ace-jump allows you to jump around your current buffer
 (autoload 'ace-jump-mode "ace-jump-mode" "Emacs quick move minor mode" t)
-(key-chord-define-global "jj" 'ace-jump-mode)
+(key-chord-define-global "jj" 'ace-jump-line-mode)
 
 ;; anzu shows total search results in the mode line while searching
 (require 'anzu)
@@ -77,10 +82,10 @@
 ;; company mode provides an auto-complete framework
 (require 'company)
 (global-set-key (kbd "M-/") 'company-complete)
-(setq company-minimum-prefix-length 1)
+(setq company-minimum-prefix-length 0)
 (setq company-show-numbers t)
 (setq company-tooltip-limit 20)                      ; bigger popup window
-(setq company-idle-delay 01)                        ; decrease delay before autocompletion popup shows
+(setq company-idle-delay .01)                        ; decrease delay before autocompletion popup shows
 (setq company-echo-delay 0)                          ; remove annoying blinking
 
 ;; company-go provides auto-completion for go code
@@ -172,15 +177,11 @@
 (add-hook 'ido-minibuffer-setup-hook 'ido-disable-line-trucation)
 
 ;; Returns true if the current buffer is part of Chromium
-(defun is-chromium ()
-  (string-match "chrome/src/" buffer-file-name))
+;; (defun is-chromium ()
+;;   (string-match "chrome/src/" buffer-file-name))
 
-(add-hook 'c++-mode-hook (lambda() (if (is-chromium)
-                                       (irony-mode))))
-
-;; jedi understands python
-(add-hook 'python-mode-hook 'jedi:setup)
-(setq jedi:complete-on-dot t)
+;; (add-hook 'c++-mode-hook (lambda() (if (is-chromium)
+;;                                        (irony-mode))))
 
 ;; js2-mode fixes javascript in emacs
 (require 'js2-mode)
@@ -193,10 +194,6 @@
 ;; (add-hook 'js2-mode-hook 'ac-js2-mode)
 ;; (setq ac-js2-evaluate-calls t)
 ;; (setq ac-js2-external-libraries '(concat user-emacs-directory "lib/d3.min.js"))
-
-;; magit is an emacs interface to git
-(require 'magit)
-(global-set-key (kbd "C-x g") 'magit-status)
 
 ;; markdown-mode gives an emacs mode for markdown
 (require 'markdown-mode)
@@ -231,6 +228,10 @@
  '(org-outline-path-complete-in-steps nil)
  '(org-refile-use-outline-path 'file))
 (setq org-completion-use-ido t)
+(add-hook 'org-agenda-mode-hook (lambda()
+                                  (local-set-key (kbd "[") 'org-agenda-do-date-earlier)
+                                  (local-set-key (kbd "]") 'org-agenda-do-date-later)))
+
 
 ;; ;; Give us the whole tree, because we're using IDO
 (find-file "~/Dropbox/org/todo.org")
@@ -318,8 +319,9 @@
           (set-visited-file-name new-name)
           (set-buffer-modified-p nil))))))
 
-;; C++ tools for coding in Chromium
-(load-file "~/.emacs.d/init/chromium.el")
+;; ;; C++ tools for coding in Chromium
+;; (load-file "~/.emacs.d/init/chromium.el")
 
 ;; Playground
 (add-to-list 'load-path "~/.emacs.d/playground")
+(add-to-list 'load-path "~/.emacs.d/vendor")

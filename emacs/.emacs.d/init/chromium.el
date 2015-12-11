@@ -1,15 +1,15 @@
 ;; Load this file when emacs starts
-(find-file "~/.emacs.d/init/common.el")
+(find-file "~/.emacs.d/init/chromium.el")
 
 ;; Load the base C/C++ style for Google
-(load-file "~/.emacs.d/vendor/google-c-style.el")
-(add-hook 'c-mode-common-hook 'google-set-c-style)
-(add-hook 'c-mode-common-hook 'google-make-newline-indent)
+;; (load-file "~/.emacs.d/vendor/google-c-style.el")
+;; (add-hook 'c-mode-common-hook 'google-set-c-style)
+;; (add-hook 'c-mode-common-hook 'google-make-newline-indent)
+
+
 
 ;; Create a modified Google style for Chromium
-(c-add-style "Chromium" '("Google"
-                        (c-offsets-alist . ((innamespace . +)
-                                            (arglist-cont-nonempty . ++)))))
+(c-add-style "Chromium" '("Google"))
 
 ;; Create a modified Google style for WebKit
 (c-add-style "WebKit" '("Google"
@@ -21,20 +21,45 @@
                                             (member-init-intro . +)
                                             (topmost-intro . 0)
                                             (arglist-cont-nonempty . +)))))
+
+(require 'gn-mode)
+
 (require 'ycmd)
 (require 'company-ycmd)
-
+(require 'flycheck-ycmd)
 
 (company-ycmd-setup)
+(flycheck-ycmd-setup)
 
-(add-hook 'c++-mode-hook 'ycmd-mode)
-(add-hook 'c++-mode-hook 'company-mode)
+;; Show completions after 0.15 seconds
+(setq company-idle-delay 0.15)
 
-(set-variable 'ycmd-server-command (list "python" (substitute-in-file-name "$HOME/YouCompleteMe/ycmd/ycmd/__main__.py")))
+;; Replace the directory information with where you downloaded ycmd to
+(set-variable 'ycmd-server-command (list "python" (substitute-in-file-name "$HOME/github/ycmd/ycmd/__main__.py")))
+
+;; Edit according to where you have your Chromium/Blink checkout
 (add-to-list 'ycmd-extra-conf-whitelist (substitute-in-file-name "$HOME/chromium/.ycm_extra_conf.py"))
 
-;; (require 'flycheck-ycmd)
-;; (flycheck-ycmd-setup)
-;; ;; (add-hook 'c++-mode-hook 'flycheck-mode)
-;; Show flycheck errors in idle mode as well
+;; Show flycheck errors in idle-mode as well
 (setq ycmd-parse-conditions '(save new-line mode-enabled idle-change))
+
+;; Makes emacs-ycmd less verbose
+(setq url-show-status t)
+
+;; (require 'ycmd)
+;; (require 'company-ycmd)
+
+
+;; (company-ycm-setup)
+
+;; (add-hook 'c++-mode-hook 'ycmd-mode)
+;; (add-hook 'c++-mode-hook 'company-mode)
+
+;; (set-variable 'ycmd-server-command (list "python" (substitute-in-file-name "$HOME/YouCompleteMe/ycmd/ycmd/__main__.py")))
+;; (add-to-list 'ycmd-extra-conf-whitelist (substitute-in-file-name "$HOME/chromium/.ycm_extra_conf.py"))
+
+;; ;; (require 'flycheck-ycmd)
+;; ;; (flycheck-ycmd-setup)
+;; ;; ;; (add-hook 'c++-mode-hook 'flycheck-mode)
+;; ;; Show flycheck errors in idle mode as well
+;; (setq ycmd-parse-conditions '(save new-line mode-enabled idle-change))

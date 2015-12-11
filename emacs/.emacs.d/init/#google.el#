@@ -1,0 +1,5 @@
+(find-file "~/.emacs.d/init/google.el")
+
+(require 'google)
+
+(load-file "~/.emacs.d/init/chromium.el")
