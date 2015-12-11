@@ -12,31 +12,7 @@
 (package-initialize)
 
 ;; Change the default font
-(setq default-frame-alist '((font . "Inconsolata-10")))
 
-;; Makes path be the same as in my shell
-(exec-path-from-shell-initialize)
-
-;; Required here to allow chord bindings throughout the fiel
-(require 'key-chord)
-(key-chord-mode 1)
-
-;; Disable annoying things
-(setq visible-bell t)
-(setq enable-recursive-minibuffers t)
-
-(setq vc-follow-symlinks t)
-
-;; Always use filesystem versions of files
-(global-auto-revert-mode 1)
-
-;; Don't create lockfiles
-(setq create-lockfiles nil)
-
-;; Key bindings
-(global-set-key (kbd "C-w") 'clipboard-kill-region)
-(global-set-key (kbd "M-w") 'clipboard-kill-ring-save)
-(global-set-key (kbd "C-y") 'clipboard-yank)
 (global-set-key "\C-m" 'newline-and-indent)
 (global-set-key (kbd "C-c c") 'compile)
 (global-set-key (kbd "C-c r") 'recompile)
@@ -71,9 +47,6 @@
 (require 'anzu)
 (global-anzu-mode +1)
 (diminish 'anzu-mode)
-
-;; circe is an IRC client within emacs
-(require 'circe)
 
 ;; coffee-mode provides support for coffeescript
 (require 'coffee-mode)
