@@ -1,0 +1,7 @@
+(find-file "~/.emacs.d/init/google.el")
+
+(setq default-frame-alist '((font . "Inconsolata-11")))
+
+(require 'google)
+
+(load-file "~/.emacs.d/init/chromium.el")

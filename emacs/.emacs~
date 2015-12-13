@@ -50,8 +50,7 @@
  '(org-refile-use-outline-path (quote file))
  '(safe-local-variable-values
    (quote
-    ((chromium-c++minor-mode)
-     (local-set-key
+    ((local-set-key
       (kbd "C-c C-c")
       (quote chromium-compile))
      (local-set-key

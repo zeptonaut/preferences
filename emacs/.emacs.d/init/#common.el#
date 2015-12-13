@@ -13,11 +13,8 @@
 ;; Change the default font
 
 
-;; Create a thin scroll bar for every window
-(scroll-bar-mode 1)
-(set-scroll-bar-mode 'right)
-(setq-default scroll-bar-width 10)
-
+;; Hide scroll bars
+(scroll-bar-mode -)1
 (menu-bar-mode -1)
 (tool-bar-mode -1)
 
@@ -198,39 +195,40 @@
 
 ;; org-mode helps you organize your life
 (require 'org)
-(find-file "~/Dropbox/org/todo.org")
-
-;; (setq org-agenda-files '("~/Dropbox/org/todo.org"))
-;; (define-key global-map "\C-ca" 'org-agenda)
-;; (key-chord-define-global "qc" 'org-capture)
-;; (custom-set-variables
-;;  '(org-directory "~/Dropbox/org")
-;;  '(org-refile-targets (quote (("~/Dropbox/org/todo.org" :maxlevel . 3)
-;;                               ("~/Dropbox/org/someday.org" :level . 3))))
-;;  '(org-log-done t)
-;;  '(org-agenda-dim-blocked-tasks t)
-;;  '(org-agenda-skip-deadline-if-done t)
-;;  '(org-agenda-skip-scheduled-if-done t)
-;;  '(org-agenda-sorting-strategy (quote ((agenda time-up priority-down tag-up) (todo tag-up))))
-;;  '(org-capture-templates
-;;    (quote (("t" "todo" entry (file+headline "~/Dropbox/org/todo.org" "Inbox") "* TODO %?\n")
-;; 	   ("w" "waiting" entry (file+headline "~/Dropbox/org/todo.org" "Inbox") "* WAITING %?\n"))))
-;;  '(org-agenda-sorting-strategy '(time-up priority-down))
-;;  '(org-agenda-custom-commands
-;;    '(("w" "Today at work"
-;;       ((agenda "" ((org-agenda-ndays 1)
-;;                    (org-agenda-tag-filter-preset '("+WORK"))))))
-;;      ("u" "Unscheduled" tags "-SCHEDULED={.+}-DEADLINE={.+}/!+TODO|+STARTED|+WAITING")))
-;;  '(org-outline-path-complete-in-steps nil)
-;;  '(org-refile-use-outline-path 'file))
-;; (setq org-completion-use-ido t)
-;; (add-hook 'org-agenda-mode-hook (lambda()
-;;                                   (local-set-key (kbd "[") 'org-agenda-do-date-earlier)
-;;                                   (local-set-key (kbd "]") 'org-agenda-do-date-later)))
+(setq org-agenda-files '("~/Dropbox/org/todo.org"))
+(define-key global-map "\C-ca" 'org-agenda)
+(key-chord-define-global "qc" 'org-capture)
+(custom-set-variables
+ '(org-directory "~/Dropbox/org")
+ '(org-refile-targets (quote (("~/Dropbox/org/todo.org" :maxlevel . 3)
+                              ("~/Dropbox/org/someday.org" :level . 3))))
+ '(org-log-done t)
+ '(org-agenda-dim-blocked-tasks t)
+ '(org-agenda-skip-deadline-if-done t)
+ '(org-agenda-skip-scheduled-if-done t)
+ '(org-agenda-sorting-strategy (quote ((agenda time-up priority-down tag-up) (todo tag-up))))
+ '(org-capture-templates
+   (quote (("t" "todo" entry (file+headline "~/Dropbox/org/todo.org" "Inbox") "* TODO %?\n")
+	   ("w" "waiting" entry (file+headline "~/Dropbox/org/todo.org" "Inbox") "* WAITING %?\n"))))
+ '(org-agenda-sorting-strategy '(time-up priority-down))
+ '(org-agenda-custom-commands
+   '(("w" "Today at work"
+      ((agenda "" ((org-agenda-ndays 1)
+                   (org-agenda-tag-filter-preset '("+WORK"))))))
+     ("u" "Unscheduled" tags "-SCHEDULED={.+}-DEADLINE={.+}/!+TODO|+STARTED|+WAITING")))
+ '(org-outline-path-complete-in-steps nil)
+ '(org-refile-use-outline-path 'file))
+(setq org-completion-use-ido t)
+(add-hook 'org-agenda-mode-hook (lambda()
+                                  (local-set-key (kbd "[") 'org-agenda-do-date-earlier)
+                                  (local-set-key (kbd "]") 'org-agenda-do-date-later)))
 
 
-;; ;; Files count as part of the tree
-;; (setq org-refile-use-outline-path 'file)
+;; ;; Give us the whole tree, because we're using IDO
+;; (find-file "~/Dropbox/org/todo.org")
+
+;; Files count as part of the tree
+(setq org-refile-use-outline-path 'file)
 
 ;; scss-mode allows you to work with Sass
 (require 'scss-mode)

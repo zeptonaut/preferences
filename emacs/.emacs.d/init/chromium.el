@@ -1,6 +1,8 @@
 ;; Load this file when emacs starts
 (find-file "~/.emacs.d/init/chromium.el")
 
+;; Add the Chromium's emacs plugins to the load path
+
 
 ;; Load the base C/C++ style for Google
 (load-file "~/.emacs.d/vendor/google-c-style.el")
@@ -21,6 +23,7 @@
                                             (topmost-intro . 0)
                                             (arglist-cont-nonempty . +)))))
 
+(add-to-list 'load-path "~/chromium/src/tools/gn/misc/emacs/")
 (require 'gn-mode)
 
 (require 'ycmd)
@@ -45,6 +48,22 @@
 ;; Makes emacs-ycmd less verbose
 (setq url-show-status t)
 
+;; Provide a wrapper function to always run Chromium compile commands from
+;; ~/chromium/src
+(defun chromium-compile ()
+  (interactive)
+  (let ((default-directory "~/chromium/src/"))
+    (call-interactively 'compile)))
+
+;; Define a minor mode to override the default compile keybinding so that it
+;; runs chromium-compile instead
+(defvar chromium-c++-minor-mode-map (make-keymap) "chromium-c++-minor-mode-keymap")
+(define-key chromium-c++-minor-mode-map (kbd "C-c c") 'chromium-compile)
+(define-minor-mode chromium-c++-minor-mode
+  t " chromium-c++" 'chromium-c++-minor-mode-map)
+
+
+;; TODO(charliea): Fix autocomplete
 ;; (require 'ycmd)
 ;; (require 'company-ycmd)
 
