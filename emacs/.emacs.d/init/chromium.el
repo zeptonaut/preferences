@@ -1,12 +1,11 @@
 ;; Load this file when emacs starts
 (find-file "~/.emacs.d/init/chromium.el")
 
+
 ;; Load the base C/C++ style for Google
-;; (load-file "~/.emacs.d/vendor/google-c-style.el")
+(load-file "~/.emacs.d/vendor/google-c-style.el")
 ;; (add-hook 'c-mode-common-hook 'google-set-c-style)
 ;; (add-hook 'c-mode-common-hook 'google-make-newline-indent)
-
-
 
 ;; Create a modified Google style for Chromium
 (c-add-style "Chromium" '("Google"))

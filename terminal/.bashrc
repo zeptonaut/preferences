@@ -69,5 +69,4 @@ export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 export PATH="$PATH:$HOME/github/battor/sw:/opt/avr/bin"
 
 
-export GYP_GENERATORS="ninja"
-export GYP_DEFINES="use_goma=1 fastbuild=1"
+export GYP_DEFINES="use_goma=1"

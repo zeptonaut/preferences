@@ -1,4 +1,3 @@
-
 ;; Load this file when emacs starts
 (find-file "~/.emacs.d/init/common.el")
 (find-file "~/.emacs.d/help/org.md")
@@ -12,6 +11,43 @@
 (package-initialize)
 
 ;; Change the default font
+(setq default-frame-alist '((font . "Inconsolata-12")))
+
+;; Hide scroll bars
+(scroll-bar-mode -1)
+(menu-bar-mode -1)
+(tool-bar-mode -1)
+
+;; Disable annoying things
+(setq visible-bell t)
+(setq enable-recursive-minibuffers t)
+(setq vc-follow-symlinks t)
+(setq create-lockfiles nil)
+
+;; Makes path be the same as in my shell
+(exec-path-from-shell-initialize)
+
+;; Always use filesystem versions of files
+(global-auto-revert-mode 1)
+
+;; Load the solarized theme
+;; Don't change the font for some headings and titles
+(setq solarized-use-variable-pitch nil)
+;; make the modeline high contrast
+(setq solarized-high-contrast-mode-line t)
+;; Don't change size of org-mode headlines (but keep other size-changes)
+(setq solarized-scale-org-headlines nil)
+;; Avoid all font-size changes
+(setq solarized-height-minus-1 1)
+(setq solarized-height-plus-1 1)
+(setq solarized-height-plus-2 1)
+(setq solarized-height-plus-3 1)
+(setq solarized-height-plus-4 1)
+(load-theme 'solarized-dark t)
+
+;; Required here to allow chord bindings throughout the file
+(require 'key-chord)
+(key-chord-mode 1)
 
 (global-set-key "\C-m" 'newline-and-indent)
 (global-set-key (kbd "C-c c") 'compile)
@@ -35,9 +71,6 @@
 ;; diminish keeps the modeline tidy.
 ;; Required here to let other modes diminish themselves.
 (require 'diminish)
-
-;; (require 'auto-complete)
-;; (ac-config-default)
 
 ;; ace-jump allows you to jump around your current buffer
 (autoload 'ace-jump-mode "ace-jump-mode" "Emacs quick move minor mode" t)
@@ -92,18 +125,6 @@
                               (flycheck-mode)))
 (setq flycheck-display-errors-delay 0.01)
 
-;; (require 'flymake)
-;; (setq flymake-start-syntax-check-on-newline nil)
-;; ;; Make the flymake errors more obvious
-;; (custom-set-faces
-;;  '(flymake-errline ((t (:background "firebrick" :foreground "color-231")))))
-;; ;; Show the flymake error in the minibuffer
-;; (custom-set-variables
-;;  '(help-at-pt-timer-delay 0.1)
-;;  '(help-at-pt-display-when-idle '(flymake-overlay)))
-;; (key-chord-define-global ".," 'flymake-goto-prev-error)
-;; (key-chord-define-global ",." 'flymake-goto-next-error)
-
 ;; go-autocomplete provides autocomplete for go
 ;(require 'go-autocomplete)
 ;(require 'auto-complete-config)
@@ -125,10 +146,7 @@
 (toggle-hl-line-when-idle 1)
 
 ;; ido gives you options in the minibuffer
-(flx-ido-mode 1)
-(setq ido-use-faces nil)
-(setq ido-auto-merge-work-directories-length -1) ; allow me to create files, dammit
-(setq ido-enable-tramp-completion nil) ; ido over tramp = slow
+
 
 ;; Don't use ido's history, because it gets in the way more than it helps
 (custom-set-variables
@@ -137,24 +155,24 @@
  '(ido-max-work-directory-list 0)
  '(ido-max-work-file-list 0))
 
-;; ido-ubiquitous gives you ido-mode everywhere
-(require 'ido-ubiquitous)
-(ido-ubiquitous-mode 1)
+;; ido-mode gives you nice minibuffer completion
+(require 'ido)
+(ido-mode 1)
+(setq ido-use-faces nil)
+(setq ido-auto-merge-work-directories-length -1) ; allow me to create files, dammit
+(setq ido-enable-tramp-completion nil) ; ido over tramp = slow
 
 ;; Display ido results vertically, rather than horizontally
 (setq ido-decorations '("\n-> " "" "\n   " "\n   ..."
                         "[" "]" " [No match]" " [Matched]"
                         " [Not readable]" " [Too big]" " [Confirm]"))
-(defun ido-disable-line-trucation () 
-  (set (make-local-variable 'truncate-lines) nil))
+
+;; Make sure that ido doesn't truncate lines
+(defun ido-disable-line-trucation () (set (make-local-variable 'truncate-lines) nil))
 (add-hook 'ido-minibuffer-setup-hook 'ido-disable-line-trucation)
 
-;; Returns true if the current buffer is part of Chromium
-;; (defun is-chromium ()
-;;   (string-match "chrome/src/" buffer-file-name))
-
-;; (add-hook 'c++-mode-hook (lambda() (if (is-chromium)
-;;                                        (irony-mode))))
+;; flx-ido adds fuzzy completion for ido-mode
+(flx-ido-mode 1)
 
 ;; js2-mode fixes javascript in emacs
 (require 'js2-mode)
@@ -227,7 +245,8 @@
 (diminish 'smartparens-mode)
 
 ;; Reduce the amount of time it takes the matching parenthesis to show up
-(setq show-paren-delay 0.01)
+(show-paren-mode 1)
+(setq show-paren-delay 0)
 
 ;; subword-mode makes it so that camelcase is treated properyl
 (global-subword-mode 1)
@@ -293,7 +312,7 @@
           (set-buffer-modified-p nil))))))
 
 ;; ;; C++ tools for coding in Chromium
-;; (load-file "~/.emacs.d/init/chromium.el")
+(load-file "~/.emacs.d/init/chromium.el")
 
 ;; Playground
 (add-to-list 'load-path "~/.emacs.d/playground")
