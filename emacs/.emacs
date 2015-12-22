@@ -50,7 +50,11 @@
  '(org-refile-use-outline-path (quote file))
  '(safe-local-variable-values
    (quote
-    ((chromium-c++minor-mode)
+    ((define-auto-insert ".cc" "chromium_header.tmpl")
+     (define-auto-insert ".h" "chromium_header.tmpl")
+     (define-auto-insert "\\.\\([Cc]\\|cc\\|cpp\\|h\\)\\'"
+       (quote chromium-file))
+     (chromium-c++minor-mode)
      (local-set-key
       (kbd "C-c C-c")
       (quote chromium-compile))

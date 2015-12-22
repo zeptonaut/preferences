@@ -68,21 +68,28 @@
 (setq split-height-threshold nil)
 
 ;; Default to 80 column fill for C++
-(add-hook 'c++-mode-hook (lambda ()
-                          (customize-set-variable 'fill-column 80)))
+(add-hook 'c-mode-common-hook (lambda ()
+				;; Set the fill column to 80
+				(customize-set-variable 'fill-column 80)
+				;; Enable auto newline mode and hungry deletions
+				(c-toggle-hungry-state 1)
+				(c-toggle-electric-state)))
 
 ;; diminish keeps the modeline tidy.
 ;; Required here to let other modes diminish themselves.
 (require 'diminish)
 
-;; ace-jump allows you to jump around your current buffer
-(autoload 'ace-jump-mode "ace-jump-mode" "Emacs quick move minor mode" t)
-(key-chord-define-global "jj" 'ace-jump-line-mode)
-
 ;; anzu shows total search results in the mode line while searching
 (require 'anzu)
 (global-anzu-mode +1)
 (diminish 'anzu-mode)
+
+;; auto-insert provides skeletons for new buffers
+(setq auto-insert-directory "~/.emacs.d/templates")
+
+;; avy lets you navigate like a ninja
+(require 'avy)
+(key-chord-define-global "jw" 'avy-goto-word-or-subword-1)
 
 ;; coffee-mode provides support for coffeescript
 (require 'coffee-mode)
@@ -200,37 +207,37 @@
 (require 'org)
 (find-file "~/Dropbox/org/todo.org")
 
-;; (setq org-agenda-files '("~/Dropbox/org/todo.org"))
-;; (define-key global-map "\C-ca" 'org-agenda)
-;; (key-chord-define-global "qc" 'org-capture)
-;; (custom-set-variables
-;;  '(org-directory "~/Dropbox/org")
-;;  '(org-refile-targets (quote (("~/Dropbox/org/todo.org" :maxlevel . 3)
-;;                               ("~/Dropbox/org/someday.org" :level . 3))))
-;;  '(org-log-done t)
-;;  '(org-agenda-dim-blocked-tasks t)
-;;  '(org-agenda-skip-deadline-if-done t)
-;;  '(org-agenda-skip-scheduled-if-done t)
-;;  '(org-agenda-sorting-strategy (quote ((agenda time-up priority-down tag-up) (todo tag-up))))
-;;  '(org-capture-templates
-;;    (quote (("t" "todo" entry (file+headline "~/Dropbox/org/todo.org" "Inbox") "* TODO %?\n")
-;; 	   ("w" "waiting" entry (file+headline "~/Dropbox/org/todo.org" "Inbox") "* WAITING %?\n"))))
-;;  '(org-agenda-sorting-strategy '(time-up priority-down))
-;;  '(org-agenda-custom-commands
-;;    '(("w" "Today at work"
-;;       ((agenda "" ((org-agenda-ndays 1)
-;;                    (org-agenda-tag-filter-preset '("+WORK"))))))
-;;      ("u" "Unscheduled" tags "-SCHEDULED={.+}-DEADLINE={.+}/!+TODO|+STARTED|+WAITING")))
-;;  '(org-outline-path-complete-in-steps nil)
-;;  '(org-refile-use-outline-path 'file))
-;; (setq org-completion-use-ido t)
-;; (add-hook 'org-agenda-mode-hook (lambda()
-;;                                   (local-set-key (kbd "[") 'org-agenda-do-date-earlier)
-;;                                   (local-set-key (kbd "]") 'org-agenda-do-date-later)))
+(setq org-agenda-files '("~/Dropbox/org/todo.org"))
+(define-key global-map "\C-ca" 'org-agenda)
+(key-chord-define-global "qc" 'org-capture)
+(custom-set-variables
+ '(org-directory "~/Dropbox/org")
+ '(org-refile-targets (quote (("~/Dropbox/org/todo.org" :maxlevel . 3)
+                              ("~/Dropbox/org/someday.org" :level . 3))))
+ '(org-log-done t)
+ '(org-agenda-dim-blocked-tasks t)
+ '(org-agenda-skip-deadline-if-done t)
+ '(org-agenda-skip-scheduled-if-done t)
+ '(org-agenda-sorting-strategy (quote ((agenda time-up priority-down tag-up) (todo tag-up))))
+ '(org-capture-templates
+   (quote (("t" "todo" entry (file+headline "~/Dropbox/org/todo.org" "Inbox") "* TODO %?\n")
+	   ("w" "waiting" entry (file+headline "~/Dropbox/org/todo.org" "Inbox") "* WAITING %?\n"))))
+ '(org-agenda-sorting-strategy '(time-up priority-down))
+ '(org-agenda-custom-commands
+   '(("w" "Today at work"
+      ((agenda "" ((org-agenda-ndays 1)
+                   (org-agenda-tag-filter-preset '("+WORK"))))))
+     ("u" "Unscheduled" tags "-SCHEDULED={.+}-DEADLINE={.+}/!+TODO|+STARTED|+WAITING")))
+ '(org-outline-path-complete-in-steps nil)
+ '(org-refile-use-outline-path 'file))
+(setq org-completion-use-ido t)
+(add-hook 'org-agenda-mode-hook (lambda()
+                                  (local-set-key (kbd "[") 'org-agenda-do-date-earlier)
+                                  (local-set-key (kbd "]") 'org-agenda-do-date-later)))
 
 
-;; ;; Files count as part of the tree
-;; (setq org-refile-use-outline-path 'file)
+;; Files count as part of the tree
+(setq org-refile-use-outline-path 'file)
 
 ;; scss-mode allows you to work with Sass
 (require 'scss-mode)
@@ -290,8 +297,13 @@
 
 ;; yasnippet provides template for frequently-used idioms
 (require 'yasnippet)
+(yas-global-mode)
+;; Don't use the default snippets
+(setq yas-snippet-dirs '("~/.emacs.d/snippets"))
 (key-chord-define-global "kj" 'yas-expand-from-trigger-key)
-(yas-global-mode 1)
+;; Tell yasnippet not to mess with the spacing
+(setq yas-indent-line 'none)
+
 (diminish 'yas-minor-mode)
 
 ;; Disable tabs in nxml mode
