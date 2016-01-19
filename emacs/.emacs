@@ -50,7 +50,11 @@
  '(org-refile-use-outline-path (quote file))
  '(safe-local-variable-values
    (quote
-    ((define-auto-insert ".cc" "chromium_header.tmpl")
+    ((eval add-hook
+	   (quote before-save-hook)
+	   (function clang-format-buffer)
+	   nil t)
+     (define-auto-insert ".cc" "chromium_header.tmpl")
      (define-auto-insert ".h" "chromium_header.tmpl")
      (define-auto-insert "\\.\\([Cc]\\|cc\\|cpp\\|h\\)\\'"
        (quote chromium-file))

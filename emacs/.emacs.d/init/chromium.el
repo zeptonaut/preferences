@@ -35,8 +35,12 @@
   (let ((default-directory "~/chromium/src/"))
     (call-interactively 'gdb)))
 
+;; Make ycmd shut up about its errors
+(setq url-show-status nil)
+(setq ycmd-request-message-level -1)
+
 ;; Load clang format to make C++ files pretty
-(load-file "~/chromium/src/buildtools/clang_format/script/clang-format.el")
+;; (load-file "~/chromium/src/buildtools/clang_format/script/clang-format.el")
 
 ;; Define a minor mode to override the default compile keybinding so that it
 ;; runs chromium-compile instead
@@ -45,6 +49,8 @@
 (define-key chromium-c++-minor-mode-map (kbd "C-c d") 'chromium-gdb)
 (define-minor-mode chromium-c++-minor-mode
   t " chromium-c++" 'chromium-c++-minor-mode-map)
-(add-hook 'chromium-c++-minor-mode-hook
-	  (lambda ()
-	    (add-hook 'before-save-hook 'clang-format-buffer nil t)))
+;; (add-hook 'chromium-c++-minor-mode-hook
+;; 	  (lambda ()
+;; 	    (add-hook 'before-save-hook 'clang-format-buffer nil t)))
+
+(set-variable 'ycmd-extra-conf-whitelist '("~/chromium/*"))

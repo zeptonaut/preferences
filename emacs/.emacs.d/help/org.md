@@ -3,6 +3,9 @@ Purpose: help file containing useful emacs commands.
 ## General
   * `C-h m` (`describe-mode`) Get a description of the current mode, along with a list of keybindings.
 
+## c-mode
+  * `C-c C-s` Shows the syntactic element you're at in the code. Useful for customizing indentation with c-offset-alist.
+
 ## org-mode
   * `C-c C-s` Specifies the day that you expect to start working on a task
   * `C-c C-d` Specifies the deadline for a task
@@ -27,5 +30,8 @@ Purpose: help file containing useful emacs commands.
   * `]` Move to the next day
   * `[` Move to the previous day
 
-## c-mode
-  * `C-c C-s` Shows the syntactic element you're at in the code. Useful for customizing indentation with c-offset-alist.
+## smerge-mode
+  * `qm` Accepts my changes.
+  * `qt` Accepts their changes.
+  * `qn` Goes to the next conflict.
+  * `qp` Goes to the previous conflict.

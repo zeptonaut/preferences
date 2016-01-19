@@ -142,7 +142,10 @@
 
 ;; go-flymake provides syntax checking for go
 ;(add-to-list 'load-path "~/go/src/github.com/dougm/goflymake")
-;(require 'go-flymake)
+					;(require 'go-flymake)
+
+;; Make gdb run in many-windows move, similar to how Eclipse works
+(setq gdb-many-windows 1)
 
 (require 'go-mode)
 (setq gofmt-command "goimports")
@@ -220,8 +223,8 @@
  '(org-agenda-skip-scheduled-if-done t)
  '(org-agenda-sorting-strategy (quote ((agenda time-up priority-down tag-up) (todo tag-up))))
  '(org-capture-templates
-   (quote (("t" "todo" entry (file+headline "~/Dropbox/org/todo.org" "Inbox") "* TODO %?\n")
-	   ("w" "waiting" entry (file+headline "~/Dropbox/org/todo.org" "Inbox") "* WAITING %?\n"))))
+   (quote (("p" "personal" entry (file+olp "~/Dropbox/org/todo.org" "PERSONAL" "TASKS") "* TODO %?\n")
+	   ("w" "work" entry (file+olp "~/Dropbox/org/todo.org" "WORK" "TASKS") "* TODO %?\n"))))
  '(org-agenda-sorting-strategy '(time-up priority-down))
  '(org-agenda-custom-commands
    '(("w" "Today at work"
@@ -238,6 +241,18 @@
 
 ;; Files count as part of the tree
 (setq org-refile-use-outline-path 'file)
+
+(defun org-archive-done-tasks ()
+  (interactive)
+  (org-map-entries
+   (lambda ()
+     (org-archive-subtree)
+     (setq org-map-continue-from (outline-previous-heading)))
+   "/DONE|+CANCELED" 'agenda))
+
+;; Automatically archive done and canceled tasks
+(setq org-todo-state-tags-triggers '(("DONE" ("ARCHIVE" . t))
+				     ("CANCELED" ("ARCHIVE" . t))))
 
 ;; scss-mode allows you to work with Sass
 (require 'scss-mode)
@@ -256,6 +271,13 @@
 ;; Reduce the amount of time it takes the matching parenthesis to show up
 (show-paren-mode 1)
 (setq show-paren-delay 0)
+
+;; Provide some convenient shortcuts for merge in smerge-mode
+(add-hook 'smerge-mode-hook (lambda()
+			      (key-chord-define-local "qm" 'smerge-keep-mine)
+			      (key-chord-define-local "qt" 'smerge-keep-other)
+			      (key-chord-define-local "qn" 'smerge-next)
+			      (key-chord-define-local "qp" 'smerge-prev)))
 
 ;; subword-mode makes it so that camelcase is treated properyl
 (global-subword-mode 1)
@@ -288,6 +310,9 @@
 
 (add-hook 'prog-mode-hook 'whitespace-mode)
 (diminish 'whitespace-mode)
+
+;; Make shift-arrow keys move between buffers
+(windmove-default-keybindings)
 
 ;; ws-butler cleans up whitespace, but only on lines that you touch
 (require 'ws-butler)

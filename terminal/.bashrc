@@ -50,8 +50,7 @@ alias ae="export GOROOT=$APPENGINE_SDK/goroot"
 # Prefer /usr/local/bin binaries of /usr/bin binaries
 export PATH="/usr/local/bin:$HOME/.local/bin:/usr/local/share/npm/bin:$PATH:$GOPATH/bin"
 
-# Add Chrome's depot_tools to the end of the path
-export PATH="$PATH:$HOME/bin/depot_tools"
+
 
 # Put the git branch in the prompt if possible
 if [ -x $HOME/.git-prompt.sh ]; then
@@ -68,5 +67,7 @@ export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 export PATH="$PATH:$HOME/github/battor/sw:/opt/avr/bin"
 
+# Add Chrome's depot_tools to the start of the path (prefer its binaries)
+export PATH="$HOME/bin/depot_tools:$PATH"
 
 export GYP_DEFINES="use_goma=1"
