@@ -50,12 +50,20 @@ alias ae="export GOROOT=$APPENGINE_SDK/goroot"
 # Prefer /usr/local/bin binaries of /usr/bin binaries
 export PATH="/usr/local/bin:$HOME/.local/bin:/usr/local/share/npm/bin:$PATH:$GOPATH/bin"
 
-
-
 # Put the git branch in the prompt if possible
 if [ -x $HOME/.git-prompt.sh ]; then
   source ~/.git-prompt.sh
 fi
+
+# If we're on a system where we can get core dumps, do so
+if [ -x $HOME/.git-prompt.sh ]; then
+  source ~/.git-prompt.sh
+fi
+
+# Set the size of core dumps to unlimited if the command's available
+hash ulimit 2>/dev/null && {
+  ulimit -c unlimited > /dev/null
+}
 
 # Command line prompt
 export PS1="\[\e[01;30m\][\[\e[0;31m\]\w\[\e[01;30m\]\$(__git_ps1)] \[\e[m\]"
