@@ -1,4 +1,4 @@
-(set-face-attribute 'default nil :height 120)
+(set-face-attribute 'default nil :height 110)
 
 ;; gocode doesn't work within google3, so only load this on personal computers
 (require 'company-go)

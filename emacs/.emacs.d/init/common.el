@@ -11,12 +11,12 @@
 (package-initialize)
 
 ;; Change the default font
-
+(set-face-attribute 'default nil :height 110)
 
 ;; Create a thin scroll bar for every window
 (scroll-bar-mode 1)
 (set-scroll-bar-mode 'right)
-(setq-default scroll-bar-width 10)
+;;(setq-default scroll-bar-width 10)
 
 (menu-bar-mode -1)
 (tool-bar-mode -1)
@@ -227,20 +227,22 @@
 	   ("w" "work" entry (file+olp "~/Dropbox/org/todo.org" "WORK" "TASKS") "* TODO %?\n"))))
  '(org-agenda-sorting-strategy '(time-up priority-down))
  '(org-agenda-custom-commands
-   '(("w" "Today at work"
+   '(("w" "Today - work"
       ((agenda "" ((org-agenda-ndays 1)
                    (org-agenda-tag-filter-preset '("+WORK"))))))
+     ("p" "Today - personal"
+      ((agenda "" ((org-agenda-ndays 1)
+                   (org-agenda-tag-filter-preset '("+PERSONAL"))))))
      ("u" "Unscheduled" tags "-SCHEDULED={.+}-DEADLINE={.+}/!+TODO|+STARTED|+WAITING")))
  '(org-outline-path-complete-in-steps nil)
- '(org-refile-use-outline-path 'file))
+ '(org-refile-use-outline-path 'file)
+ ;; Automatically archive done and canceled tasks
+ '(org-todo-state-tags-triggers '(("DONE" ("ARCHIVE" . t))
+				  ("CANCELED" ("ARCHIVE" . t)))))
 (setq org-completion-use-ido t)
 (add-hook 'org-agenda-mode-hook (lambda()
                                   (local-set-key (kbd "[") 'org-agenda-do-date-earlier)
                                   (local-set-key (kbd "]") 'org-agenda-do-date-later)))
-
-
-;; Files count as part of the tree
-(setq org-refile-use-outline-path 'file)
 
 (defun org-archive-done-tasks ()
   (interactive)
@@ -249,10 +251,6 @@
      (org-archive-subtree)
      (setq org-map-continue-from (outline-previous-heading)))
    "/DONE|+CANCELED" 'agenda))
-
-;; Automatically archive done and canceled tasks
-(setq org-todo-state-tags-triggers '(("DONE" ("ARCHIVE" . t))
-				     ("CANCELED" ("ARCHIVE" . t))))
 
 ;; scss-mode allows you to work with Sass
 (require 'scss-mode)
