@@ -21,6 +21,8 @@
 (menu-bar-mode -1)
 (tool-bar-mode -1)
 
+(setq-default indent-tabs-mode nil)
+
 ;; Disable annoying things
 (setq visible-bell t)
 (setq enable-recursive-minibuffers t)
@@ -235,10 +237,7 @@
                    (org-agenda-tag-filter-preset '("+PERSONAL"))))))
      ("u" "Unscheduled" tags "-SCHEDULED={.+}-DEADLINE={.+}/!+TODO|+STARTED|+WAITING")))
  '(org-outline-path-complete-in-steps nil)
- '(org-refile-use-outline-path 'file)
- ;; Automatically archive done and canceled tasks
- '(org-todo-state-tags-triggers '(("DONE" ("ARCHIVE" . t))
-				  ("CANCELED" ("ARCHIVE" . t)))))
+ '(org-refile-use-outline-path 'file))
 (setq org-completion-use-ido t)
 (add-hook 'org-agenda-mode-hook (lambda()
                                   (local-set-key (kbd "[") 'org-agenda-do-date-earlier)

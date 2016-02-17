@@ -68,6 +68,7 @@
 (defvar chromium-c++-minor-mode-map (make-keymap) "chromium-c++-minor-mode-keymap")
 (define-key chromium-c++-minor-mode-map (kbd "C-c c") 'chromium-compile)
 (define-key chromium-c++-minor-mode-map (kbd "C-c d") 'chromium-gdb)
+(define-key chromium-c++-minor-mode-map (kbd "C-c f") 'clang-format-buffer)
 (define-minor-mode chromium-c++-minor-mode t " chromium-c++" 'chromium-c++-minor-mode-map)
 (add-hook 'chromium-c++-minor-mode-hook 'company-mode)
 (add-hook 'chromium-c++-minor-mode-hook 'ycmd-mode)
