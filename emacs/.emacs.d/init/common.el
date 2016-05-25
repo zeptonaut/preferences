@@ -50,6 +50,9 @@
 (setq solarized-height-plus-4 1)
 (load-theme 'solarized-dark t)
 
+;; Set the default fill column to 80.
+(setq-default fill-column 80)
+
 ;; Required here to allow chord bindings throughout the file
 (require 'key-chord)
 (key-chord-mode 1)
@@ -117,11 +120,6 @@
 (setq erc-autojoin-channels-alist
       '(("freenode.net" "#chromium")))
 
-;; find-file-in-project finds files in projects
-;; (require 'find-file-in-project)
-;; (key-chord-define-global "jf" 'find-file-in-project)
-;; (custom-set-variables '(ffip-limit 2056)
-;;                       '(ffip-fullpaths 1))
 (require 'find-things-fast)
 (key-chord-define-global "jf" 'ftf-find-file)
 (setq ftf-filetypes (cons "*.html" ftf-filetypes))
@@ -193,6 +191,7 @@
 (require 'js2-mode)
 (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
 (add-to-list 'auto-mode-alist '("\\.json\\'" . js2-mode))
+(setq js2-idle-timer-delay 1)
 
 ;; ac-js2-mode provides contextual autocomplete for javascript
 ;; NOTE: included here because of js2-mode dependency
@@ -284,10 +283,11 @@
 (setq tramp-default-method "ssh")
 
 ;; web-mode allows you to edit HTML files with other languages inline
-(require 'web-mode)
-(add-to-list 'auto-mode-alist '("\\.erb\\'" . web-mode))
-(add-to-list 'auto-mode-alist '("\\.html\\'" . web-mode))
-(setq web-mode-code-indent-offset 2)
+;; (require 'web-mode)
+;; (add-to-list 'auto-mode-alist '("\\.erb\\'" . web-mode))
+;; (add-to-list 'auto-mode-alist '("\\.html\\'" . web-mode))
+;; (setq web-mode-code-indent-offset 2)
+;; (setq web-mode-script-padding 0)
 
 ;; web-beautify prettifies HTML/CSS/JS
 (require 'web-beautify)
@@ -313,8 +313,7 @@
 
 ;; ws-butler cleans up whitespace, but only on lines that you touch
 (require 'ws-butler)
-(add-hook 'c++-mode-hook 'ws-butler-mode)
-(add-hook 'web-mode-hook 'ws-butler-mode)
+(ws-butler-global-mode 1)
 (diminish 'ws-butler-mode)
 
 ;; yasnippet provides template for frequently-used idioms
@@ -349,6 +348,35 @@
 
 ;; ;; C++ tools for coding in Chromium
 (load-file "~/.emacs.d/init/chromium.el")
+
+(defun search-forward-point-at-beginning (term)
+  (if (search-forward term)
+      (backward-char (length term))))
+
+(defun search-backward-point-at-end (term)
+  (if (search-backward term)
+      (forward-char (length term))))
+
+;; Enable js2-mode editing between the nearest <script> tags.
+(defun js2-edit-enable ()
+  (interactive)
+  (save-excursion
+    (search-backward-point-at-end "<script>")
+    (set-mark-command nil)
+    (search-forward-point-at-beginning "</script>")
+    (narrow-to-region (region-beginning) (region-end))
+    (js2-mode)))
+
+;; Disable js2-mode editing and return to html-mode.
+(defun js2-edit-disable ()
+  (interactive)
+  (widen)
+  (html-mode))
+
+(add-hook 'html-mode-hook (lambda()
+                            (key-chord-define-local "je" 'js2-edit-enable)))
+(add-hook 'js2-mode-hook (lambda()
+                            (key-chord-define-local "je" 'js2-edit-disable)))
 
 ;; Playground
 (add-to-list 'load-path "~/.emacs.d/playground")
