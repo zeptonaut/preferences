@@ -6,7 +6,6 @@
 ;; Required here because this is what allows requiring of other packages.
 (require 'package)
 (setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
-                         ("marmalade" . "http://marmalade-repo.org/packages/")
                          ("melpa" . "http://melpa.milkbox.net/packages/")))
 (package-initialize)
 
@@ -65,7 +64,6 @@
 (global-set-key (kbd "C-c C-r") 'replace-string)
 (global-set-key (kbd "C-c C-/") 'replace-regexp)
 (global-set-key [f5] 'revert-buffer)
-(key-chord-define-global "fd" 'save-buffer)
 
 ;; When you have to do a split (switch-file-other-buffer), always
 ;; split vertically and use the split window that you already have
@@ -92,10 +90,6 @@
 ;; auto-insert provides skeletons for new buffers
 (setq auto-insert-directory "~/.emacs.d/templates")
 
-;; avy lets you navigate like a ninja
-(require 'avy)
-(key-chord-define-global "jw" 'avy-goto-word-or-subword-1)
-
 ;; coffee-mode provides support for coffeescript
 (require 'coffee-mode)
 (custom-set-variables '(coffee-tab-width 2))
@@ -121,7 +115,7 @@
       '(("freenode.net" "#chromium")))
 
 (require 'find-things-fast)
-(key-chord-define-global "jf" 'ftf-find-file)
+(key-chord-define-global "qf" 'ftf-find-file)
 (setq ftf-filetypes (cons "*.html" ftf-filetypes))
 
 ;; flx-ido provides better flex matching for IDO
@@ -158,9 +152,6 @@
 (require 'hl-line+)
 (toggle-hl-line-when-idle 1)
 
-;; ido gives you options in the minibuffer
-
-
 ;; Don't use ido's history, because it gets in the way more than it helps
 (custom-set-variables
  '(ido-enable-last-directory-history nil)
@@ -191,14 +182,16 @@
 (require 'js2-mode)
 (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
 (add-to-list 'auto-mode-alist '("\\.json\\'" . js2-mode))
-(setq js2-idle-timer-delay 1)
+(custom-set-variables
+ '(js2-basic-offset 2)
+ '(js2-idle-timer-delay 1))
+(add-hook 'js2-mode-hook 'company-mode)
 
 ;; ac-js2-mode provides contextual autocomplete for javascript
 ;; NOTE: included here because of js2-mode dependency
-;; (require 'ac-js2)
-;; (add-hook 'js2-mode-hook 'ac-js2-mode)
-;; (setq ac-js2-evaluate-calls t)
-;; (setq ac-js2-external-libraries '(concat user-emacs-directory "lib/d3.min.js"))
+(require 'ac-js2)
+(setq ac-js2-evaluate-calls t)
+(add-to-list 'company-backends 'ac-js2-company)
 
 ;; markdown-mode gives an emacs mode for markdown
 (require 'markdown-mode)
@@ -250,23 +243,9 @@
      (setq org-map-continue-from (outline-previous-heading)))
    "/DONE|+CANCELED" 'agenda))
 
-;; scss-mode allows you to work with Sass
-(require 'scss-mode)
-(add-to-list 'auto-mode-alist '("\\.scss\\'" . scss-mode))
-
-;; smartparens provides various useful methods for handling balanced tags
-(require 'smartparens-config)
-(require 'smartparens-html)
-(setq sp-highlight-wrap-overlay nil
-      sp-autoescape-string-quote nil
-      sp-autoskip-closing-pair 'always)
-(add-to-list 'sp--html-modes '(nxml-mode))
-(smartparens-global-mode 1)
-(diminish 'smartparens-mode)
-
-;; Reduce the amount of time it takes the matching parenthesis to show up
+;; show-paren-mode highlights matching parentheses
 (show-paren-mode 1)
-(setq show-paren-delay 0)
+(setq show-paren-delay 0.001)
 
 ;; Provide some convenient shortcuts for merge in smerge-mode
 (add-hook 'smerge-mode-hook (lambda()
@@ -275,24 +254,12 @@
 			      (key-chord-define-local "qn" 'smerge-next)
 			      (key-chord-define-local "qp" 'smerge-prev)))
 
-;; subword-mode makes it so that camelcase is treated properyl
+;; subword-mode makes it so that camelcase is treated properly
 (global-subword-mode 1)
 
 ;; tramp allows you to locally edit remote files
 (require 'tramp)
 (setq tramp-default-method "ssh")
-
-;; web-mode allows you to edit HTML files with other languages inline
-;; (require 'web-mode)
-;; (add-to-list 'auto-mode-alist '("\\.erb\\'" . web-mode))
-;; (add-to-list 'auto-mode-alist '("\\.html\\'" . web-mode))
-;; (setq web-mode-code-indent-offset 2)
-;; (setq web-mode-script-padding 0)
-
-;; web-beautify prettifies HTML/CSS/JS
-(require 'web-beautify)
-(eval-after-load 'js2-mode
-  '(define-key js2-mode-map (kbd "C-c C-b") 'web-beautify-js))
 
 ;; whitespace highlights lines that are too long
 (require 'whitespace)
@@ -300,11 +267,9 @@
 (set-face-attribute 'whitespace-line nil
                     :background "red1"
                     :foreground "white")
-(add-hook 'python-mode-hook 'whitespace-mode)
 (add-hook 'python-mode-hook (lambda()
                               (setq whitespace-line-column 80
                                     whitespace-style '(face tabs trailing lines-tail))))
-
 (add-hook 'prog-mode-hook 'whitespace-mode)
 (diminish 'whitespace-mode)
 
@@ -321,15 +286,11 @@
 (yas-global-mode)
 ;; Don't use the default snippets
 (setq yas-snippet-dirs '("~/.emacs.d/snippets"))
-(key-chord-define-global "kj" 'yas-expand-from-trigger-key)
+(key-chord-define-global "qo" 'yas-expand-from-trigger-key)
 ;; Tell yasnippet not to mess with the spacing
 (setq yas-indent-line 'none)
 
 (diminish 'yas-minor-mode)
-
-;; Disable tabs in nxml mode
-(add-hook 'nxml-mode-hook (lambda()
-                            (setq indent-tabs-mode nil)))
 
 (defun rename-file-and-buffer (new-name)
   "Renames both current buffer and file it's visiting to NEW-NAME."
@@ -374,9 +335,9 @@
   (html-mode))
 
 (add-hook 'html-mode-hook (lambda()
-                            (key-chord-define-local "je" 'js2-edit-enable)))
+                            (key-chord-define-local "qe" 'js2-edit-enable)))
 (add-hook 'js2-mode-hook (lambda()
-                            (key-chord-define-local "je" 'js2-edit-disable)))
+                            (key-chord-define-local "qe" 'js2-edit-disable)))
 
 ;; Playground
 (add-to-list 'load-path "~/.emacs.d/playground")
