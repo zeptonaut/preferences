@@ -193,6 +193,9 @@
 (setq ac-js2-evaluate-calls t)
 (add-to-list 'company-backends 'ac-js2-company)
 
+;; magit-mode is a git porcelain for emacs
+(global-set-key (kbd "C-x G") 'magit-status)
+
 ;; markdown-mode gives an emacs mode for markdown
 (require 'markdown-mode)
 (add-to-list 'auto-mode-alist '("\\.text\\'" . markdown-mode))
@@ -247,12 +250,14 @@
 (show-paren-mode 1)
 (setq show-paren-delay 0.001)
 
+;; smerge-mode makes it easy to merge buffers
+(setq smerge-command-prefix "\C-cv")
 ;; Provide some convenient shortcuts for merge in smerge-mode
 (add-hook 'smerge-mode-hook (lambda()
-			      (key-chord-define-local "qm" 'smerge-keep-mine)
-			      (key-chord-define-local "qt" 'smerge-keep-other)
-			      (key-chord-define-local "qn" 'smerge-next)
-			      (key-chord-define-local "qp" 'smerge-prev)))
+                              (key-chord-define smerge-mode-map "qm" 'smerge-keep-mine)
+                              (key-chord-define smerge-mode-map "qt" 'smerge-keep-other)
+                              (key-chord-define smerge-mode-map "qn" 'smerge-next)
+                              (key-chord-define smerge-mode-map "qp" 'smerge-prev)))
 
 ;; subword-mode makes it so that camelcase is treated properly
 (global-subword-mode 1)
