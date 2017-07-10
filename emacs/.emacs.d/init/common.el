@@ -203,6 +203,12 @@
 (add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
 (add-to-list 'auto-mode-alist '("README.md\\'" . gfm-mode))
 
+;; python-mode
+(add-hook 'python-mode-hook
+          (function (lambda ()
+                      (setq indent-tabs-mode nil
+                            tab-width 2))))
+
 ;; org-mode helps you organize your life
 (require 'org)
 (find-file "~/Dropbox/org/todo.org")
@@ -259,6 +265,9 @@
                               (key-chord-define smerge-mode-map "qn" 'smerge-next)
                               (key-chord-define smerge-mode-map "qp" 'smerge-prev)))
 
+(require 're-builder)
+(setq reb-re-syntax 'string)
+
 ;; subword-mode makes it so that camelcase is treated properly
 (global-subword-mode 1)
 
@@ -296,6 +305,7 @@
 (setq yas-indent-line 'none)
 
 (diminish 'yas-minor-mode)
+
 
 (defun rename-file-and-buffer (new-name)
   "Renames both current buffer and file it's visiting to NEW-NAME."

@@ -65,7 +65,9 @@
     (magit zenburn-theme yasnippet ws-butler web-mode web-beautify solarized-theme smartparens shorten scss-mode powerline oauth2 multi-web-mode markdown-mode lui lcs key-chord json-reformat irony ido-ubiquitous hl-line+ haskell-mode github-theme git-rebase-mode git-commit-mode git-commit flycheck-ycmd flx-ido find-things-fast find-file-in-project fancy-narrow f exec-path-from-shell diminish company-ycmd company-tern company-go coffee-mode avy auto-complete anzu ace-jump-mode ac-js2)))
  '(safe-local-variable-values
    (quote
-    ((define-auto-insert ".cc" "chromium_header.tmpl")
+    ((eval define-auto-insert ".cc" "chromium_header.tmpl")
+     (eval define-auto-insert ".h" "chromium_header.tmpl")
+     (define-auto-insert ".cc" "chromium_header.tmpl")
      (chromium-c++minor-mode)))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.

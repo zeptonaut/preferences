@@ -6,6 +6,8 @@ alias ka="killall -9"
 alias gc="git commit -am 'Checkpoint.'"
 alias gp="git push origin master"
 
+export EDITOR="emacsclient -c"
+
 # Load system-specific load files
 case `uname` in
 Linux)
@@ -48,7 +50,7 @@ export PATH="$PATH:$APPENGINE_SDK"
 alias ae="export GOROOT=$APPENGINE_SDK/goroot"
 
 # Prefer /usr/local/bin binaries of /usr/bin binaries
-export PATH="/usr/local/bin:$HOME/.local/bin:/usr/local/share/npm/bin:$PATH:$GOPATH/bin"
+export PATH="$HOME/.local/bin:/usr/local/share/npm/bin:$GOPATH/bin:/usr/local/bin:$PATH"
 
 # Put the git branch in the prompt if possible
 if [ -x $HOME/.git-prompt.sh ]; then
@@ -78,4 +80,15 @@ export PATH="$PATH:$HOME/github/battor/sw:/opt/avr/bin"
 # Add Chrome's depot_tools to the start of the path (prefer its binaries)
 export PATH="$HOME/bin/depot_tools:$PATH"
 
+# Add "git trim" to the path
+export PATH="$PATH:$HOME/github/git-trim"
+
 export GYP_DEFINES="use_goma=1"
+
+export PYTHONPATH="/usr/local/google_appengine"
+
+# The next line updates PATH for the Google Cloud SDK.
+source "$HOME/google-cloud-sdk/path.bash.inc"
+
+# The next line enables shell command completion for gcloud.
+source "$HOME/google-cloud-sdk/completion.bash.inc"
