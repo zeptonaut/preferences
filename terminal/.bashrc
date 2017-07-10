@@ -53,12 +53,7 @@ alias ae="export GOROOT=$APPENGINE_SDK/goroot"
 export PATH="$HOME/.local/bin:/usr/local/share/npm/bin:$GOPATH/bin:/usr/local/bin:$PATH"
 
 # Put the git branch in the prompt if possible
-if [ -x $HOME/.git-prompt.sh ]; then
-  source ~/.git-prompt.sh
-fi
-
-# If we're on a system where we can get core dumps, do so
-if [ -x $HOME/.git-prompt.sh ]; then
+if [ -e $HOME/.git-prompt.sh ]; then
   source ~/.git-prompt.sh
 fi
 
@@ -88,7 +83,11 @@ export GYP_DEFINES="use_goma=1"
 export PYTHONPATH="/usr/local/google_appengine"
 
 # The next line updates PATH for the Google Cloud SDK.
-source "$HOME/google-cloud-sdk/path.bash.inc"
+if [ -e $HOME/google-cloud-sdk/path.bash.inc ]; then
+  source "$HOME/google-cloud-sdk/path.bash.inc"
+fi
 
 # The next line enables shell command completion for gcloud.
-source "$HOME/google-cloud-sdk/completion.bash.inc"
+if [ -e $HOME/google-cloud-sdk/completion.bash.inc ]; then
+  source "$HOME/google-cloud-sdk/completion.bash.inc"
+fi
