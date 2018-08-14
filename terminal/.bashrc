@@ -3,10 +3,12 @@ alias ked="emacsclient -e '(kill-emacs)'"
 alias edm='emacs --daemon'
 alias e="emacsclient -c"
 alias ka="killall -9"
-alias gc="git commit -am 'Checkpoint.'"
+alias gc="git commit --allow-empty-message -am ''"
 alias gp="git push origin master"
+alias grep='grep --color=auto'
 
 export EDITOR="emacsclient -c"
+export GIT_MERGE_AUTOEDIT=no
 
 # Load system-specific load files
 case `uname` in
@@ -31,6 +33,9 @@ if [ -n "$TMUX" ]; then
 else
   export TERM="xterm-256color"
 fi
+
+# Add node and npm to path
+export PATH="$PATH:$HOME/bin/node/bin"
 
 # Go needs $GOPATH to get new binaries and such
 export GOPATH="$HOME/go"

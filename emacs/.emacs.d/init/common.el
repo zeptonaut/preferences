@@ -1,6 +1,5 @@
 ;; Load this file when emacs starts
 (find-file "~/.emacs.d/init/common.el")
-(find-file "~/.emacs.d/help/org.md")
 
 ;; package allows for easy package management
 ;; Required here because this is what allows requiring of other packages.
@@ -11,6 +10,9 @@
 
 ;; Change the default font
 (set-face-attribute 'default nil :height 110)
+
+;; Disable the useless start screen
+(setq inhibit-splash-screen t)
 
 ;; Create a thin scroll bar for every window
 (scroll-bar-mode 1)
@@ -209,49 +211,6 @@
                       (setq indent-tabs-mode nil
                             tab-width 2))))
 
-;; org-mode helps you organize your life
-(require 'org)
-(find-file "~/Dropbox/org/todo.org")
-
-(setq org-agenda-files '("~/Dropbox/org/todo.org"))
-(define-key global-map "\C-ca" 'org-agenda)
-(key-chord-define-global "qc" 'org-capture)
-(custom-set-variables
- '(org-directory "~/Dropbox/org")
- '(org-refile-targets (quote (("~/Dropbox/org/todo.org" :maxlevel . 3)
-                              ("~/Dropbox/org/someday.org" :level . 3))))
- '(org-log-done t)
- '(org-agenda-dim-blocked-tasks t)
- '(org-agenda-skip-deadline-if-done t)
- '(org-agenda-skip-scheduled-if-done t)
- '(org-agenda-sorting-strategy (quote ((agenda time-up priority-down tag-up) (todo tag-up))))
- '(org-capture-templates
-   (quote (("p" "personal" entry (file+olp "~/Dropbox/org/todo.org" "PERSONAL" "TASKS") "* TODO %?\n")
-	   ("w" "work" entry (file+olp "~/Dropbox/org/todo.org" "WORK" "TASKS") "* TODO %?\n"))))
- '(org-agenda-sorting-strategy '(time-up priority-down))
- '(org-agenda-custom-commands
-   '(("w" "Today - work"
-      ((agenda "" ((org-agenda-ndays 1)
-                   (org-agenda-tag-filter-preset '("+WORK"))))))
-     ("p" "Today - personal"
-      ((agenda "" ((org-agenda-ndays 1)
-                   (org-agenda-tag-filter-preset '("+PERSONAL"))))))
-     ("u" "Unscheduled" tags "-SCHEDULED={.+}-DEADLINE={.+}/!+TODO|+STARTED|+WAITING")))
- '(org-outline-path-complete-in-steps nil)
- '(org-refile-use-outline-path 'file))
-(setq org-completion-use-ido t)
-(add-hook 'org-agenda-mode-hook (lambda()
-                                  (local-set-key (kbd "[") 'org-agenda-do-date-earlier)
-                                  (local-set-key (kbd "]") 'org-agenda-do-date-later)))
-
-(defun org-archive-done-tasks ()
-  (interactive)
-  (org-map-entries
-   (lambda ()
-     (org-archive-subtree)
-     (setq org-map-continue-from (outline-previous-heading)))
-   "/DONE|+CANCELED" 'agenda))
-
 ;; show-paren-mode highlights matching parentheses
 (show-paren-mode 1)
 (setq show-paren-delay 0.001)
@@ -324,35 +283,6 @@
 
 ;; ;; C++ tools for coding in Chromium
 (load-file "~/.emacs.d/init/chromium.el")
-
-(defun search-forward-point-at-beginning (term)
-  (if (search-forward term)
-      (backward-char (length term))))
-
-(defun search-backward-point-at-end (term)
-  (if (search-backward term)
-      (forward-char (length term))))
-
-;; Enable js2-mode editing between the nearest <script> tags.
-(defun js2-edit-enable ()
-  (interactive)
-  (save-excursion
-    (search-backward-point-at-end "<script>")
-    (set-mark-command nil)
-    (search-forward-point-at-beginning "</script>")
-    (narrow-to-region (region-beginning) (region-end))
-    (js2-mode)))
-
-;; Disable js2-mode editing and return to html-mode.
-(defun js2-edit-disable ()
-  (interactive)
-  (widen)
-  (html-mode))
-
-(add-hook 'html-mode-hook (lambda()
-                            (key-chord-define-local "qe" 'js2-edit-enable)))
-(add-hook 'js2-mode-hook (lambda()
-                            (key-chord-define-local "qe" 'js2-edit-disable)))
 
 ;; Playground
 (add-to-list 'load-path "~/.emacs.d/playground")
