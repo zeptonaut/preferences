@@ -35,3 +35,8 @@ Purpose: help file containing useful emacs commands.
   * `qt` Accepts their changes.
   * `qn` Goes to the next conflict.
   * `qp` Goes to the previous conflict.
+  
+## projectile-mode
+
+* `C-c p p` Switch to another project
+* `qf` Finds a file within a project

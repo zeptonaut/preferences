@@ -65,12 +65,25 @@
 (global-set-key (kbd "C-c E") 'eval-buffer)
 (global-set-key (kbd "C-c C-r") 'replace-string)
 (global-set-key (kbd "C-c C-/") 'replace-regexp)
+(global-set-key (kbd "C-c [") (lambda () (interactive) (profiler-start 'cpu)))
+(global-set-key (kbd "C-c ]") 'profiler-stop)
+(global-set-key (kbd "C-c l") 'profiler-report)
 (global-set-key [f5] 'revert-buffer)
+
+;; Always scroll compilation output to the bottom.
+(setq compilation-scroll-output 'first-error)
+;; Always kill any existing compilations with successive ones.
+(setq compilation-always-kill t)
 
 ;; When you have to do a split (switch-file-other-buffer), always
 ;; split vertically and use the split window that you already have
 (setq split-width-threshold 1000)
 (setq split-height-threshold nil)
+
+;; swiper
+(global-set-key "\C-s" 'swiper)
+
+(setq profiler-max-stack-depth 30)
 
 ;; Default to 80 column fill for C++
 (add-hook 'c-mode-common-hook (lambda ()
@@ -84,44 +97,8 @@
 ;; Required here to let other modes diminish themselves.
 (require 'diminish)
 
-;; anzu shows total search results in the mode line while searching
-(require 'anzu)
-(global-anzu-mode +1)
-(diminish 'anzu-mode)
-
 ;; auto-insert provides skeletons for new buffers
 (setq auto-insert-directory "~/.emacs.d/templates")
-
-;; coffee-mode provides support for coffeescript
-(require 'coffee-mode)
-(custom-set-variables '(coffee-tab-width 2))
-
-;; company mode provides an auto-complete framework
-(require 'company)
-(global-set-key (kbd "M-/") 'company-complete)
-(setq company-minimum-prefix-length 0)
-(setq company-show-numbers t)
-(setq company-tooltip-limit 20)                      ; bigger popup window
-(setq company-idle-delay .01)                        ; decrease delay before autocompletion popup shows
-(setq company-echo-delay 0)                          ; remove annoying blinking
-
-;; company-go provides auto-completion for go code
-(require 'company-go)
-(add-hook 'go-mode-hook (lambda ()
-			  (set (make-local-variable 'company-backends) '(company-go))
-			  (company-mode)))
-
-;; erc is an emacs mode for IRC
-(setq erc-prompt-for-password nil)
-(setq erc-autojoin-channels-alist
-      '(("freenode.net" "#chromium")))
-
-(require 'find-things-fast)
-(key-chord-define-global "qf" 'ftf-find-file)
-(setq ftf-filetypes (cons "*.html" ftf-filetypes))
-
-;; flx-ido provides better flex matching for IDO
-(require 'flx-ido)
 
 ;; flycheck shows errors as you go
 (require 'flycheck)
@@ -145,40 +122,19 @@
 
 (require 'go-mode)
 (setq gofmt-command "goimports")
-(add-hook 'go-mode-hook (lambda()
-                          (add-hook 'before-save-hook 'gofmt-before-save)
-                          (setq tab-width 2
+(add-hook 'go-mode-hook (lambda()p
+                          (add-hook 'before-psave-hook 'gofmt-before-save)
+                          (setq tab-width 2f
                                 whitespace-style '())))
 
 ;; hl-line+ highlights the current line when emacs is idle
 (require 'hl-line+)
 (toggle-hl-line-when-idle 1)
 
-;; Don't use ido's history, because it gets in the way more than it helps
-(custom-set-variables
- '(ido-enable-last-directory-history nil)
- '(ido-record-commands nil)
- '(ido-max-work-directory-list 0)
- '(ido-max-work-file-list 0))
-
-;; ido-mode gives you nice minibuffer completion
-(require 'ido)
-(ido-mode 1)
-(setq ido-use-faces nil)
-(setq ido-auto-merge-work-directories-length -1) ; allow me to create files, dammit
-(setq ido-enable-tramp-completion nil) ; ido over tramp = slow
-
-;; Display ido results vertically, rather than horizontally
-(setq ido-decorations '("\n-> " "" "\n   " "\n   ..."
-                        "[" "]" " [No match]" " [Matched]"
-                        " [Not readable]" " [Too big]" " [Confirm]"))
-
-;; Make sure that ido doesn't truncate lines
-(defun ido-disable-line-trucation () (set (make-local-variable 'truncate-lines) nil))
-(add-hook 'ido-minibuffer-setup-hook 'ido-disable-line-trucation)
-
-;; flx-ido adds fuzzy completion for ido-mode
-(flx-ido-mode 1)
+;; ivy-mode provides better minibuffer completion
+(ivy-mode 1)
+(setq ivy-count-format "(%d/%d) ")
+(setq ivy-display-style 'fancy)
 
 ;; js2-mode fixes javascript in emacs
 (require 'js2-mode)
@@ -187,16 +143,6 @@
 (custom-set-variables
  '(js2-basic-offset 2)
  '(js2-idle-timer-delay 1))
-(add-hook 'js2-mode-hook 'company-mode)
-
-;; ac-js2-mode provides contextual autocomplete for javascript
-;; NOTE: included here because of js2-mode dependency
-(require 'ac-js2)
-(setq ac-js2-evaluate-calls t)
-(add-to-list 'company-backends 'ac-js2-company)
-
-;; magit-mode is a git porcelain for emacs
-(global-set-key (kbd "C-x G") 'magit-status)
 
 ;; markdown-mode gives an emacs mode for markdown
 (require 'markdown-mode)
@@ -204,6 +150,17 @@
 (add-to-list 'auto-mode-alist '("\\.markdown\\'" . markdown-mode))
 (add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
 (add-to-list 'auto-mode-alist '("README.md\\'" . gfm-mode))
+
+;; projectile provides an easy way to manage projects
+(require 'projectile)
+(diminish 'projectile-mode)
+(define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
+(projectile-mode 1)
+(setq projectile-git-command "fd . -0")
+(setq projectile-generic-command "fd . -0")
+(setq projectile-enable-caching t)
+(setq projectile-completion-system 'ivy)
+(key-chord-define-global "qf" 'projectile-find-file)
 
 ;; python-mode
 (add-hook 'python-mode-hook
@@ -214,15 +171,6 @@
 ;; show-paren-mode highlights matching parentheses
 (show-paren-mode 1)
 (setq show-paren-delay 0.001)
-
-;; smerge-mode makes it easy to merge buffers
-(setq smerge-command-prefix "\C-cv")
-;; Provide some convenient shortcuts for merge in smerge-mode
-(add-hook 'smerge-mode-hook (lambda()
-                              (key-chord-define smerge-mode-map "qm" 'smerge-keep-mine)
-                              (key-chord-define smerge-mode-map "qt" 'smerge-keep-other)
-                              (key-chord-define smerge-mode-map "qn" 'smerge-next)
-                              (key-chord-define smerge-mode-map "qp" 'smerge-prev)))
 
 (require 're-builder)
 (setq reb-re-syntax 'string)
@@ -280,6 +228,13 @@
           (rename-buffer new-name)
           (set-visited-file-name new-name)
           (set-buffer-modified-p nil))))))
+
+(setq async-shell-command-display-buffer nil)
+(defun git-webdiff-master ()
+  (interactive)
+  (shell-command "((git webdiff master &) >& /dev/null &)"))
+(key-chord-define-global "qw" 'git-webdiff-master)
+
 
 ;; ;; C++ tools for coding in Chromium
 (load-file "~/.emacs.d/init/chromium.el")

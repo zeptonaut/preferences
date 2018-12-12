@@ -62,7 +62,7 @@
  '(org-refile-use-outline-path (quote file))
  '(package-selected-packages
    (quote
-    (magit zenburn-theme yasnippet ws-butler web-mode web-beautify solarized-theme smartparens shorten scss-mode powerline oauth2 multi-web-mode markdown-mode lui lcs key-chord json-reformat irony ido-ubiquitous hl-line+ haskell-mode github-theme git-rebase-mode git-commit-mode git-commit flycheck-ycmd flx-ido find-things-fast find-file-in-project fancy-narrow f exec-path-from-shell diminish company-ycmd company-tern company-go coffee-mode avy auto-complete anzu ace-jump-mode ac-js2)))
+    (swiper ivy swiper-helm projectile magit zenburn-theme yasnippet ws-butler web-mode web-beautify solarized-theme smartparens shorten scss-mode oauth2 multi-web-mode markdown-mode lui lcs key-chord json-reformat hl-line+ git-rebase-mode git-commit-mode git-commit f exec-path-from-shell diminish ac-js2)))
  '(safe-local-variable-values
    (quote
     ((eval define-auto-insert ".cc" "chromium_header.tmpl")
