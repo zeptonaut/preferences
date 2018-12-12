@@ -236,8 +236,11 @@
 (key-chord-define-global "qw" 'git-webdiff-master)
 
 
-;; ;; C++ tools for coding in Chromium
+;; C++ tools for coding in Chromium
 (load-file "~/.emacs.d/init/chromium.el")
+
+;; Help file containing list of useful emacs keybindings
+(load-file "~/.emacs.d/help/keybindings.md")
 
 ;; Playground
 (add-to-list 'load-path "~/.emacs.d/playground")
