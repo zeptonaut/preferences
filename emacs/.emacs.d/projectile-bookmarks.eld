@@ -1,1 +1,0 @@
-("~/github/preferences/" "~/chromium/src/" "~/github/find-things-fast/")
