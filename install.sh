@@ -40,4 +40,5 @@ create_symlink `pwd`/terminal/.git-prompt.sh $HOME"/.git-prompt.sh"
 git config --global user.name "Charlie Andrews"
 git config --global core.editor emacs
 git config --global credential.helper 'cache --timeout=86400'
-
+create_symlink `pwd`/terminal/.gitignore_global $HOME"/.gitignore_global"
+git config --global core.excludesfile $HOME/.gitignore_global
