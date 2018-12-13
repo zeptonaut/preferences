@@ -1,0 +1,10 @@
+-/build
+-/out
+-/third_party
+-/.git
+-*.vcproj
+-*.vcxproj
+-*.sln
+-*.gitignore
+-*.gitmodules
+-*.vcxproj.*
