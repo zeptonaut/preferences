@@ -156,9 +156,7 @@
 (diminish 'projectile-mode)
 (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
 (projectile-mode 1)
-(setq projectile-git-command "fd . -0")
 (setq projectile-generic-command "fd . -0")
-(setq projectile-enable-caching t)
 (setq projectile-completion-system 'ivy)
 (key-chord-define-global "qf" 'projectile-find-file)
 
