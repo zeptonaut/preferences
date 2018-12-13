@@ -1,8 +1,4 @@
-(set-face-attribute 'default nil :height 110)
+;; Load this file when emacs starts
+(find-file "~/.emacs.d/init/other.el")
 
-;; gocode doesn't work within google3, so only load this on personal computers
-(require 'company-go)
-;; only use company-go when completing in go-mode
-(add-hook 'go-mode-hook (lambda ()
-                          (set (make-local-variable 'company-backends) '(company-go))
-                          (company-mode)))
+(set-face-attribute 'default nil :height 150)

@@ -4,8 +4,7 @@
 ;; package allows for easy package management
 ;; Required here because this is what allows requiring of other packages.
 (require 'package)
-(setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
-                         ("melpa" . "http://melpa.milkbox.net/packages/")))
+(setq package-archives '(("melpa-stable" . "http://stable.melpa.org/packages/")))
 (package-initialize)
 
 ;; Change the default font
@@ -128,8 +127,8 @@
                                 whitespace-style '())))
 
 ;; hl-line+ highlights the current line when emacs is idle
-(require 'hl-line+)
-(toggle-hl-line-when-idle 1)
+;; (require 'hl-line+)
+;; (toggle-hl-line-when-idle 1)
 
 ;; ivy-mode provides better minibuffer completion
 (ivy-mode 1)
@@ -238,7 +237,7 @@
 (load-file "~/.emacs.d/init/chromium.el")
 
 ;; Help file containing list of useful emacs keybindings
-(load-file "~/.emacs.d/help/keybindings.md")
+(find-file "~/.emacs.d/help/keybindings.md")
 
 ;; Playground
 (add-to-list 'load-path "~/.emacs.d/playground")
