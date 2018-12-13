@@ -43,7 +43,7 @@
 
 ;; Makes path be the same as in my shell
 (use-package exec-path-from-shell
-  :init
+  :config
   (exec-path-from-shell-initialize))
 
 ;; Always use filesystem versions of files
@@ -62,6 +62,7 @@
   (setq solarized-height-plus-2 1)
   (setq solarized-height-plus-3 1)
   (setq solarized-height-plus-4 1)
+  :config
   (load-theme 'solarized-dark t))
 
 ;; Set the default fill column to 80.
@@ -69,7 +70,7 @@
 
 ;; Required here to allow chord bindings throughout the file
 (use-package key-chord
-  :init
+  :config
   (key-chord-mode 1))
 
 (global-set-key "\C-m" 'newline-and-indent)
@@ -115,7 +116,7 @@
 (setq gdb-many-windows 1)
 
 (use-package go-mode
-  :init
+  :config
   (setq gofmt-command "goimports")
   (add-hook 'go-mode-hook (lambda()p
                             (add-hook 'before-psave-hook 'gofmt-before-save)
@@ -124,14 +125,14 @@
 
 ;; ivy-mode provides better minibuffer completion
 (use-package ivy
-  :init
+  :config
   (ivy-mode 1)
   (setq ivy-count-format "(%d/%d) ")
   (setq ivy-display-style 'fancy))
 
 ;; js2-mode fixes javascript in emacs
 (use-package js2-mode
-  :init
+  :config
   (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
   (add-to-list 'auto-mode-alist '("\\.json\\'" . js2-mode))
   (custom-set-variables
@@ -140,7 +141,7 @@
 
 ;; markdown-mode gives an emacs mode for markdown
 (use-package markdown-mode
-  :init
+  :config
   (add-to-list 'auto-mode-alist '("\\.text\\'" . markdown-mode))
   (add-to-list 'auto-mode-alist '("\\.markdown\\'" . markdown-mode))
   (add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
@@ -148,7 +149,7 @@
 
 ;; projectile provides an easy way to manage projects
 (use-package projectile
-  :init
+  :config
   (diminish 'projectile-mode)
   (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
   (projectile-mode 1)
@@ -167,7 +168,7 @@
 (setq show-paren-delay 0.001)
 
 (use-package re-builder
-  :init
+  :config
   (setq reb-re-syntax 'string))
 
 ;; subword-mode makes it so that camelcase is treated properly
@@ -175,17 +176,17 @@
 
 ;; swiper provides a better way to search for strings in a file
 (use-package swiper
-  :init
+  :config
   (global-set-key "\C-s" 'swiper))
 
 ;; tramp allows you to locally edit remote files
 (use-package tramp
-  :init
+  :config
   (setq tramp-default-method "ssh"))
 
 ;; whitespace highlights lines that are too long
 (use-package whitespace
-  :init
+  :config
   (diminish 'whitespace-mode)
   (setq whitespace-style '(face lines-tail))
   (set-face-attribute 'whitespace-line nil
@@ -201,13 +202,13 @@
 
 ;; ws-butler cleans up whitespace, but only on lines that you touch
 (use-package ws-butler
-  :init
-  (ws-butler-global-mode 1)
-  (diminish 'ws-butler-mode))
+  :config
+  (diminish 'ws-butler-mode)
+  (ws-butler-global-mode 1))
 
 ;; yasnippet provides template for frequently-used idioms
 (use-package yasnippet
-  :init
+  :config
   (diminish 'yas-minor-mode)
   (yas-global-mode)
   ;; Don't use the default snippets
