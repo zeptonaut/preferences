@@ -7,6 +7,18 @@
 (setq package-archives '(("melpa-stable" . "http://stable.melpa.org/packages/")))
 (package-initialize)
 
+;; install use-package because it can't install itself
+(unless (package-installed-p 'use-package)
+  (package-refresh-contents)
+  (package-install 'use-package))
+(eval-when-compile
+  (require 'use-package))
+;; Always install packages if they're missing
+(setq use-package-always-ensure t)
+
+;; Hide warnings during startup
+(setq warning-minimum-level :emergency)
+
 ;; Change the default font
 (set-face-attribute 'default nil :height 120)
 
@@ -16,8 +28,8 @@
 ;; Create a thin scroll bar for every window
 (scroll-bar-mode 1)
 (set-scroll-bar-mode 'right)
-;;(setq-default scroll-bar-width 10)
 
+;; Hide the menu and tool bar
 (menu-bar-mode -1)
 (tool-bar-mode -1)
 
@@ -30,32 +42,35 @@
 (setq create-lockfiles nil)
 
 ;; Makes path be the same as in my shell
-(exec-path-from-shell-initialize)
+(use-package exec-path-from-shell
+  :init
+  (exec-path-from-shell-initialize))
 
 ;; Always use filesystem versions of files
 (global-auto-revert-mode 1)
 
 ;; Load the solarized theme
 ;; Don't change the font for some headings and titles
-(setq solarized-use-variable-pitch nil)
-;; make the modeline high contrast
-(setq solarized-high-contrast-mode-line t)
-;; Don't change size of org-mode headlines (but keep other size-changes)
-(setq solarized-scale-org-headlines nil)
-;; Avoid all font-size changes
-(setq solarized-height-minus-1 1)
-(setq solarized-height-plus-1 1)
-(setq solarized-height-plus-2 1)
-(setq solarized-height-plus-3 1)
-(setq solarized-height-plus-4 1)
-(load-theme 'solarized-dark t)
+(use-package solarized-theme
+  :init
+  (setq solarized-use-variable-pitch nil)
+  ;; Make the modeline high contrast
+  (setq solarized-high-contrast-mode-line t)
+  ;; Avoid all font-size changes
+  (setq solarized-height-minus-1 1)
+  (setq solarized-height-plus-1 1)
+  (setq solarized-height-plus-2 1)
+  (setq solarized-height-plus-3 1)
+  (setq solarized-height-plus-4 1)
+  (load-theme 'solarized-dark t))
 
 ;; Set the default fill column to 80.
 (setq-default fill-column 80)
 
 ;; Required here to allow chord bindings throughout the file
-(require 'key-chord)
-(key-chord-mode 1)
+(use-package key-chord
+  :init
+  (key-chord-mode 1))
 
 (global-set-key "\C-m" 'newline-and-indent)
 (global-set-key (kbd "C-c c") 'compile)
@@ -79,9 +94,6 @@
 (setq split-width-threshold 1000)
 (setq split-height-threshold nil)
 
-;; swiper
-(global-set-key "\C-s" 'swiper)
-
 (setq profiler-max-stack-depth 30)
 
 ;; Default to 80 column fill for C++
@@ -94,70 +106,55 @@
 
 ;; diminish keeps the modeline tidy.
 ;; Required here to let other modes diminish themselves.
-(require 'diminish)
+(use-package diminish)
 
 ;; auto-insert provides skeletons for new buffers
 (setq auto-insert-directory "~/.emacs.d/templates")
 
-;; flycheck shows errors as you go
-(require 'flycheck)
-(add-hook 'coffee-mode-hook (lambda ()
-                              (flycheck-mode)))
-(add-hook 'python-mode-hook (lambda ()
-                              (flycheck-mode)))
-(setq flycheck-display-errors-delay 0.01)
-
-;; go-autocomplete provides autocomplete for go
-;(require 'go-autocomplete)
-;(require 'auto-complete-config)
-;(add-hook 'before-save-hook 'gofmt-before-save) ;; automatically format before saving
-
-;; go-flymake provides syntax checking for go
-;(add-to-list 'load-path "~/go/src/github.com/dougm/goflymake")
-					;(require 'go-flymake)
-
 ;; Make gdb run in many-windows move, similar to how Eclipse works
 (setq gdb-many-windows 1)
 
-(require 'go-mode)
-(setq gofmt-command "goimports")
-(add-hook 'go-mode-hook (lambda()p
-                          (add-hook 'before-psave-hook 'gofmt-before-save)
-                          (setq tab-width 2f
-                                whitespace-style '())))
-
-;; hl-line+ highlights the current line when emacs is idle
-;; (require 'hl-line+)
-;; (toggle-hl-line-when-idle 1)
+(use-package go-mode
+  :init
+  (setq gofmt-command "goimports")
+  (add-hook 'go-mode-hook (lambda()p
+                            (add-hook 'before-psave-hook 'gofmt-before-save)
+                            (setq tab-width 2f
+                                  whitespace-style '()))))
 
 ;; ivy-mode provides better minibuffer completion
-(ivy-mode 1)
-(setq ivy-count-format "(%d/%d) ")
-(setq ivy-display-style 'fancy)
+(use-package ivy
+  :init
+  (ivy-mode 1)
+  (setq ivy-count-format "(%d/%d) ")
+  (setq ivy-display-style 'fancy))
 
 ;; js2-mode fixes javascript in emacs
-(require 'js2-mode)
-(add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
-(add-to-list 'auto-mode-alist '("\\.json\\'" . js2-mode))
-(custom-set-variables
- '(js2-basic-offset 2)
- '(js2-idle-timer-delay 1))
+(use-package js2-mode
+  :init
+  (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
+  (add-to-list 'auto-mode-alist '("\\.json\\'" . js2-mode))
+  (custom-set-variables
+   '(js2-basic-offset 2)
+   '(js2-idle-timer-delay 1)))
 
 ;; markdown-mode gives an emacs mode for markdown
-(require 'markdown-mode)
-(add-to-list 'auto-mode-alist '("\\.text\\'" . markdown-mode))
-(add-to-list 'auto-mode-alist '("\\.markdown\\'" . markdown-mode))
-(add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
-(add-to-list 'auto-mode-alist '("README.md\\'" . gfm-mode))
+(use-package markdown-mode
+  :init
+  (add-to-list 'auto-mode-alist '("\\.text\\'" . markdown-mode))
+  (add-to-list 'auto-mode-alist '("\\.markdown\\'" . markdown-mode))
+  (add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
+  (add-to-list 'auto-mode-alist '("README.md\\'" . gfm-mode)))
 
 ;; projectile provides an easy way to manage projects
-(require 'projectile)
-(diminish 'projectile-mode)
-(define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
-(projectile-mode 1)
-(setq projectile-generic-command "fd . -0")
-(setq projectile-completion-system 'ivy)
-(key-chord-define-global "qf" 'projectile-find-file)
+(use-package projectile
+  :init
+  (diminish 'projectile-mode)
+  (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
+  (projectile-mode 1)
+  (setq projectile-generic-command "fd . -0")
+  (setq projectile-completion-system 'ivy)
+  (key-chord-define-global "qf" 'projectile-find-file))
 
 ;; python-mode
 (add-hook 'python-mode-hook
@@ -169,47 +166,55 @@
 (show-paren-mode 1)
 (setq show-paren-delay 0.001)
 
-(require 're-builder)
-(setq reb-re-syntax 'string)
+(use-package re-builder
+  :init
+  (setq reb-re-syntax 'string))
 
 ;; subword-mode makes it so that camelcase is treated properly
 (global-subword-mode 1)
 
+;; swiper provides a better way to search for strings in a file
+(use-package swiper
+  :init
+  (global-set-key "\C-s" 'swiper))
+
 ;; tramp allows you to locally edit remote files
-(require 'tramp)
-(setq tramp-default-method "ssh")
+(use-package tramp
+  :init
+  (setq tramp-default-method "ssh"))
 
 ;; whitespace highlights lines that are too long
-(require 'whitespace)
-(setq whitespace-style '(face lines-tail))
-(set-face-attribute 'whitespace-line nil
-                    :background "red1"
-                    :foreground "white")
-(add-hook 'python-mode-hook (lambda()
-                              (setq whitespace-line-column 80
-                                    whitespace-style '(face tabs trailing lines-tail))))
-(add-hook 'prog-mode-hook 'whitespace-mode)
-(diminish 'whitespace-mode)
+(use-package whitespace
+  :init
+  (diminish 'whitespace-mode)
+  (setq whitespace-style '(face lines-tail))
+  (set-face-attribute 'whitespace-line nil
+                      :background "red1"
+                      :foreground "white")
+  (add-hook 'python-mode-hook (lambda()
+                                (setq whitespace-line-column 80
+                                      whitespace-style '(face tabs trailing lines-tail))))
+  (add-hook 'prog-mode-hook 'whitespace-mode))
 
 ;; Make shift-arrow keys move between buffers
 (windmove-default-keybindings)
 
 ;; ws-butler cleans up whitespace, but only on lines that you touch
-(require 'ws-butler)
-(ws-butler-global-mode 1)
-(diminish 'ws-butler-mode)
+(use-package ws-butler
+  :init
+  (ws-butler-global-mode 1)
+  (diminish 'ws-butler-mode))
 
 ;; yasnippet provides template for frequently-used idioms
-(require 'yasnippet)
-(yas-global-mode)
-;; Don't use the default snippets
-(setq yas-snippet-dirs '("~/.emacs.d/snippets"))
-(key-chord-define-global "qo" 'yas-expand-from-trigger-key)
-;; Tell yasnippet not to mess with the spacing
-(setq yas-indent-line 'none)
-
-(diminish 'yas-minor-mode)
-
+(use-package yasnippet
+  :init
+  (diminish 'yas-minor-mode)
+  (yas-global-mode)
+  ;; Don't use the default snippets
+  (setq yas-snippet-dirs '("~/.emacs.d/snippets"))
+  (key-chord-define-global "qo" 'yas-expand-from-trigger-key)
+  ;; Tell yasnippet not to mess with the spacing
+  (setq yas-indent-line 'none))
 
 (defun rename-file-and-buffer (new-name)
   "Renames both current buffer and file it's visiting to NEW-NAME."
@@ -232,7 +237,6 @@
   (shell-command "((git webdiff master &) >& /dev/null &)"))
 (key-chord-define-global "qw" 'git-webdiff-master)
 
-
 ;; C++ tools for coding in Chromium
 (load-file "~/.emacs.d/init/chromium.el")
 
@@ -242,3 +246,9 @@
 ;; Playground
 (add-to-list 'load-path "~/.emacs.d/playground")
 (add-to-list 'load-path "~/.emacs.d/vendor")
+
+;; Kill any leftover compile buffer
+(if (get-buffer "*Compile-Log*")
+    (kill-buffer "*Compile-Log*"))
+(delete-other-windows)
+(switch-to-buffer "common.el")
