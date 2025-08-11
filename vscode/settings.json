@@ -1,0 +1,61 @@
+{
+    /**
+     * Better Defaults
+     **/
+    "editor.copyWithSyntaxHighlighting": false,
+    "diffEditor.ignoreTrimWhitespace": false,
+    "editor.emptySelectionClipboard": false,
+    "workbench.editor.enablePreview": false,
+    "window.newWindowDimensions": "inherit",
+    "editor.multiCursorModifier": "ctrlCmd",
+    "files.trimTrailingWhitespace": true,
+    "diffEditor.renderSideBySide": true,
+    "editor.snippetSuggestions": "top",
+    "editor.detectIndentation": true,
+    "window.nativeFullScreen": false,
+    "files.insertFinalNewline": true,
+    "files.trimFinalNewlines": true,
+    "files.associations": {
+         "*.css": "tailwindcss"
+    },
+    "blade.format.enable": true,
+    /**
+     * Personal settings
+     */
+    "workbench.preferredLightColorTheme": "Atom One Light",
+    "workbench.preferredDarkColorTheme": "Monokai Pro (Filter Octagon)",
+    "window.autoDetectColorScheme": true,
+    "workbench.iconTheme": "Monokai Pro Light Icons",
+    "editor.formatOnSave": true,
+    "[html]": {
+        "editor.formatOnSave": false
+    },
+    /**
+     * Hide everything!
+     */
+    // Need to make the activity bar vertical to hide it? Weird.
+    "workbench.activityBar.orientation": "vertical",
+    "workbench.sideBar.location": "right",
+    //"workbench.editor.showTabs": "none",
+    "workbench.statusBar.visible": false,
+    "editor.accessibilitySupport": "on",
+    "editor.minimap.enabled": false,
+    "workbench.activityBar.location": "hidden",
+    "editor.fontFamily": "Fira Mono, SF Mono, Menlo, Monaco, 'Courier New', monospace",
+    "editor.fontSize": 12.5,
+    "terminal.integrated.fontSize": 12.5,
+    "[json]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "window.customTitleBarVisibility": "never",
+    "git.enableSmartCommit": true,
+    "lldb.library": "/Applications/Xcode.app/Contents/SharedFrameworks/LLDB.framework/Versions/A/LLDB",
+    "lldb.launch.expressions": "native",
+    "[jsonc]": {
+        "editor.defaultFormatter": "denoland.vscode-deno"
+    },
+    "openInGitHub.useLocalLine": true,
+    "cursor.composer.shouldAllowCustomModes": true,
+    "diffEditor.renderSideBySideInlineBreakpoint": 500,
+    ""
+}
