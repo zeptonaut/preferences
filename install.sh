@@ -30,15 +30,13 @@ create_symlink `pwd`"/emacs/.emacs" $HOME"/.emacs"
 create_symlink `pwd`"/emacs/.emacs.d" $HOME"/.emacs.d"
 
 # terminal
-create_symlink `pwd`/terminal/.profile $HOME"/.profile"
-create_symlink `pwd`/terminal/.bashrc $HOME"/.bashrc"
-create_symlink `pwd`/terminal/.bashrc-linux $HOME"/.bashrc-linux"
-create_symlink `pwd`/terminal/.bashrc-mac $HOME"/.bashrc-mac"
+create_symlink `pwd`/terminal/.zshrc $HOME"/.zshrc"
+create_symlink `pwd`/terminal/.p10k.zsh $HOME"/.p10k.zsh"
 create_symlink `pwd`/terminal/.git-prompt.sh $HOME"/.git-prompt.sh"
 
 # git
 git config --global user.name "Charlie Andrews"
-git config --global core.editor emacs
+git config --global core.editor cursor
 git config --global credential.helper 'cache --timeout=86400'
 create_symlink `pwd`/terminal/.gitignore_global $HOME"/.gitignore_global"
 git config --global core.excludesfile $HOME/.gitignore_global
