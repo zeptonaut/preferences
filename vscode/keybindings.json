@@ -1,0 +1,124 @@
+// Place your key bindings in this file to override the defaults
+[
+    /**
+    * Panels
+    **/
+    {
+        "key": "cmd+k cmd+e",
+        "command": "workbench.view.explorer"
+    },
+    {
+        "key": "cmd+k cmd+g",
+        "command": "workbench.view.scm"
+    },
+    {
+        "key": "cmd+k cmd+d",
+        "command": "workbench.view.debug"
+    },
+    {
+      "key": "cmd+k cmd+t",
+      "command": "workbench.view.testing.focus"
+  },
+    {
+        "key": "cmd+k cmd+x",
+        "command": "workbench.extensions.action.showEnabledExtensions"
+    },
+    {
+        "key": "cmd+k cmd+b",
+        "command": "workbench.action.toggleSidebarVisibility",
+    },
+    {
+        "key": "cmd+e",
+        "command": "workbench.action.focusActiveEditorGroup",
+    },
+    {
+        "key": "cmd+t",
+        "command": "workbench.action.terminal.toggleTerminal"
+    },
+    {
+      "key": "cmd+k cmd+k",
+      "command": "cursorai.action.generateInTerminal"
+    },
+    {
+      "key": "cmd+k cmd+m",
+      "command": "composer.generateGitCommitMessage"
+    },
+    /**
+     * File Explorer
+     **/
+    {
+        "key": "cmd+d",
+        "command": "duplicate.execute",
+        "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceIsRoot && !inputFocus"
+    },
+    {
+        "when": "explorerViewletVisible && filesExplorerFocus && !inputFocus"
+    },
+    {
+        "key": "cmd+n",
+        "command": "explorer.newFile",
+    },
+    {
+        "key": "shift+cmd+n",
+        "command": "explorer.newFolder",
+        "when": "explorerViewletVisible && filesExplorerFocus && !inputFocus"
+    },
+    /**
+     * Terminal Split Panel
+     **/
+    {
+        "key": "ctrl+l",
+        "command": "workbench.action.terminal.focusNextPane",
+        "when": "terminalFocus"
+    },
+    {
+        "key": "ctrl+h",
+        "command": "workbench.action.terminal.focusPreviousPane",
+        "when": "terminalFocus"
+    },
+    {
+        "key": "ctrl+w",
+        "command": "workbench.action.terminal.kill",
+        "when": "terminalFocus"
+    },
+    {
+      "key": "cmd+k",
+      "command": "-aipopup.action.modal.generate",
+      "when": "editorFocus && !composerBarIsVisible"
+    },
+    {
+      "key": "shift+cmd+k",
+      "command": "aipopup.action.modal.generate",
+      "when": "editorFocus"
+    },
+    {
+      "key": "shift+cmd+k",
+      "command": "-aipopup.action.modal.generate",
+      "when": "editorFocus && !composerBarIsVisible"
+    },
+    {
+        "key": "cmd+i",
+        "command": "composerMode.agent"
+    },
+    {
+        "key": "ctrl+l g",
+        "command": "openInGitHub.openFile"
+    },
+    {
+        "key": "ctrl+`",
+        "command": "-workbench.action.terminal.toggleTerminal",
+        "when": "terminal.active"
+    },
+    {
+        "key": "cmd+e",
+        "command": "composerMode.background"
+    },
+    {
+        "key": "shift+enter",
+        "command": "workbench.action.terminal.sendSequence",
+        "args": {
+            "text": "\\\r\n"
+        },
+        "when": "terminalFocus"
+    },
+]
